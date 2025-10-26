@@ -42,18 +42,6 @@
       "version": "ab077f"
     },
     {
-      "name": "com_finder.finder",
-      "type": "script",
-      "uri": "com_finder/finder.min.js",
-      "dependencies": [
-        "core"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "755761"
-    },
-    {
       "name": "com_finder.finder-edit",
       "type": "script",
       "uri": "com_finder/finder-edit.min.js",
@@ -82,6 +70,18 @@
         "type": "module"
       },
       "version": "491cd3"
+    },
+    {
+      "name": "com_finder.finder",
+      "type": "script",
+      "uri": "com_finder/finder.min.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "755761"
     },
     {
       "name": "com_finder.maps",

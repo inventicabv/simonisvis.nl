@@ -19,7 +19,7 @@ class DataSet implements DumpableInterface, \ArrayAccess, \Countable, \Iterator
     /**
      * The current position of the iterator.
      *
-     * @var    integer
+     * @var    mixed
      * @since  1.0
      */
     private $current = false;
@@ -38,7 +38,6 @@ class DataSet implements DumpableInterface, \ArrayAccess, \Countable, \Iterator
      * @param   DataObject[]  $objects  An array of DataObject objects to bind to the data set.
      *
      * @since   1.0
-     * @throws  \InvalidArgumentException if an object is not a DataObject.
      */
     public function __construct(array $objects = [])
     {
@@ -280,7 +279,7 @@ class DataSet implements DumpableInterface, \ArrayAccess, \Countable, \Iterator
     /**
      * Get the current data object in the set.
      *
-     * @return  DataObject|false  The current object, or false if the array is empty or the pointer is beyond the end of the elements.
+     * @return  DataObject|bool  The current object, or false if the array is empty or the pointer is beyond the end of the elements.
      *
      * @since   1.0
      */
@@ -352,12 +351,11 @@ class DataSet implements DumpableInterface, \ArrayAccess, \Countable, \Iterator
     /**
      * Gets the key of the current object in the iterator.
      *
-     * @return  integer|false  The object key on success; false on failure.
+     * @return  int|bool|null  The object key on success; false on failure.
      *
      * @since   1.0
      */
-    #[\ReturnTypeWillChange]
-    public function key()
+    public function key(): int|bool|null
     {
         return $this->current;
     }
@@ -369,7 +367,7 @@ class DataSet implements DumpableInterface, \ArrayAccess, \Countable, \Iterator
      *
      * @since   1.0
      */
-    public function keys()
+    public function keys(): array
     {
         return array_keys($this->objects);
     }
@@ -384,7 +382,7 @@ class DataSet implements DumpableInterface, \ArrayAccess, \Countable, \Iterator
      * @since   1.2.0
      * @throws  \InvalidArgumentException
      */
-    public function walk(callable $funcname)
+    public function walk(callable $funcname): bool
     {
         foreach ($this->objects as $key => $object) {
             $funcname($object, $key);
@@ -400,8 +398,7 @@ class DataSet implements DumpableInterface, \ArrayAccess, \Countable, \Iterator
      *
      * @since   1.0
      */
-    #[\ReturnTypeWillChange]
-    public function next()
+    public function next(): void
     {
         // Get the object offsets.
         $keys = $this->keys();
@@ -434,8 +431,7 @@ class DataSet implements DumpableInterface, \ArrayAccess, \Countable, \Iterator
      *
      * @since   1.0
      */
-    #[\ReturnTypeWillChange]
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->objects[$offset]);
     }
@@ -449,8 +445,7 @@ class DataSet implements DumpableInterface, \ArrayAccess, \Countable, \Iterator
      *
      * @since   1.0
      */
-    #[\ReturnTypeWillChange]
-    public function offsetGet($offset)
+    public function offsetGet($offset): DataObject|null
     {
         return $this->objects[$offset] ?? null;
     }
@@ -466,8 +461,7 @@ class DataSet implements DumpableInterface, \ArrayAccess, \Countable, \Iterator
      * @since   1.0
      * @throws  \InvalidArgumentException if an object is not an instance of DataObject.
      */
-    #[\ReturnTypeWillChange]
-    public function offsetSet($offset, $object)
+    public function offsetSet($offset, $object): void
     {
         if (!($object instanceof DataObject)) {
             throw new \InvalidArgumentException(
@@ -496,8 +490,7 @@ class DataSet implements DumpableInterface, \ArrayAccess, \Countable, \Iterator
      *
      * @since   1.0
      */
-    #[\ReturnTypeWillChange]
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         if (!isset($this[$offset])) {
             // Do nothing if the offset does not exist.
@@ -530,8 +523,7 @@ class DataSet implements DumpableInterface, \ArrayAccess, \Countable, \Iterator
      *
      * @since   1.0
      */
-    #[\ReturnTypeWillChange]
-    public function rewind()
+    public function rewind(): void
     {
         // Set the current position to the first object.
         if (empty($this->objects)) {
@@ -549,8 +541,7 @@ class DataSet implements DumpableInterface, \ArrayAccess, \Countable, \Iterator
      *
      * @since   1.0
      */
-    #[\ReturnTypeWillChange]
-    public function valid()
+    public function valid(): bool
     {
         // Check the current position.
         if (!is_scalar($this->current) || !isset($this->objects[$this->current])) {
@@ -568,9 +559,8 @@ class DataSet implements DumpableInterface, \ArrayAccess, \Countable, \Iterator
      * @return  void
      *
      * @since   1.0
-     * @throws  \InvalidArgumentException if an object is not a DataObject.
      */
-    private function initialise(array $input = [])
+    private function initialise(array $input = []): void
     {
         foreach ($input as $key => $object) {
             if ($object !== null) {

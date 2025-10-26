@@ -6,6 +6,18 @@
   "license": "GPL-2.0-or-later",
   "assets": [
     {
+      "name": "com_users.two-factor-list",
+      "type": "script",
+      "uri": "com_users/two-factor-list.min.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "7fa9d4"
+    },
+    {
       "name": "com_users.admin-users-groups",
       "type": "script",
       "uri": "com_users/admin-users-groups.min.js",
@@ -30,16 +42,16 @@
       "version": "bcc78d"
     },
     {
-      "name": "com_users.two-factor-list",
+      "name": "com_users.activate-user-send-email",
       "type": "script",
-      "uri": "com_users/two-factor-list.min.js",
+      "uri": "com_users/activate-user-send-email.min.js",
       "dependencies": [
         "core"
       ],
       "attributes": {
         "type": "module"
       },
-      "version": "7fa9d4"
+      "version": "3ff4a4"
     }
   ]
 }

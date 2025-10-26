@@ -80,7 +80,7 @@ class DatabaseHandler implements HandlerInterface
             $this->db->setQuery($query)->execute();
 
             $this->gcCalled   = false;
-            $this->gcLifetime = null;
+            $this->gcLifetime = 0;
         }
 
         $this->db->disconnect();
