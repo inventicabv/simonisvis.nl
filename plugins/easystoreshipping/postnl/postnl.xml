@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="easystoreshipping" method="upgrade">
+    <name>PLG_EASYSTORESHIPPING_POSTNL</name>
+    <version>1.0.0</version>
+    <releaseDate>2025-10-26</releaseDate>
+    <author>Custom Development</author>
+    <authorEmail>info@simonisvis.nl</authorEmail>
+    <authorUrl>https://www.simonisvis.nl</authorUrl>
+    <copyright>Copyright (C) 2025. All rights reserved.</copyright>
+    <license>GNU General Public License version 3</license>
+    <description>PLG_EASYSTORESHIPPING_POSTNL_DESC</description>
+    <namespace path="src">PlgEasystoreshippingPostnl</namespace>
+    <files>
+        <folder plugin="postnl">services</folder>
+        <folder>assets</folder>
+        <folder>src</folder>
+        <folder>language</folder>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_easystoreshipping_postnl.ini</language>
+        <language tag="en-GB">language/en-GB/plg_easystoreshipping_postnl.sys.ini</language>
+        <language tag="nl-NL">language/nl-NL/plg_easystoreshipping_postnl.ini</language>
+        <language tag="nl-NL">language/nl-NL/plg_easystoreshipping_postnl.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="api" label="PLG_EASYSTORESHIPPING_POSTNL_FIELDSET_API">
+                <field
+                    name="test_mode"
+                    type="radio"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_TEST_MODE"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_TEST_MODE_DESC"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                    name="api_base_url"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_API_BASE_URL"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_API_BASE_URL_DESC"
+                    default="https://api.postnl.nl"
+                />
+                <field
+                    name="auth_type"
+                    type="list"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_AUTH_TYPE"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_AUTH_TYPE_DESC"
+                    default="apikey"
+                >
+                    <option value="apikey">API Key</option>
+                    <option value="bearer">Bearer Token</option>
+                </field>
+                <field
+                    name="api_key"
+                    type="password"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_API_KEY"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_API_KEY_DESC"
+                />
+                <field
+                    name="customer_code"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_CUSTOMER_CODE"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_CUSTOMER_CODE_DESC"
+                />
+                <field
+                    name="customer_number"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_CUSTOMER_NUMBER"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_CUSTOMER_NUMBER_DESC"
+                />
+            </fieldset>
+
+            <fieldset name="shipper" label="PLG_EASYSTORESHIPPING_POSTNL_FIELDSET_SHIPPER">
+                <field
+                    name="shipper_company_name"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_SHIPPER_COMPANY"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_SHIPPER_COMPANY_DESC"
+                />
+                <field
+                    name="shipper_street"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_SHIPPER_STREET"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_SHIPPER_STREET_DESC"
+                />
+                <field
+                    name="shipper_house_number"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_SHIPPER_HOUSE_NO"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_SHIPPER_HOUSE_NO_DESC"
+                />
+                <field
+                    name="shipper_house_number_suffix"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_SHIPPER_SUFFIX"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_SHIPPER_SUFFIX_DESC"
+                />
+                <field
+                    name="shipper_zipcode"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_SHIPPER_ZIPCODE"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_SHIPPER_ZIPCODE_DESC"
+                />
+                <field
+                    name="shipper_city"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_SHIPPER_CITY"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_SHIPPER_CITY_DESC"
+                />
+                <field
+                    name="shipper_country_code"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_SHIPPER_COUNTRY"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_SHIPPER_COUNTRY_DESC"
+                    default="NL"
+                />
+                <field
+                    name="shipper_email"
+                    type="email"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_SHIPPER_EMAIL"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_SHIPPER_EMAIL_DESC"
+                />
+                <field
+                    name="shipper_phone"
+                    type="tel"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_SHIPPER_PHONE"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_SHIPPER_PHONE_DESC"
+                />
+            </fieldset>
+
+            <fieldset name="shipment" label="PLG_EASYSTORESHIPPING_POSTNL_FIELDSET_SHIPMENT">
+                <field
+                    name="product_code_delivery"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_PRODUCT_CODE"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_PRODUCT_CODE_DESC"
+                    default="3085"
+                />
+                <field
+                    name="label_format"
+                    type="list"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_LABEL_FORMAT"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_LABEL_FORMAT_DESC"
+                    default="PDF"
+                >
+                    <option value="PDF">PDF</option>
+                    <option value="ZPL">ZPL</option>
+                </field>
+                <field
+                    name="auto_confirm"
+                    type="radio"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_AUTO_CONFIRM"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_AUTO_CONFIRM_DESC"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                    name="default_weight"
+                    type="number"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_DEFAULT_WEIGHT"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_DEFAULT_WEIGHT_DESC"
+                    default="1000"
+                    min="1"
+                    step="1"
+                />
+            </fieldset>
+
+            <fieldset name="tracking" label="PLG_EASYSTORESHIPPING_POSTNL_FIELDSET_TRACKING">
+                <field
+                    name="auto_send_tracking"
+                    type="radio"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_AUTO_SEND_TRACKING"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_AUTO_SEND_TRACKING_DESC"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                    name="tracking_lang"
+                    type="list"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_TRACKING_LANG"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_TRACKING_LANG_DESC"
+                    default="NL"
+                >
+                    <option value="NL">Nederlands</option>
+                    <option value="EN">English</option>
+                    <option value="DE">Deutsch</option>
+                    <option value="FR">Français</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
