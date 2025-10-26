@@ -1,0 +1,1386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="administrator" method="upgrade">
+    <name>MOD_CUSTOM_QUICKICON</name>
+    <author>Joomill Extensions</author>
+    <creationDate>August 2025</creationDate>
+    <copyright>Copyright (C) 2025 Joomill. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later;</license>
+    <authorEmail>info@joomill-extensions.com</authorEmail>
+    <authorUrl>https://www.joomill-extensions.com</authorUrl>
+    <version>2.5.0</version>
+    <description>MOD_CUSTOM_QUICKICON_XML_DESCRIPTION</description>
+    <namespace path="src">Joomill\Module\Customquickicon</namespace>
+    <files>
+        <filename module="mod_custom_quickicon">mod_custom_quickicon.php</filename>
+        <filename>script.php</filename>
+        <folder>forms</folder>
+        <folder>language</folder>
+        <folder>services</folder>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+    </files>
+    <media folder="media" destination="mod_custom_quickicon">
+        <folder>css</folder>
+        <folder>js</folder>
+    </media>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                        name="ModalHelper"
+                        type="ModalHelper"
+                />
+                <field
+                    name="show_robots"
+                    type="list"
+                    label="MOD_CUSTOM_QUICKICON_SHOW_ROBOTS_LABEL"
+                    default="0"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">MOD_CUSTOM_QUICKICON_SHOW_ICON</option>
+                    <option value="2">MOD_CUSTOM_QUICKICON_ONLY_ICON_NOINDEX</option>
+                    <option value="3">MOD_CUSTOM_QUICKICON_ONLY_MESSAGE_NOINDEX</option>
+                </field>
+                <field
+                    name="article_items"
+                    type="subform"
+                    formsource="/administrator/modules/mod_custom_quickicon/forms/article_items.xml"
+                    multiple="true"
+                    label="MOD_CUSTOM_QUICKICON_FORM_ARTICLE_LABEL"
+                />
+                <field
+                    name="category_items"
+                    type="subform"
+                    formsource="/administrator/modules/mod_custom_quickicon/forms/articles_items.xml"
+                    multiple="true"
+                    label="MOD_CUSTOM_QUICKICON_FORM_ARTICLES_LABEL"
+                />
+                <field
+                    name="module_items"
+                    type="subform"
+                    formsource="/administrator/modules/mod_custom_quickicon/forms/module_items.xml"
+                    multiple="true"
+                    label="MOD_CUSTOM_QUICKICON_FORM_MODULE_LABEL"
+                />
+                <field
+                    name="custom_items"
+                    type="subform"
+                    formsource="/administrator/modules/mod_custom_quickicon/forms/custom_items.xml"
+                    multiple="true"
+                    label="MOD_CUSTOM_QUICKICON_FORM_ITEMS_LABEL"
+                />
+            </fieldset>
+            <fieldset name="default">
+                <field
+                        name="show_global"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_GLOBAL_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_checkin"
+                        type="list"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_CHECKIN_LABEL"
+                        default="0"
+                        validate="options"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_CUSTOM_QUICKICON_WITH_COUNT</option>
+                </field>
+                <field
+                        name="show_cache"
+                        type="list"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_CACHE_LABEL"
+                        default="0"
+                        validate="options"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_CUSTOM_QUICKICON_WITH_COUNT</option>
+                </field>
+                <field
+                        name="show_users"
+                        type="list"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_USERS_LABEL"
+                        default="0"
+                        validate="options"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_CUSTOM_QUICKICON_WITH_COUNT</option>
+                </field>
+                <field
+                        name="show_articles"
+                        type="list"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_ARTICLES_LABEL"
+                        default="0"
+                        validate="options"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_CUSTOM_QUICKICON_WITH_COUNT</option>
+                </field>
+                <field
+                        name="show_featured"
+                        type="list"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_FEATURED_LABEL"
+                        default="0"
+                        validate="options"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_CUSTOM_QUICKICON_WITH_COUNT</option>
+                </field>
+                <field
+                        name="show_menuitems"
+                        type="list"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_MENUITEMS_LABEL"
+                        default="0"
+                        validate="options"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_CUSTOM_QUICKICON_WITH_COUNT</option>
+                </field>
+                <field
+                        name="show_workflow"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_WORKFLOW_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_banners"
+                        type="list"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_BANNERS_LABEL"
+                        default="0"
+                        validate="options"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_CUSTOM_QUICKICON_WITH_COUNT</option>
+                </field>
+                <field
+                        name="show_finder"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_FINDER_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_newsfeeds"
+                        type="list"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_NEWSFEEDS_LABEL"
+                        default="0"
+                        validate="options"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_CUSTOM_QUICKICON_WITH_COUNT</option>
+                </field>
+                <field
+                        name="show_tags"
+                        type="list"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_TAGS_LABEL"
+                        default="0"
+                        validate="options"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_CUSTOM_QUICKICON_WITH_COUNT</option>
+                </field>
+                <field
+                        name="show_redirect"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_REDIRECT_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_associations"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_ASSOCIATIONS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_languages"
+                        type="list"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_LANGUAGES_LABEL"
+                        default="0"
+                        validate="options"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_CUSTOM_QUICKICON_WITH_COUNT</option>
+                </field>
+                <field
+                        name="show_modules"
+                        type="list"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_MODULES_LABEL"
+                        default="0"
+                        validate="options"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_CUSTOM_QUICKICON_WITH_COUNT</option>
+                </field>
+                <field
+                        name="show_contact"
+                        type="list"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_CONTACT_LABEL"
+                        default="0"
+                        validate="options"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_CUSTOM_QUICKICON_WITH_COUNT</option>
+                </field>
+                <field
+                        name="show_categories"
+                        type="list"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_CATEGORIES_LABEL"
+                        default="0"
+                        validate="options"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_CUSTOM_QUICKICON_WITH_COUNT</option>
+                </field>
+                <field
+                        name="show_media"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_MEDIA_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_menuitems"
+                        type="list"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_MENUITEMS_LABEL"
+                        default="0"
+                        validate="options"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_CUSTOM_QUICKICON_WITH_COUNT</option>
+                </field>
+                <field
+                        name="show_plugins"
+                        type="list"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_PLUGINS_LABEL"
+                        default="0"
+                        validate="options"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_CUSTOM_QUICKICON_WITH_COUNT</option>
+                </field>
+                <field
+                        name="show_extensions"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_EXTENSIONS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_template_styles"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_TEMPLATE_STYLES_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_template_code"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_TEMPLATE_CODE_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="ecommerce">
+                <field
+                        name="ecommerce_component"
+                        type="list"
+                        label="MOD_CUSTOM_QUICKICON_ECOMMERCE_COMPONENT_LABEL"
+                        default="HikaShop"
+                >
+                    <option value="DJ-Catalog">MOD_CUSTOM_QUICKICON_DJCATALOG</option>
+                    <option value="EShop">MOD_CUSTOM_QUICKICON_ESHOP</option>
+                    <option value="HikaShop">MOD_CUSTOM_QUICKICON_HIKASHOP</option>
+                    <option value="J2Store">MOD_CUSTOM_QUICKICON_J2STORE</option>
+                    <option value="PhocaCart">MOD_CUSTOM_QUICKICON_PHOCACART</option>
+                    <option value="Virtuemart">MOD_CUSTOM_QUICKICON_VIRTUEMART</option>
+                    <option value="Jshopping">MOD_CUSTOM_QUICKICON_JSHOPPING</option>
+                </field>
+
+
+                <field
+                        name="show_djcatalog_dashboard"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_DJCATALOG_DASHBOARD_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:DJ-Catalog"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_djcatalog_products"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_DJCATALOG_PRODUCTS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:DJ-Catalog"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_djcatalog_categories"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_DJCATALOG_CATEGORIES_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:DJ-Catalog"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_djcatalog_customers"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_DJCATALOG_USERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:DJ-Catalog"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_djcatalog_orders"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_DJCATALOG_ORDERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:DJ-Catalog"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_djcatalog_subscriptions"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_DJCATALOG_SUBSCRIPTIONS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:DJ-Catalog"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_djcatalog_pricerules"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_DJCATALOG_PRICERULES_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:DJ-Catalog"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_djcatalog_coupons"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_DJCATALOG_COUPONS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:DJ-Catalog"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_djcatalog_producers"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_DJCATALOG_PRODUCERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:DJ-Catalog"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_djcatalog_vendors"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_DJCATALOG_VENDORS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:DJ-Catalog"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_djcatalog_reviews"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_DJCATALOG_REVIEWS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:DJ-Catalog"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_djcatalog_messages"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_DJCATALOG_MESSAGES_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:DJ-Catalog"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_djcatalog_pricesstock"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_DJCATALOG_PRICESSTOCK_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:DJ-Catalog"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_djcatalog_config"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_DJCATALOG_CONFIG_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:DJ-Catalog"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+
+               <field
+                        name="show_eshop_dashboard"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_ESHOP_DASHBOARD_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:EShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_eshop_products"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_ESHOP_PRODUCTS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:EShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_eshop_downloads"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_ESHOP_DOWNLOADS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:EShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_eshop_categories"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_ESHOPG_CATEGORIES_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:EShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_eshop_customers"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_ESHOP_USERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:EShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_eshop_orders"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_ESHOP_ORDERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:EShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_eshop_quotes"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_ESHOP_QUOTES_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:EShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_eshop_discounts"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_ESHOP_DISCOUNTS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:EShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_eshop_coupons"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_ESHOP_COUPONS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:EShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_eshop_vouchers"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_ESHOP_VOUCHERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:EShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_eshop_manufacturers"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_ESHOP_MANUFACTURERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:EShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_eshop_reviews"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_ESHOP_REVIEWS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:EShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_eshop_notify"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_ESHOP_NOTIFY_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:EShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_eshop_config"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_ESHOP_CONFIG_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:EShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+
+
+                <field
+                        name="show_hikashop_dashboard"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_HIKASHOP_DASHBOARD_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_products"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_HIKASHOP_PRODUCTS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_categories"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_HIKASHOP_CATEGORIES_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_users"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_HIKASHOP_USERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_orders"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_HIKASHOP_ORDERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_discounts"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_HIKASHOP_DISCOUNTS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_coupons"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_HIKASHOP_COUPONS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_carts"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_HIKASHOP_CARTS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_wishlist"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_HIKASHOP_WISHLIST_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_waitlist"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_HIKASHOP_WAITLIST_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_emailhistory"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_HIKASHOP_EMAILHISTORY_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_config"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_HIKASHOP_CONFIG_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+
+                <field
+                        name="show_j2store_dashboard"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_J2STORE_DASHBOARD_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:J2Store"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_j2store_products"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_J2STORE_PRODUCTS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:J2Store"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_j2store_inventory"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_J2STORE_INVENTORY_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:J2Store"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_j2store_vendors"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_J2STORE_VENDORS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:J2Store"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_j2store_manufacturers"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_J2STORE_MANUFACTURERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:J2Store"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_j2store_orders"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_J2STORE_ORDERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:J2Store"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_j2store_customers"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_J2STORE_CUSTOMERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:J2Store"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_j2store_coupons"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_J2STORE_COUPONS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:J2Store"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_j2store_vouchers"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_J2STORE_VOUCHERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:J2Store"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_j2store_reports"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_J2STORE_REPORTS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:J2Store"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_j2store_config"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_J2STORE_CONFIG_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:J2Store"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+
+                <field
+                        name="show_phocacart_dashboard"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_PHOCACART_DASHBOARD_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:PhocaCart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_phocacart_products"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_PHOCACART_PRODUCTS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:PhocaCart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_phocacart_categories"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_PHOCACART_CATEGORIES_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:PhocaCart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_phocacart_customers"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_PHOCACART_USERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:PhocaCart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_phocacart_orders"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_PHOCACART_ORDERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:PhocaCart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_phocacart_wishlists"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_PHOCACART_WISHLISTS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:PhocaCart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_phocacart_rewardspoints"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_PHOCACART_REWARDPOINTS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:PhocaCart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_phocacart_questions"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_PHOCACART_QUESTIONS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:PhocaCart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_phocacart_discounts"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_PHOCACART_DISCOUNTS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:PhocaCart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_phocacart_coupons"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_PHOCACART_COUPONS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:PhocaCart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_phocacart_manufacturers"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_PHOCACART_MANUFACTURERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:PhocaCart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_phocacart_vendors"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_PHOCACART_VENDORS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:PhocaCart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_phocacart_reviews"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_PHOCACART_REVIEWS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:PhocaCart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_phocacart_reports"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_PHOCACART_REPORTS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:PhocaCart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_phocacart_openingtimes"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_PHOCACART_OPENINGTIMES_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:PhocaCart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_phocacart_config"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_PHOCACART_CONFIG_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:PhocaCart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+
+                <field
+                        name="show_virtuemart_products"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_VIRTUEMART_PRODUCTS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Virtuemart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_virtuemart_categories"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_VIRTUEMART_CATEGORIES_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Virtuemart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_virtuemart_shoppers"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_VIRTUEMART_SHOPPERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Virtuemart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_virtuemart_orders"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_VIRTUEMART_ORDERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Virtuemart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_virtuemart_coupons"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_VIRTUEMART_COUPONS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Virtuemart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_virtuemart_reviews"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_VIRTUEMART_REVIEWS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Virtuemart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_virtuemart_manufacturers"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_VIRTUEMART_MANUFACTURERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Virtuemart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_virtuemart_salesreport"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_VIRTUEMART_SALESREPORT_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Virtuemart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_virtuemart_inventory"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_VIRTUEMART_INVENTORY_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Virtuemart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_virtuemart_config"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_VIRTUEMART_CONFIG_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Virtuemart"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_jshopping_products"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_JSHOPPING_PRODUCTS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Jshopping"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_jshopping_categories"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_JSHOPPING_CATEGORIES_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Jshopping"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_jshopping_users"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_JSHOPPING_USERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Jshopping"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_jshopping_orders"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_JSHOPPING_ORDERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Jshopping"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_jshopping_manufacturers"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_JSHOPPING_MANUFACTURERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Jshopping"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_jshopping_coupons"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_JSHOPPING_COUPONS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Jshopping"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_jshopping_options"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_JSHOPPING_OPTIONS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Jshopping"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_jshopping_config"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_JSHOPPING_CONFIG_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Jshopping"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_jshopping_statistic"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_SHOW_JSHOPPING_STATISTIC_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:Jshopping"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="advanced"
+                addfieldprefix="Joomill\Module\Customquickicon\Administrator\Field">
+                <field
+                    name="context"
+                    type="text"
+                    label="MOD_CUSTOM_QUICKICON_GROUP_LABEL"
+                    default="mod_custom_quickicon"
+                />
+                <field
+                        name="header_icon"
+                        type="text"
+                        label="MOD_CUSTOM_QUICKICON_HEADER_ICON_LABEL"
+                        default="fas fa-desktop"
+                />
+                <field
+                        name="hue"
+                        type="color"
+                        label="MOD_CUSTOM_QUICKICON_COLOR_HUE"
+                        format="hue"
+                        control="slider"
+                        preview="true"
+                        saveFormat="hsl"
+                        default="hsl(214,63%,20%)"
+                />
+                <field
+                        name="fakit"
+                        type="text"
+                        label="MOD_CUSTOM_QUICKICON_FAKIT_LABEL"
+                        default=""
+                />
+                <field
+                        name="fakit_code"
+                        type="radio"
+                        label="MOD_CUSTOM_QUICKICON_FAKIT_CODE_LABEL"
+                        class="btn-group"
+                        default="css"
+                        showon="fakit!:"
+                >
+                    <option value="js">JavaScript</option>
+                    <option value="css">CSS only</option>
+                </field>
+                <field
+                    name="layout"
+                    type="modulelayout"
+                    label="JFIELD_ALT_LAYOUT_LABEL"
+                    class="form-select"
+                    validate="moduleLayout"
+                />
+                <field
+                    name="moduleclass_sfx"
+                    type="textarea"
+                    label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                    rows="3"
+                    validate="CssIdentifier"
+                />
+                <field
+                    name="cache"
+                    type="list"
+                    label="COM_MODULES_FIELD_CACHING_LABEL"
+                    default="0"
+                    filter="integer"
+                    validate="options"
+                    >
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+                <field
+                    name="cache_time"
+                    type="number"
+                    label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                    default="900"
+                    filter="integer"
+                />
+            </fieldset>
+        </fields>
+    </config>
+
+    <!-- Scripts to run on installation -->
+    <scriptfile>script.php</scriptfile>
+
+    <changelogurl><![CDATA[https://www.joomill-extensions.com/index.php?option=com_ochsubscriptions&amp;view=changelog&amp;format=xml&amp;cat=13]]></changelogurl>
+
+    <updateservers><server type="extension" name="Custom Quick Icons"><![CDATA[https://www.joomill-extensions.com/index.php?option=com_ochsubscriptions&amp;view=updater&amp;format=xml&amp;cat=13]]></server></updateservers>
+
+</extension>

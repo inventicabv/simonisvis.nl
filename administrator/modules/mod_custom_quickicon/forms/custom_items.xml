@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fieldset name="custom_items" label="Custom Items"
+              addfieldpath="/administrator/modules/mod_custom_quickicon/elements">
+        <field
+            name="item_name"
+            type="text"
+            label="MOD_CUSTOM_QUICKICON_ITEM_NAME_LABEL"
+            default=""
+        />
+        <field
+            name="item_icon"
+            type="IconSelector"
+            label="MOD_CUSTOM_QUICKICON_ITEM_ICON_LABEL"
+            description=""
+        />
+        <field
+            name="item_link_menuitem"
+            type="sql"
+            default="custom"
+            label="MOD_CUSTOM_QUICKICON_ITEM_LINK_MENUITEM_LABEL"
+            sql_select="link"
+            sql_from="#__menu"
+            sql_filter="client_id,type"
+            sql_default_client_id="1"
+            sql_default_type="component"
+            sql_order="link ASC"
+            sql_group="link"
+            key_field="link"
+            value_field="link"
+            >
+            <option value="custom">MOD_CUSTOM_QUICKICON_ITEM_LINK_MENUITEM_CUSTOM_URL</option>
+            <option value="index.php?option=com_cpanel&amp;view=cpanel&amp;dashboard=content">MOD_CUSTOM_QUICKICON_ITEM_LINK_MENUITEM_DASHBOARD_CONTENT</option>
+            <option value="index.php?option=com_cpanel&amp;view=cpanel&amp;dashboard=menus">MOD_CUSTOM_QUICKICON_ITEM_LINK_MENUITEM_DASHBOARD_MENUS</option>
+            <option value="index.php?option=com_cpanel&amp;view=cpanel&amp;dashboard=components">MOD_CUSTOM_QUICKICON_ITEM_LINK_MENUITEM_DASHBOARD_COMPONENTS</option>
+            <option value="index.php?option=com_cpanel&amp;view=cpanel&amp;dashboard=users">MOD_CUSTOM_QUICKICON_ITEM_LINK_MENUITEM_DASHBOARD_USERS</option>
+            <option value="index.php?option=com_cpanel&amp;view=cpanel&amp;dashboard=system">MOD_CUSTOM_QUICKICON_ITEM_LINK_MENUITEM_DASHBOARD_SYSTEM</option>
+            <option value="index.php?option=com_cpanel&amp;view=cpanel&amp;dashboard=help">MOD_CUSTOM_QUICKICON_ITEM_LINK_MENUITEM_DASHBOARD_HELP</option>
+        </field>
+        <field
+            name="item_link"
+            type="text"
+            label="MOD_CUSTOM_QUICKICON_ITEM_LINK_LABEL"
+            default=""
+            showon="item_link_menuitem:custom"
+        />
+        <field
+            name="item_link_add"
+            type="text"
+            label="MOD_CUSTOM_QUICKICON_ITEM_LINK_ADD_LABEL"
+            default=""
+        />
+        <field
+            name="item_link_target"
+            type="list"
+            label="MOD_CUSTOM_QUICKICON_ITEM_LINK_TARGET_LABEL"
+            showon="item_link_menuitem:custom"
+            >
+            <option value="">MOD_CUSTOM_QUICKICON_ITEM_LINK_TARGET_SELF</option>
+            <option value="_blank">MOD_CUSTOM_QUICKICON_ITEM_LINK_TARGET_BLANK</option>
+        </field>
+    </fieldset>
+</form>
+

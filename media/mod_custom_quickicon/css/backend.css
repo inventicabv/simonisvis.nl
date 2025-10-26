@@ -1,0 +1,29 @@
+/*
+ *  package: Custom-Quickicons
+ *  copyright: Copyright (c) 2024. Jeroen Moolenschot | Joomill
+ *  license: GNU General Public License version 2 or later
+ *  link: https://www.joomill-extensions.com
+ */
+
+.iconlist {
+    height: 500px;
+    overflow: auto;
+    margin-right: 0 !important;
+}
+
+div[data-icon-name="no-icon"] {
+    min-height: 80px;
+}
+
+.icon-preview, .icon {
+    min-width: 2em; 
+    font-size: 1.5em; 
+    display: inline-block; 
+    padding: 10px;
+}
+
+.bg-body-secondary:hover {
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #3d618f !important;
+}

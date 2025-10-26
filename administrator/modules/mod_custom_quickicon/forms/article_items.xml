@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fieldset name="custom_items" label="Custom Items"
+              addfieldprefix="Joomill\Module\Customquickicon\Administrator\Field">
+        <field 
+            name="item_id"
+            type="sql"
+            default=""
+            label="MOD_CUSTOM_QUICKICON_ITEM_ARTICLE_LABEL"
+            sql_select="id, title"
+            sql_from="#__content"
+            sql_order="title ASC"
+            key_field="id"
+            value_field="title">
+        </field>
+        <field
+            name="item_icon"
+            type="IconSelector"
+            label="MOD_CUSTOM_QUICKICON_ITEM_ICON_LABEL"
+            description=""
+        />
+        <field
+            name="item_return"
+            type="text"
+            label="MOD_CUSTOM_QUICKICON_ITEM_RETURN_LABEL"
+            description="MOD_CUSTOM_QUICKICON_ITEM_RETURN_DESC"
+        />
+    </fieldset>
+</form>
+
