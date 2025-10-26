@@ -8,6 +8,8 @@
  * @license     GNU General Public License version 3; see LICENSE
  */
 
+namespace PlgEasystoreshippingPostnl\Services;
+
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') or die;
 // phpcs:enable PSR1.Files.SideEffects
@@ -34,13 +36,20 @@ return new class () implements ServiceProviderInterface {
         $container->set(
             PluginInterface::class,
             function (Container $container) {
-                $plugin = new PlgEasystoreshippingPostnl(
+                $basePath = dirname(__DIR__);
+
+                // Load required classes manually
+                require_once $basePath . '/src/PostnlClient.php';
+                require_once $basePath . '/src/OrderHelper.php';
+                require_once $basePath . '/src/Extension/PostnlShipping.php';
+
+                // Now we can instantiate the plugin
+                $plugin = new \PlgEasystoreshippingPostnl\Extension\PostnlShipping(
                     $container->get(DispatcherInterface::class),
                     (array) PluginHelper::getPlugin('easystoreshipping', 'postnl')
                 );
 
                 $plugin->setApplication(Factory::getApplication());
-                $plugin->setDatabase(Factory::getContainer()->get('DatabaseDriver'));
 
                 return $plugin;
             }

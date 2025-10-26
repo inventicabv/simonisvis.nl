@@ -2,11 +2,17 @@
 
 /**
  * @package     PlgEasystoreshippingPostnl
- * @subpackage  Main Plugin File
+ * @subpackage  Extension
  *
  * @copyright   Copyright (C) 2025. All rights reserved.
  * @license     GNU General Public License version 3; see LICENSE
  */
+
+namespace PlgEasystoreshippingPostnl\Extension;
+
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Plugin\CMSPlugin;
@@ -18,16 +24,12 @@ use Joomla\Event\SubscriberInterface;
 use PlgEasystoreshippingPostnl\PostnlClient;
 use PlgEasystoreshippingPostnl\OrderHelper;
 
-// phpcs:disable PSR1.Files.SideEffects
-\defined('_JEXEC') or die;
-// phpcs:enable PSR1.Files.SideEffects
-
 /**
  * PostNL Shipping Plugin for EasyStore
  *
  * @since 1.0.0
  */
-class PlgEasystoreshippingPostnl extends CMSPlugin implements SubscriberInterface
+class PostnlShipping extends CMSPlugin implements SubscriberInterface
 {
     /**
      * Load the language file on instantiation
@@ -52,6 +54,22 @@ class PlgEasystoreshippingPostnl extends CMSPlugin implements SubscriberInterfac
      * @since  1.0.0
      */
     protected $db;
+
+    /**
+     * Constructor
+     *
+     * @param   \Joomla\Event\DispatcherInterface  $dispatcher  The event dispatcher
+     * @param   array                               $config      Configuration array
+     *
+     * @since   1.0.0
+     */
+    public function __construct($dispatcher, array $config = [])
+    {
+        parent::__construct($dispatcher, $config);
+
+        // Get database instance
+        $this->db = \Joomla\CMS\Factory::getContainer()->get(\Joomla\Database\DatabaseInterface::class);
+    }
 
     /**
      * Returns an array of events this subscriber will listen to.
@@ -80,20 +98,51 @@ class PlgEasystoreshippingPostnl extends CMSPlugin implements SubscriberInterfac
     public function onEasyStoreGetShippingMethods(Event $event): void
     {
         // This method is for checkout shipping rate calculation
-        // For now, we'll keep it simple - actual shipping is done via admin action
-        $shippingMethods = $event->getArgument('shippingMethods', []);
+        // Note: Actual label creation happens via admin action, not here
 
-        // Add PostNL as an available shipping method
-        $shippingMethods[] = [
-            'uuid'               => $this->generateUuid(),
-            'name'               => Text::_('PLG_EASYSTORESHIPPING_POSTNL'),
-            'rate'               => 0.00,  // Configure this or calculate
-            'rate_with_currency' => '€0.00',
-            'estimate'           => Text::_('PLG_EASYSTORESHIPPING_POSTNL_ESTIMATE'),
-            'provider'           => 'postnl',
-        ];
+        try {
+            $arguments = $event->getArguments();
+            $shippingAddress = $arguments['subject']->shipping_address ?? null;
 
-        $event->setArgument('shippingMethods', $shippingMethods);
+            if (!$shippingAddress) {
+                return;
+            }
+
+            // Get existing methods
+            $shippingMethods = $event->getArgument('shippingMethods', []);
+
+            // Get configured shipping rate or use default
+            $defaultRate = (float) $this->params->get('default_shipping_rate', 6.95);
+
+            // Get currency settings
+            $settings = \JoomShaper\Component\EasyStore\Administrator\Helper\SettingsHelper::getSettings();
+            $currencySettings = $settings->get('general.currency', 'EUR:€');
+            $currencyFormat = $settings->get('general.currencyFormat', 'short');
+            $parts = explode(':', $currencySettings);
+            $currencyFull = $parts[0] ?? 'EUR';
+            $currencyShort = $parts[1] ?? '€';
+
+            $currency = ($currencyFormat === 'short') ? $currencyShort : $currencyFull . ' ';
+
+            // Add PostNL as available shipping method
+            $shippingMethods[] = [
+                'uuid'               => $this->generateUuid(),
+                'name'               => $this->formatShippingTitle(Text::_('PLG_EASYSTORESHIPPING_POSTNL')),
+                'rate'               => $defaultRate,
+                'rate_with_currency' => $currency . number_format($defaultRate, 2),
+                'estimate'           => Text::_('PLG_EASYSTORESHIPPING_POSTNL_ESTIMATE'),
+                'provider'           => 'postnl',
+            ];
+
+            $event->setArgument('shippingMethods', $shippingMethods);
+
+        } catch (\Exception $e) {
+            Log::add(
+                'Error in onEasyStoreGetShippingMethods: ' . $e->getMessage(),
+                Log::ERROR,
+                'plg_easystoreshipping_postnl'
+            );
+        }
     }
 
     /**
@@ -302,5 +351,20 @@ class PlgEasystoreshippingPostnl extends CMSPlugin implements SubscriberInterfac
         $b[6] = chr(ord($b[6]) & 0x0f | 0x40);
         $b[8] = chr(ord($b[8]) & 0x3f | 0x80);
         return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($b), 4));
+    }
+
+    /**
+     * Format shipping method title
+     *
+     * @param   string  $title  Raw title
+     *
+     * @return  string  Formatted title
+     *
+     * @since   1.0.0
+     */
+    protected function formatShippingTitle(string $title): string
+    {
+        $title = str_replace(['-', '_'], ' ', $title);
+        return ucwords(strtolower($title));
     }
 }

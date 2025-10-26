@@ -133,6 +133,15 @@
 
             <fieldset name="shipment" label="PLG_EASYSTORESHIPPING_POSTNL_FIELDSET_SHIPMENT">
                 <field
+                    name="default_shipping_rate"
+                    type="number"
+                    label="PLG_EASYSTORESHIPPING_POSTNL_DEFAULT_SHIPPING_RATE"
+                    description="PLG_EASYSTORESHIPPING_POSTNL_DEFAULT_SHIPPING_RATE_DESC"
+                    default="6.95"
+                    min="0"
+                    step="0.01"
+                />
+                <field
                     name="product_code_delivery"
                     type="text"
                     label="PLG_EASYSTORESHIPPING_POSTNL_PRODUCT_CODE"
