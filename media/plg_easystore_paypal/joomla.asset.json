@@ -1,0 +1,15 @@
+{
+    "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+    "name": "plg_easystore_paypal",
+    "version": "2.0.2",
+    "description": "Joomla eCommerce component by JoomShaper",
+    "license": "GPL-2.0-or-later",
+    "assets": [
+        {
+            "name": "plg_easystore_paypal.webhook.button",
+            "type": "script",
+            "uri": "plg_easystore_paypal/webhook-button.js",
+            "version": "2.0.2"
+        }
+    ]
+}

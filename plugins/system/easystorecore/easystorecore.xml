@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="system" method="upgrade">
+	<name>EasyStore Core Plugin</name>
+	<author>JoomShaper</author>
+	<creationDate>2024-03</creationDate>
+	<copyright>(C) 2023 Open Source Matters, Inc.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>support@joomshaper.com</authorEmail>
+	<authorUrl>www.joomshaper.com</authorUrl>
+	<version>1.0.0</version>
+	<description>EasyStore System Core Plugin</description>
+	<namespace path="src">JoomShaper\Plugin\System\EasyStoreCore</namespace>
+	<files>
+		<folder plugin="easystorecore">services</folder>
+		<folder>src</folder>
+	</files>
+	<media>
+		<folder>plg_system_easystorecore/css</folder>
+		<folder>plg_system_easystorecore/js</folder>
+		<filename>plg_system_easystorecore/joomla.asset.json</filename>
+	</media>
+</extension>

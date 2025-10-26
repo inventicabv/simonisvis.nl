@@ -1,0 +1,2 @@
+Fixed introtext showing even when disabled.
+Pulled out read more from introtext div.

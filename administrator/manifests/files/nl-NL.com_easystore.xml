@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension method="upgrade" type="file">
+    <name>EasyStore (nl-NL)</name>
+    <author>JoomShaper</author>
+    <creationDate>2023-11</creationDate>
+    <copyright>(C) 2023 JoomShaper.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>support@joomshaper.com</authorEmail>
+    <authorUrl>www.joomshaper.com</authorUrl>
+    <description>EasyStore language files (nl-NL)</description>
+    <version>1.0.4</version>
+
+    <fileset>
+        <files folder="admin" target="administrator/language/nl-NL/">
+            <file>com_easystore.ini</file>
+            <file>com_easystore.sys.ini</file>
+        </files>
+
+        <files folder="site" target="language/nl-NL/">
+            <file>com_easystore.ini</file>
+        </files>
+    </fileset>
+</extension>

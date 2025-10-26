@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<extension type="plugin" group="easystore" method="upgrade">
+	<name>PLG_EASYSTORE_CUSTOM</name>
+	<author>JoomShaper</author>
+	<creationDate>2024-01</creationDate>
+	<copyright>(C) 2024 JoomShaper.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>support@joomshaper.com</authorEmail>
+	<authorUrl>www.joomshaper.com</authorUrl>
+	<version>1.0.0</version>
+	<description>PLG_EASYSTORE_CUSTOM_XML_DESCRIPTION</description>
+	<namespace path="src">JoomShaper\Plugin\EasyStore\Custom</namespace>
+	<scriptfile>script.php</scriptfile>
+
+	<files>
+		<folder plugin="custom">services</folder>
+		<folder>assets</folder>
+		<folder>src</folder>
+	</files>
+	<languages folder="admin">
+		<language tag="en-GB">plg_easystore_custom.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="title"
+					type="text"
+					label="PLG_EASYSTORE_CUSTOM_TITLE"
+					default="Custom Payment"
+    			/>
+
+				<field
+					name="additional_information"
+					type="textarea"
+					label="PLG_EASYSTORE_CUSTOM_ADDITIONAL_INFORMATION"
+					required = "true"
+    			/>
+
+				<field
+					name="payment_instruction"
+					type="textarea"
+					label="PLG_EASYSTORE_CUSTOM_PAYMENT_INSTRUCTION"					
+    			/>
+
+				<field
+					name="payment_type"
+					type="hidden"
+					default="manual"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+	<updateservers>
+		<server type="extension" priority="1" name="Custom Payment - EasyStore Manual Payment Plugin">
+			https://www.joomshaper.com/updates/easystore-custom.xml
+		</server>
+	</updateservers>
+</extension>

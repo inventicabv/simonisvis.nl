@@ -1,0 +1,4036 @@
+[
+	{
+		"id": 1,
+		"title": "Modern Desk",
+		"alias": "modern-desk",
+		"catid": 11,
+		"weight": null,
+		"dimension": null,
+		"regular_price": "74.95",
+		"has_sale": 1,
+		"has_variants": 1,
+		"featured": 0,
+		"is_tracking_inventory": 0,
+		"inventory_status": 1,
+		"enable_out_of_stock_sell": 0,
+		"quantity": 0,
+		"sku": "",
+		"additional_data": null,
+		"discount_type": "percent",
+		"discount_value": 5,
+		"published": 1,
+		"access": 0,
+		"ordering": 0,
+		"language": "*",
+		"checked_out": null,
+		"checked_out_time": null,
+		"created": "2023-09-25 13:08:20",
+		"created_by": 484,
+		"modified": "2023-09-25 19:08:20",
+		"modified_by": null,
+		"category_title": "Handbags",
+		"category_alias": "handbags",
+		"min_price": "129.00",
+		"link": "#",
+		"category_link": "#",
+		"is_taxable": 1,
+		"metatitle": "",
+		"metadesc": "",
+		"metakey": "",
+		"metadata": "",
+		"tax_rate": 0,
+		"media": {
+			"gallery": [
+				{
+					"id": 133,
+					"product_id": 1,
+					"name": "4",
+					"is_featured": 1,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "Modern Desk",
+					"width": 776,
+					"height": 997,
+					"type": "image"
+				},
+				{
+					"id": 1,
+					"product_id": 1,
+					"name": "1",
+					"is_featured": 0,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "1",
+					"width": null,
+					"height": null,
+					"type": "image"
+				},
+				{
+					"id": 2,
+					"product_id": 1,
+					"name": "2",
+					"is_featured": 0,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "2",
+					"width": null,
+					"height": null,
+					"type": "image"
+				},
+				{
+					"id": 131,
+					"product_id": 1,
+					"name": "2",
+					"is_featured": 0,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "2",
+					"width": 776,
+					"height": 997,
+					"type": "image"
+				},
+				{
+					"id": 3,
+					"product_id": 1,
+					"name": "3",
+					"is_featured": 0,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "3",
+					"width": null,
+					"height": null,
+					"type": "image"
+				},
+				{
+					"id": 130,
+					"product_id": 1,
+					"name": "1",
+					"is_featured": 0,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "1",
+					"width": 776,
+					"height": 997,
+					"type": "image"
+				},
+				{
+					"id": 132,
+					"product_id": 1,
+					"name": "3",
+					"is_featured": 0,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "3",
+					"width": 776,
+					"height": 997,
+					"type": "image"
+				},
+				{
+					"id": 134,
+					"product_id": 1,
+					"name": "5",
+					"is_featured": 0,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "5",
+					"width": 1200,
+					"height": 1541,
+					"type": "image"
+				}
+			],
+			"thumbnail": {
+				"id": 133,
+				"product_id": 1,
+				"name": "4",
+				"is_featured": 1,
+				"src": "/media/com_easystore/images/thumbnail.jpg",
+				"alt_text": "Modern Desk",
+				"width": 776,
+				"height": 997,
+				"type": "image"
+			}
+		},
+		"options": [
+			{
+				"id": 1,
+				"name": "Color",
+				"type": "color",
+				"values": [
+					{
+						"id": 1,
+						"name": "Brown",
+						"color": "#D6AF83"
+					},
+					{
+						"id": 2,
+						"name": "Gray",
+						"color": "#989690"
+					},
+					{
+						"id": 3,
+						"name": "White",
+						"color": "#F5F5F5"
+					},
+					{
+						"id": 4,
+						"name": "Green",
+						"color": "#717B5B"
+					}
+				],
+				"isCollapsed": true
+			},
+			{
+				"id": 2,
+				"name": "Size",
+				"type": "list",
+				"values": [
+					{
+						"id": 5,
+						"name": "Large",
+						"color": ""
+					},
+					{
+						"id": 6,
+						"name": "Small",
+						"color": ""
+					}
+				],
+				"isCollapsed": true
+			}
+		],
+		"variants": [
+			{
+				"id": 1,
+				"product_id": 1,
+				"price": 444,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 10,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Brown;Large",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$444.00",
+				"price_with_segments": {
+					"main_value": "444",
+					"formatted_value": "444.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "444",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 2,
+				"product_id": 1,
+				"price": 231,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 9,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Brown;Small",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$231.00",
+				"price_with_segments": {
+					"main_value": "231",
+					"formatted_value": "231.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "231",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 3,
+				"product_id": 1,
+				"price": 496,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 14,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Gray;Large",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$496.00",
+				"price_with_segments": {
+					"main_value": "496",
+					"formatted_value": "496.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "496",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 4,
+				"product_id": 1,
+				"price": 544,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 5,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Gray;Small",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$544.00",
+				"price_with_segments": {
+					"main_value": "544",
+					"formatted_value": "544.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "544",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 5,
+				"product_id": 1,
+				"price": 129,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 28,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Large;White",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$129.00",
+				"price_with_segments": {
+					"main_value": "129",
+					"formatted_value": "129.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "129",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 6,
+				"product_id": 1,
+				"price": 164,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 39,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Small;White",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$164.00",
+				"price_with_segments": {
+					"main_value": "164",
+					"formatted_value": "164.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "164",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 7,
+				"product_id": 1,
+				"price": 134,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 21,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Green;Large",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$134.00",
+				"price_with_segments": {
+					"main_value": "134",
+					"formatted_value": "134.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "134",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 8,
+				"product_id": 1,
+				"price": 261,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 12,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Green;Small",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$261.00",
+				"price_with_segments": {
+					"main_value": "261",
+					"formatted_value": "261.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "261",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			}
+		],
+		"discounted_price": 0,
+		"discounted_price_with_currency": "$0.00",
+		"discounted_price_with_segments": {
+			"main_value": "0",
+			"formatted_value": "0.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "0",
+				"decimal": "00"
+			}
+		},
+		"regular_price_with_currency": "$74.95",
+		"regular_price_with_segments": {
+			"main_value": "74.95",
+			"formatted_value": "74.95",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "74",
+				"decimal": "95"
+			}
+		},
+		"min_price_with_currency": "$129.00",
+		"min_price_with_segments": {
+			"main_value": "129.00",
+			"formatted_value": "129.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "129",
+				"decimal": "00"
+			}
+		},
+		"discounted_min_price": 0,
+		"discounted_min_price_with_currency": "$0.00",
+		"discounted_min_price_with_segments": {
+			"main_value": "0",
+			"formatted_value": "0.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "0",
+				"decimal": "00"
+			}
+		},
+		"page": "productListPage",
+		"reviewData": {
+			"count": 3,
+			"rating": 4.3
+		},
+		"tags": [],
+		"inWishList": false,
+		"currency_discounted_price": {
+			"main_value": "0",
+			"formatted_value": "0.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "0",
+				"decimal": "00"
+			}
+		},
+		"currency_regular_price": {
+			"main_value": "129",
+			"formatted_value": "129.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "129",
+				"decimal": "00"
+			}
+		},
+		"availability": {
+			"brown": {
+				"availability": true,
+				"level": 1
+			},
+			"gray": {
+				"availability": true,
+				"level": 1
+			},
+			"white": {
+				"availability": true,
+				"level": 1
+			},
+			"green": {
+				"availability": true,
+				"level": 1
+			},
+			"brown;large": {
+				"availability": true,
+				"level": 2
+			},
+			"brown;small": {
+				"availability": true,
+				"level": 2
+			},
+			"gray;large": {
+				"availability": false,
+				"level": 2
+			},
+			"gray;small": {
+				"availability": true,
+				"level": 2
+			},
+			"large;white": {
+				"availability": false,
+				"level": 2
+			},
+			"small;white": {
+				"availability": true,
+				"level": 2
+			},
+			"green;large": {
+				"availability": false,
+				"level": 2
+			},
+			"green;small": {
+				"availability": true,
+				"level": 2
+			}
+		},
+		"active_variant": null,
+		"thumbnail": {
+			"id": 133,
+			"product_id": 1,
+			"name": "4",
+			"is_featured": 1,
+			"src": "/media/com_easystore/images/thumbnail.jpg",
+			"alt_text": "Modern Desk",
+			"width": 776,
+			"height": 997,
+			"type": "image"
+		},
+		"prices": {
+			"price": "129.00",
+			"price_with_currency": "$129.00",
+			"price_with_segments": {
+				"main_value": "129.00",
+				"formatted_value": "129.00",
+				"currency_format": "short",
+				"currency_position": "before",
+				"decimal_separator": ".",
+				"thousand_separator": ",",
+				"currency": "$",
+				"segments": {
+					"amount": "129",
+					"decimal": "00"
+				}
+			},
+			"discounted_price": 0,
+			"discounted_price_with_currency": "$0.00",
+			"discounted_price_with_segments": {
+				"main_value": "0",
+				"formatted_value": "0.00",
+				"currency_format": "short",
+				"currency_position": "before",
+				"decimal_separator": ".",
+				"thousand_separator": ",",
+				"currency": "$",
+				"segments": {
+					"amount": "0",
+					"decimal": "00"
+				}
+			}
+		},
+		"stock": {
+			"status": 1,
+			"amount": 0
+		}
+	},
+	{
+		"id": 2,
+		"title": "Leather Sofa",
+		"alias": "leather-sofa",
+		"catid": 11,
+		"weight": null,
+		"dimension": null,
+		"regular_price": "49.95",
+		"has_sale": 1,
+		"has_variants": 1,
+		"featured": 0,
+		"is_tracking_inventory": 0,
+		"inventory_status": 1,
+		"enable_out_of_stock_sell": 0,
+		"quantity": 0,
+		"sku": "",
+		"additional_data": null,
+		"discount_type": "percent",
+		"discount_value": 5,
+		"published": 1,
+		"access": 0,
+		"ordering": 0,
+		"language": "*",
+		"checked_out": null,
+		"checked_out_time": null,
+		"created": "2023-09-25 13:08:20",
+		"created_by": 484,
+		"modified": "2023-09-25 19:08:20",
+		"modified_by": null,
+		"category_title": "Handbags",
+		"category_alias": "handbags",
+		"min_price": "144.00",
+		"link": "#",
+		"category_link": "#",
+		"is_taxable": 1,
+		"metatitle": "",
+		"metadesc": "",
+		"metakey": "",
+		"metadata": "",
+		"tax_rate": 0,
+		"media": {
+			"gallery": [
+				{
+					"id": 4,
+					"product_id": 2,
+					"name": "1",
+					"is_featured": 1,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "Leather Sofa",
+					"width": null,
+					"height": null,
+					"type": "image"
+				},
+				{
+					"id": 5,
+					"product_id": 2,
+					"name": "2",
+					"is_featured": 0,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "2",
+					"width": null,
+					"height": null,
+					"type": "image"
+				},
+				{
+					"id": 6,
+					"product_id": 2,
+					"name": "3",
+					"is_featured": 0,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "3",
+					"width": null,
+					"height": null,
+					"type": "image"
+				}
+			],
+			"thumbnail": {
+				"id": 4,
+				"product_id": 2,
+				"name": "1",
+				"is_featured": 1,
+				"src": "/media/com_easystore/images/thumbnail.jpg",
+				"alt_text": "Leather Sofa",
+				"width": null,
+				"height": null,
+				"type": "image"
+			}
+		},
+		"options": [
+			{
+				"id": 3,
+				"name": "Color",
+				"type": "color",
+				"values": [
+					{
+						"id": 7,
+						"name": "Brown",
+						"color": "#D6AF83"
+					},
+					{
+						"id": 8,
+						"name": "Gray",
+						"color": "#989690"
+					},
+					{
+						"id": 9,
+						"name": "White",
+						"color": "#F5F5F5"
+					},
+					{
+						"id": 10,
+						"name": "Green",
+						"color": "#717B5B"
+					}
+				],
+				"isCollapsed": true
+			},
+			{
+				"id": 4,
+				"name": "Size",
+				"type": "list",
+				"values": [
+					{
+						"id": 11,
+						"name": "Large",
+						"color": ""
+					},
+					{
+						"id": 12,
+						"name": "Small",
+						"color": ""
+					}
+				],
+				"isCollapsed": true
+			}
+		],
+		"variants": [
+			{
+				"id": 9,
+				"product_id": 2,
+				"price": 371,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 32,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Brown;Large",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$371.00",
+				"price_with_segments": {
+					"main_value": "371",
+					"formatted_value": "371.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "371",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 10,
+				"product_id": 2,
+				"price": 527,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 19,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Brown;Small",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$527.00",
+				"price_with_segments": {
+					"main_value": "527",
+					"formatted_value": "527.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "527",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 11,
+				"product_id": 2,
+				"price": 468,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 9,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Gray;Large",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$468.00",
+				"price_with_segments": {
+					"main_value": "468",
+					"formatted_value": "468.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "468",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 12,
+				"product_id": 2,
+				"price": 368,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 10,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Gray;Small",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$368.00",
+				"price_with_segments": {
+					"main_value": "368",
+					"formatted_value": "368.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "368",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 13,
+				"product_id": 2,
+				"price": 144,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 34,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Large;White",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$144.00",
+				"price_with_segments": {
+					"main_value": "144",
+					"formatted_value": "144.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "144",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 14,
+				"product_id": 2,
+				"price": 380,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 45,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Small;White",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$380.00",
+				"price_with_segments": {
+					"main_value": "380",
+					"formatted_value": "380.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "380",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 15,
+				"product_id": 2,
+				"price": 425,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 39,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Green;Large",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$425.00",
+				"price_with_segments": {
+					"main_value": "425",
+					"formatted_value": "425.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "425",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 16,
+				"product_id": 2,
+				"price": 533,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 46,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Green;Small",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$533.00",
+				"price_with_segments": {
+					"main_value": "533",
+					"formatted_value": "533.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "533",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			}
+		],
+		"discounted_price": 0,
+		"discounted_price_with_currency": "$0.00",
+		"discounted_price_with_segments": {
+			"main_value": "0",
+			"formatted_value": "0.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "0",
+				"decimal": "00"
+			}
+		},
+		"regular_price_with_currency": "$49.95",
+		"regular_price_with_segments": {
+			"main_value": "49.95",
+			"formatted_value": "49.95",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "49",
+				"decimal": "95"
+			}
+		},
+		"min_price_with_currency": "$144.00",
+		"min_price_with_segments": {
+			"main_value": "144.00",
+			"formatted_value": "144.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "144",
+				"decimal": "00"
+			}
+		},
+		"discounted_min_price": 0,
+		"discounted_min_price_with_currency": "$0.00",
+		"discounted_min_price_with_segments": {
+			"main_value": "0",
+			"formatted_value": "0.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "0",
+				"decimal": "00"
+			}
+		},
+		"page": "productListPage",
+		"reviewData": {
+			"count": 6,
+			"rating": 4.5
+		},
+		"tags": [],
+		"inWishList": false,
+		"currency_discounted_price": {
+			"main_value": "0",
+			"formatted_value": "0.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "0",
+				"decimal": "00"
+			}
+		},
+		"currency_regular_price": {
+			"main_value": "144",
+			"formatted_value": "144.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "144",
+				"decimal": "00"
+			}
+		},
+		"availability": {
+			"brown": {
+				"availability": true,
+				"level": 1
+			},
+			"gray": {
+				"availability": true,
+				"level": 1
+			},
+			"white": {
+				"availability": true,
+				"level": 1
+			},
+			"green": {
+				"availability": true,
+				"level": 1
+			},
+			"brown;large": {
+				"availability": true,
+				"level": 2
+			},
+			"brown;small": {
+				"availability": false,
+				"level": 2
+			},
+			"gray;large": {
+				"availability": false,
+				"level": 2
+			},
+			"gray;small": {
+				"availability": true,
+				"level": 2
+			},
+			"large;white": {
+				"availability": true,
+				"level": 2
+			},
+			"small;white": {
+				"availability": false,
+				"level": 2
+			},
+			"green;large": {
+				"availability": true,
+				"level": 2
+			},
+			"green;small": {
+				"availability": false,
+				"level": 2
+			}
+		},
+		"active_variant": null,
+		"thumbnail": {
+			"id": 4,
+			"product_id": 2,
+			"name": "1",
+			"is_featured": 1,
+			"src": "/media/com_easystore/images/thumbnail.jpg",
+			"alt_text": "Leather Sofa",
+			"width": null,
+			"height": null,
+			"type": "image"
+		},
+		"prices": {
+			"price": "144.00",
+			"price_with_currency": "$144.00",
+			"price_with_segments": {
+				"main_value": "144.00",
+				"formatted_value": "144.00",
+				"currency_format": "short",
+				"currency_position": "before",
+				"decimal_separator": ".",
+				"thousand_separator": ",",
+				"currency": "$",
+				"segments": {
+					"amount": "144",
+					"decimal": "00"
+				}
+			},
+			"discounted_price": 0,
+			"discounted_price_with_currency": "$0.00",
+			"discounted_price_with_segments": {
+				"main_value": "0",
+				"formatted_value": "0.00",
+				"currency_format": "short",
+				"currency_position": "before",
+				"decimal_separator": ".",
+				"thousand_separator": ",",
+				"currency": "$",
+				"segments": {
+					"amount": "0",
+					"decimal": "00"
+				}
+			}
+		},
+		"stock": {
+			"status": 1,
+			"amount": 0
+		}
+	},
+	{
+		"id": 3,
+		"title": "Bamboo Lamp",
+		"alias": "bamboo-lamp",
+		"catid": 11,
+		"weight": null,
+		"dimension": null,
+		"regular_price": "32.50",
+		"has_sale": 1,
+		"has_variants": 1,
+		"featured": 0,
+		"is_tracking_inventory": 0,
+		"inventory_status": 1,
+		"enable_out_of_stock_sell": 0,
+		"quantity": 0,
+		"sku": "",
+		"additional_data": null,
+		"discount_type": "percent",
+		"discount_value": 10,
+		"published": 1,
+		"access": 0,
+		"ordering": 0,
+		"language": "*",
+		"checked_out": null,
+		"checked_out_time": null,
+		"created": "2023-09-25 13:08:20",
+		"created_by": 484,
+		"modified": "2023-09-25 19:08:20",
+		"modified_by": null,
+		"category_title": "Handbags",
+		"category_alias": "handbags",
+		"min_price": "166.00",
+		"link": "#",
+		"category_link": "#",
+		"is_taxable": 1,
+		"metatitle": "",
+		"metadesc": "",
+		"metakey": "",
+		"metadata": "",
+		"tax_rate": 0,
+		"media": {
+			"gallery": [
+				{
+					"id": 7,
+					"product_id": 3,
+					"name": "1",
+					"is_featured": 1,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "Bamboo Lamp",
+					"width": null,
+					"height": null,
+					"type": "image"
+				},
+				{
+					"id": 8,
+					"product_id": 3,
+					"name": "3",
+					"is_featured": 0,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "3",
+					"width": null,
+					"height": null,
+					"type": "image"
+				},
+				{
+					"id": 9,
+					"product_id": 3,
+					"name": "4",
+					"is_featured": 0,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "4",
+					"width": null,
+					"height": null,
+					"type": "image"
+				}
+			],
+			"thumbnail": {
+				"id": 7,
+				"product_id": 3,
+				"name": "1",
+				"is_featured": 1,
+				"src": "/media/com_easystore/images/thumbnail.jpg",
+				"alt_text": "Bamboo Lamp",
+				"width": null,
+				"height": null,
+				"type": "image"
+			}
+		},
+		"options": [
+			{
+				"id": 5,
+				"name": "Color",
+				"type": "color",
+				"values": [
+					{
+						"id": 13,
+						"name": "Brown",
+						"color": "#D6AF83"
+					},
+					{
+						"id": 14,
+						"name": "Gray",
+						"color": "#989690"
+					},
+					{
+						"id": 15,
+						"name": "White",
+						"color": "#F5F5F5"
+					},
+					{
+						"id": 16,
+						"name": "Green",
+						"color": "#717B5B"
+					}
+				],
+				"isCollapsed": true
+			},
+			{
+				"id": 6,
+				"name": "Size",
+				"type": "list",
+				"values": [
+					{
+						"id": 17,
+						"name": "Large",
+						"color": ""
+					},
+					{
+						"id": 18,
+						"name": "Small",
+						"color": ""
+					}
+				],
+				"isCollapsed": true
+			}
+		],
+		"variants": [
+			{
+				"id": 17,
+				"product_id": 3,
+				"price": 599,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 44,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Brown;Large",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$599.00",
+				"price_with_segments": {
+					"main_value": "599",
+					"formatted_value": "599.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "599",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 18,
+				"product_id": 3,
+				"price": 220,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 34,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Brown;Small",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$220.00",
+				"price_with_segments": {
+					"main_value": "220",
+					"formatted_value": "220.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "220",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 19,
+				"product_id": 3,
+				"price": 281,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 27,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Gray;Large",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$281.00",
+				"price_with_segments": {
+					"main_value": "281",
+					"formatted_value": "281.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "281",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 20,
+				"product_id": 3,
+				"price": 320,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 38,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Gray;Small",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$320.00",
+				"price_with_segments": {
+					"main_value": "320",
+					"formatted_value": "320.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "320",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 21,
+				"product_id": 3,
+				"price": 489,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 19,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Large;White",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$489.00",
+				"price_with_segments": {
+					"main_value": "489",
+					"formatted_value": "489.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "489",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 22,
+				"product_id": 3,
+				"price": 166,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 43,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Small;White",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$166.00",
+				"price_with_segments": {
+					"main_value": "166",
+					"formatted_value": "166.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "166",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 23,
+				"product_id": 3,
+				"price": 300,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 43,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Green;Large",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$300.00",
+				"price_with_segments": {
+					"main_value": "300",
+					"formatted_value": "300.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "300",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 24,
+				"product_id": 3,
+				"price": 399,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 49,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Green;Small",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$399.00",
+				"price_with_segments": {
+					"main_value": "399",
+					"formatted_value": "399.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "399",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			}
+		],
+		"discounted_price": 0,
+		"discounted_price_with_currency": "$0.00",
+		"discounted_price_with_segments": {
+			"main_value": "0",
+			"formatted_value": "0.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "0",
+				"decimal": "00"
+			}
+		},
+		"regular_price_with_currency": "$32.50",
+		"regular_price_with_segments": {
+			"main_value": "32.50",
+			"formatted_value": "32.50",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "32",
+				"decimal": "50"
+			}
+		},
+		"min_price_with_currency": "$166.00",
+		"min_price_with_segments": {
+			"main_value": "166.00",
+			"formatted_value": "166.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "166",
+				"decimal": "00"
+			}
+		},
+		"discounted_min_price": 0,
+		"discounted_min_price_with_currency": "$0.00",
+		"discounted_min_price_with_segments": {
+			"main_value": "0",
+			"formatted_value": "0.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "0",
+				"decimal": "00"
+			}
+		},
+		"page": "productListPage",
+		"reviewData": {
+			"count": 4,
+			"rating": 4.8
+		},
+		"tags": [{}],
+		"inWishList": false,
+		"currency_discounted_price": {
+			"main_value": "0",
+			"formatted_value": "0.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "0",
+				"decimal": "00"
+			}
+		},
+		"currency_regular_price": {
+			"main_value": "166",
+			"formatted_value": "166.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "166",
+				"decimal": "00"
+			}
+		},
+		"availability": {
+			"brown": {
+				"availability": true,
+				"level": 1
+			},
+			"gray": {
+				"availability": true,
+				"level": 1
+			},
+			"white": {
+				"availability": false,
+				"level": 1
+			},
+			"green": {
+				"availability": false,
+				"level": 1
+			},
+			"brown;large": {
+				"availability": true,
+				"level": 2
+			},
+			"brown;small": {
+				"availability": true,
+				"level": 2
+			},
+			"gray;large": {
+				"availability": false,
+				"level": 2
+			},
+			"gray;small": {
+				"availability": true,
+				"level": 2
+			},
+			"large;white": {
+				"availability": false,
+				"level": 2
+			},
+			"small;white": {
+				"availability": false,
+				"level": 2
+			},
+			"green;large": {
+				"availability": false,
+				"level": 2
+			},
+			"green;small": {
+				"availability": false,
+				"level": 2
+			}
+		},
+		"active_variant": null,
+		"thumbnail": {
+			"id": 7,
+			"product_id": 3,
+			"name": "1",
+			"is_featured": 1,
+			"src": "/media/com_easystore/images/thumbnail.jpg",
+			"alt_text": "Bamboo Lamp",
+			"width": null,
+			"height": null,
+			"type": "image"
+		},
+		"prices": {
+			"price": "166.00",
+			"price_with_currency": "$166.00",
+			"price_with_segments": {
+				"main_value": "166.00",
+				"formatted_value": "166.00",
+				"currency_format": "short",
+				"currency_position": "before",
+				"decimal_separator": ".",
+				"thousand_separator": ",",
+				"currency": "$",
+				"segments": {
+					"amount": "166",
+					"decimal": "00"
+				}
+			},
+			"discounted_price": 0,
+			"discounted_price_with_currency": "$0.00",
+			"discounted_price_with_segments": {
+				"main_value": "0",
+				"formatted_value": "0.00",
+				"currency_format": "short",
+				"currency_position": "before",
+				"decimal_separator": ".",
+				"thousand_separator": ",",
+				"currency": "$",
+				"segments": {
+					"amount": "0",
+					"decimal": "00"
+				}
+			}
+		},
+		"stock": {
+			"status": 1,
+			"amount": 0
+		}
+	},
+	{
+		"id": 4,
+		"title": "Ceramic Mug",
+		"alias": "ceramic-mug",
+		"catid": 11,
+		"weight": null,
+		"dimension": null,
+		"regular_price": "129.99",
+		"has_sale": 0,
+		"has_variants": 1,
+		"featured": 0,
+		"is_tracking_inventory": 0,
+		"inventory_status": 1,
+		"enable_out_of_stock_sell": 0,
+		"quantity": 0,
+		"sku": "",
+		"additional_data": null,
+		"discount_type": "percent",
+		"discount_value": null,
+		"published": 1,
+		"access": 0,
+		"ordering": 0,
+		"language": "*",
+		"checked_out": null,
+		"checked_out_time": null,
+		"created": "2023-09-25 13:08:20",
+		"created_by": 484,
+		"modified": "2023-09-25 19:08:20",
+		"modified_by": null,
+		"category_title": "Handbags",
+		"category_alias": "handbags",
+		"min_price": "119.00",
+		"link": "#",
+		"category_link": "#",
+		"is_taxable": 1,
+		"metatitle": "",
+		"metadesc": "",
+		"metakey": "",
+		"metadata": "",
+		"tax_rate": 0,
+		"media": {
+			"gallery": [
+				{
+					"id": 10,
+					"product_id": 4,
+					"name": "1",
+					"is_featured": 1,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "Ceramic Mug",
+					"width": null,
+					"height": null,
+					"type": "image"
+				},
+				{
+					"id": 11,
+					"product_id": 4,
+					"name": "2",
+					"is_featured": 0,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "2",
+					"width": null,
+					"height": null,
+					"type": "image"
+				}
+			],
+			"thumbnail": {
+				"id": 10,
+				"product_id": 4,
+				"name": "1",
+				"is_featured": 1,
+				"src": "/media/com_easystore/images/thumbnail.jpg",
+				"alt_text": "Ceramic Mug",
+				"width": null,
+				"height": null,
+				"type": "image"
+			}
+		},
+		"options": [
+			{
+				"id": 7,
+				"name": "Color",
+				"type": "color",
+				"values": [
+					{
+						"id": 19,
+						"name": "Brown",
+						"color": "#D6AF83"
+					},
+					{
+						"id": 20,
+						"name": "Gray",
+						"color": "#989690"
+					},
+					{
+						"id": 21,
+						"name": "White",
+						"color": "#F5F5F5"
+					},
+					{
+						"id": 22,
+						"name": "Green",
+						"color": "#717B5B"
+					}
+				],
+				"isCollapsed": true
+			},
+			{
+				"id": 8,
+				"name": "Size",
+				"type": "list",
+				"values": [
+					{
+						"id": 23,
+						"name": "Large",
+						"color": ""
+					},
+					{
+						"id": 24,
+						"name": "Small",
+						"color": ""
+					}
+				],
+				"isCollapsed": true
+			}
+		],
+		"variants": [
+			{
+				"id": 25,
+				"product_id": 4,
+				"price": 214,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 44,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Brown;Large",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$214.00",
+				"price_with_segments": {
+					"main_value": "214",
+					"formatted_value": "214.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "214",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 26,
+				"product_id": 4,
+				"price": 560,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 46,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Brown;Small",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$560.00",
+				"price_with_segments": {
+					"main_value": "560",
+					"formatted_value": "560.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "560",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 27,
+				"product_id": 4,
+				"price": 303,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 8,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Gray;Large",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$303.00",
+				"price_with_segments": {
+					"main_value": "303",
+					"formatted_value": "303.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "303",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 28,
+				"product_id": 4,
+				"price": 401,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 11,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Gray;Small",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$401.00",
+				"price_with_segments": {
+					"main_value": "401",
+					"formatted_value": "401.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "401",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 29,
+				"product_id": 4,
+				"price": 255,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 14,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Large;White",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$255.00",
+				"price_with_segments": {
+					"main_value": "255",
+					"formatted_value": "255.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "255",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 30,
+				"product_id": 4,
+				"price": 119,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 18,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Small;White",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$119.00",
+				"price_with_segments": {
+					"main_value": "119",
+					"formatted_value": "119.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "119",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 31,
+				"product_id": 4,
+				"price": 230,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 43,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Green;Large",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$230.00",
+				"price_with_segments": {
+					"main_value": "230",
+					"formatted_value": "230.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "230",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 32,
+				"product_id": 4,
+				"price": 553,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 15,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Green;Small",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$553.00",
+				"price_with_segments": {
+					"main_value": "553",
+					"formatted_value": "553.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "553",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			}
+		],
+		"discounted_price": 0,
+		"discounted_price_with_currency": "$0.00",
+		"discounted_price_with_segments": {
+			"main_value": "0",
+			"formatted_value": "0.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "0",
+				"decimal": "00"
+			}
+		},
+		"regular_price_with_currency": "$129.99",
+		"regular_price_with_segments": {
+			"main_value": "129.99",
+			"formatted_value": "129.99",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "129",
+				"decimal": "99"
+			}
+		},
+		"min_price_with_currency": "$119.00",
+		"min_price_with_segments": {
+			"main_value": "119.00",
+			"formatted_value": "119.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "119",
+				"decimal": "00"
+			}
+		},
+		"discounted_min_price": 0,
+		"discounted_min_price_with_currency": "$0.00",
+		"discounted_min_price_with_segments": {
+			"main_value": "0",
+			"formatted_value": "0.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "0",
+				"decimal": "00"
+			}
+		},
+		"page": "productListPage",
+		"reviewData": {
+			"count": 9,
+			"rating": 4.7
+		},
+		"tags": [],
+		"inWishList": false,
+		"currency_discounted_price": {
+			"main_value": "0",
+			"formatted_value": "0.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "0",
+				"decimal": "00"
+			}
+		},
+		"currency_regular_price": {
+			"main_value": "119",
+			"formatted_value": "119.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "119",
+				"decimal": "00"
+			}
+		},
+		"availability": {
+			"brown": {
+				"availability": true,
+				"level": 1
+			},
+			"gray": {
+				"availability": true,
+				"level": 1
+			},
+			"white": {
+				"availability": true,
+				"level": 1
+			},
+			"green": {
+				"availability": true,
+				"level": 1
+			},
+			"brown;large": {
+				"availability": true,
+				"level": 2
+			},
+			"brown;small": {
+				"availability": false,
+				"level": 2
+			},
+			"gray;large": {
+				"availability": true,
+				"level": 2
+			},
+			"gray;small": {
+				"availability": true,
+				"level": 2
+			},
+			"large;white": {
+				"availability": true,
+				"level": 2
+			},
+			"small;white": {
+				"availability": true,
+				"level": 2
+			},
+			"green;large": {
+				"availability": false,
+				"level": 2
+			},
+			"green;small": {
+				"availability": true,
+				"level": 2
+			}
+		},
+		"active_variant": null,
+		"thumbnail": {
+			"id": 10,
+			"product_id": 4,
+			"name": "1",
+			"is_featured": 1,
+			"src": "/media/com_easystore/images/thumbnail.jpg",
+			"alt_text": "Ceramic Mug",
+			"width": null,
+			"height": null,
+			"type": "image"
+		},
+		"prices": {
+			"price": "119.00",
+			"price_with_currency": "$119.00",
+			"price_with_segments": {
+				"main_value": "119.00",
+				"formatted_value": "119.00",
+				"currency_format": "short",
+				"currency_position": "before",
+				"decimal_separator": ".",
+				"thousand_separator": ",",
+				"currency": "$",
+				"segments": {
+					"amount": "119",
+					"decimal": "00"
+				}
+			},
+			"discounted_price": 0,
+			"discounted_price_with_currency": "$0.00",
+			"discounted_price_with_segments": {
+				"main_value": "0",
+				"formatted_value": "0.00",
+				"currency_format": "short",
+				"currency_position": "before",
+				"decimal_separator": ".",
+				"thousand_separator": ",",
+				"currency": "$",
+				"segments": {
+					"amount": "0",
+					"decimal": "00"
+				}
+			}
+		},
+		"stock": {
+			"status": 1,
+			"amount": 0
+		}
+	},
+	{
+		"id": 5,
+		"title": "Velvet Cushion",
+		"alias": "velvet-cushion",
+		"catid": 11,
+		"weight": null,
+		"dimension": null,
+		"regular_price": "49.95",
+		"has_sale": 0,
+		"has_variants": 1,
+		"featured": 0,
+		"is_tracking_inventory": 0,
+		"inventory_status": 1,
+		"enable_out_of_stock_sell": 0,
+		"quantity": 0,
+		"sku": "",
+		"additional_data": null,
+		"discount_type": "percent",
+		"discount_value": null,
+		"published": 1,
+		"access": 0,
+		"ordering": 0,
+		"language": "*",
+		"checked_out": null,
+		"checked_out_time": null,
+		"created": "2023-09-25 13:08:20",
+		"created_by": 484,
+		"modified": "2023-09-25 19:08:20",
+		"modified_by": null,
+		"category_title": "Handbags",
+		"category_alias": "handbags",
+		"min_price": "106.00",
+		"link": "#",
+		"category_link": "#",
+		"is_taxable": 1,
+		"metatitle": "",
+		"metadesc": "",
+		"metakey": "",
+		"metadata": "",
+		"tax_rate": 0,
+		"media": {
+			"gallery": [
+				{
+					"id": 12,
+					"product_id": 5,
+					"name": "1",
+					"is_featured": 1,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "Velvet Cushion",
+					"width": null,
+					"height": null,
+					"type": "image"
+				},
+				{
+					"id": 13,
+					"product_id": 5,
+					"name": "2.jpg",
+					"is_featured": 0,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "2",
+					"width": null,
+					"height": null,
+					"type": "image"
+				},
+				{
+					"id": 14,
+					"product_id": 5,
+					"name": "3",
+					"is_featured": 0,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "3",
+					"width": null,
+					"height": null,
+					"type": "image"
+				}
+			],
+			"thumbnail": {
+				"id": 12,
+				"product_id": 5,
+				"name": "1",
+				"is_featured": 1,
+				"src": "/media/com_easystore/images/thumbnail.jpg",
+				"alt_text": "Velvet Cushion",
+				"width": null,
+				"height": null,
+				"type": "image"
+			}
+		},
+		"options": [
+			{
+				"id": 9,
+				"name": "Color",
+				"type": "color",
+				"values": [
+					{
+						"id": 25,
+						"name": "Brown",
+						"color": "#D6AF83"
+					},
+					{
+						"id": 26,
+						"name": "Gray",
+						"color": "#989690"
+					},
+					{
+						"id": 27,
+						"name": "White",
+						"color": "#F5F5F5"
+					},
+					{
+						"id": 28,
+						"name": "Green",
+						"color": "#717B5B"
+					}
+				],
+				"isCollapsed": true
+			},
+			{
+				"id": 10,
+				"name": "Size",
+				"type": "list",
+				"values": [
+					{
+						"id": 29,
+						"name": "Large",
+						"color": ""
+					},
+					{
+						"id": 30,
+						"name": "Small",
+						"color": ""
+					}
+				],
+				"isCollapsed": true
+			}
+		],
+		"variants": [
+			{
+				"id": 33,
+				"product_id": 5,
+				"price": 175,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 39,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Brown;Large",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$175.00",
+				"price_with_segments": {
+					"main_value": "175",
+					"formatted_value": "175.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "175",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 34,
+				"product_id": 5,
+				"price": 328,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 29,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Brown;Small",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$328.00",
+				"price_with_segments": {
+					"main_value": "328",
+					"formatted_value": "328.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "328",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 35,
+				"product_id": 5,
+				"price": 447,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 34,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Gray;Large",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$447.00",
+				"price_with_segments": {
+					"main_value": "447",
+					"formatted_value": "447.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "447",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 36,
+				"product_id": 5,
+				"price": 106,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 9,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Gray;Small",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$106.00",
+				"price_with_segments": {
+					"main_value": "106",
+					"formatted_value": "106.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "106",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 37,
+				"product_id": 5,
+				"price": 194,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 8,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Large;White",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$194.00",
+				"price_with_segments": {
+					"main_value": "194",
+					"formatted_value": "194.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "194",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 38,
+				"product_id": 5,
+				"price": 518,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 20,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Small;White",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$518.00",
+				"price_with_segments": {
+					"main_value": "518",
+					"formatted_value": "518.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "518",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 39,
+				"product_id": 5,
+				"price": 396,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 21,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Green;Large",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$396.00",
+				"price_with_segments": {
+					"main_value": "396",
+					"formatted_value": "396.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "396",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 40,
+				"product_id": 5,
+				"price": 564,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 13,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Green;Small",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$564.00",
+				"price_with_segments": {
+					"main_value": "564",
+					"formatted_value": "564.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "564",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			}
+		],
+		"discounted_price": 0,
+		"discounted_price_with_currency": "$0.00",
+		"discounted_price_with_segments": {
+			"main_value": "0",
+			"formatted_value": "0.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "0",
+				"decimal": "00"
+			}
+		},
+		"regular_price_with_currency": "$49.95",
+		"regular_price_with_segments": {
+			"main_value": "49.95",
+			"formatted_value": "49.95",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "49",
+				"decimal": "95"
+			}
+		},
+		"min_price_with_currency": "$106.00",
+		"min_price_with_segments": {
+			"main_value": "106.00",
+			"formatted_value": "106.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "106",
+				"decimal": "00"
+			}
+		},
+		"discounted_min_price": 0,
+		"discounted_min_price_with_currency": "$0.00",
+		"discounted_min_price_with_segments": {
+			"main_value": "0",
+			"formatted_value": "0.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "0",
+				"decimal": "00"
+			}
+		},
+		"page": "productListPage",
+		"reviewData": {
+			"count": 10,
+			"rating": 4.6
+		},
+		"tags": [],
+		"inWishList": false,
+		"currency_discounted_price": {
+			"main_value": "0",
+			"formatted_value": "0.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "0",
+				"decimal": "00"
+			}
+		},
+		"currency_regular_price": {
+			"main_value": "106",
+			"formatted_value": "106.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "106",
+				"decimal": "00"
+			}
+		},
+		"availability": {
+			"brown": {
+				"availability": true,
+				"level": 1
+			},
+			"gray": {
+				"availability": true,
+				"level": 1
+			},
+			"white": {
+				"availability": false,
+				"level": 1
+			},
+			"green": {
+				"availability": false,
+				"level": 1
+			},
+			"brown;large": {
+				"availability": false,
+				"level": 2
+			},
+			"brown;small": {
+				"availability": true,
+				"level": 2
+			},
+			"gray;large": {
+				"availability": true,
+				"level": 2
+			},
+			"gray;small": {
+				"availability": true,
+				"level": 2
+			},
+			"large;white": {
+				"availability": false,
+				"level": 2
+			},
+			"small;white": {
+				"availability": false,
+				"level": 2
+			},
+			"green;large": {
+				"availability": false,
+				"level": 2
+			},
+			"green;small": {
+				"availability": false,
+				"level": 2
+			}
+		},
+		"active_variant": null,
+		"thumbnail": {
+			"id": 12,
+			"product_id": 5,
+			"name": "1",
+			"is_featured": 1,
+			"src": "/media/com_easystore/images/thumbnail.jpg",
+			"alt_text": "Velvet Cushion",
+			"width": null,
+			"height": null,
+			"type": "image"
+		},
+		"prices": {
+			"price": "106.00",
+			"price_with_currency": "$106.00",
+			"price_with_segments": {
+				"main_value": "106.00",
+				"formatted_value": "106.00",
+				"currency_format": "short",
+				"currency_position": "before",
+				"decimal_separator": ".",
+				"thousand_separator": ",",
+				"currency": "$",
+				"segments": {
+					"amount": "106",
+					"decimal": "00"
+				}
+			},
+			"discounted_price": 0,
+			"discounted_price_with_currency": "$0.00",
+			"discounted_price_with_segments": {
+				"main_value": "0",
+				"formatted_value": "0.00",
+				"currency_format": "short",
+				"currency_position": "before",
+				"decimal_separator": ".",
+				"thousand_separator": ",",
+				"currency": "$",
+				"segments": {
+					"amount": "0",
+					"decimal": "00"
+				}
+			}
+		},
+		"stock": {
+			"status": 1,
+			"amount": 0
+		}
+	},
+	{
+		"id": 6,
+		"title": "Glass Vase",
+		"alias": "glass-vase",
+		"catid": 11,
+		"weight": null,
+		"dimension": null,
+		"regular_price": "74.95",
+		"has_sale": 0,
+		"has_variants": 1,
+		"featured": 0,
+		"is_tracking_inventory": 0,
+		"inventory_status": 1,
+		"enable_out_of_stock_sell": 0,
+		"quantity": 0,
+		"sku": "",
+		"additional_data": null,
+		"discount_type": "percent",
+		"discount_value": null,
+		"published": 1,
+		"access": 0,
+		"ordering": 0,
+		"language": "*",
+		"checked_out": null,
+		"checked_out_time": null,
+		"created": "2023-09-25 13:08:20",
+		"created_by": 484,
+		"modified": "2023-09-25 19:08:20",
+		"modified_by": null,
+		"category_title": "Handbags",
+		"category_alias": "handbags",
+		"min_price": "261.00",
+		"link": "#",
+		"category_link": "#",
+		"is_taxable": 1,
+		"metatitle": "",
+		"metadesc": "",
+		"metakey": "",
+		"metadata": "",
+		"tax_rate": 0,
+		"media": {
+			"gallery": [
+				{
+					"id": 15,
+					"product_id": 6,
+					"name": "1",
+					"is_featured": 1,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "Glass Vase",
+					"width": null,
+					"height": null,
+					"type": "image"
+				},
+				{
+					"id": 16,
+					"product_id": 6,
+					"name": "2",
+					"is_featured": 0,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "2",
+					"width": null,
+					"height": null,
+					"type": "image"
+				},
+				{
+					"id": 17,
+					"product_id": 6,
+					"name": "3",
+					"is_featured": 0,
+					"src": "/media/com_easystore/images/thumbnail.jpg",
+					"alt_text": "3",
+					"width": null,
+					"height": null,
+					"type": "image"
+				}
+			],
+			"thumbnail": {
+				"id": 15,
+				"product_id": 6,
+				"name": "1",
+				"is_featured": 1,
+				"src": "/media/com_easystore/images/thumbnail.jpg",
+				"alt_text": "Glass Vase",
+				"width": null,
+				"height": null,
+				"type": "image"
+			}
+		},
+		"options": [
+			{
+				"id": 11,
+				"name": "Color",
+				"type": "color",
+				"values": [
+					{
+						"id": 31,
+						"name": "Brown",
+						"color": "#D6AF83"
+					},
+					{
+						"id": 32,
+						"name": "Gray",
+						"color": "#989690"
+					},
+					{
+						"id": 33,
+						"name": "White",
+						"color": "#F5F5F5"
+					},
+					{
+						"id": 34,
+						"name": "Green",
+						"color": "#717B5B"
+					}
+				],
+				"isCollapsed": true
+			},
+			{
+				"id": 12,
+				"name": "Size",
+				"type": "list",
+				"values": [
+					{
+						"id": 35,
+						"name": "Large",
+						"color": ""
+					},
+					{
+						"id": 36,
+						"name": "Small",
+						"color": ""
+					}
+				],
+				"isCollapsed": true
+			}
+		],
+		"variants": [
+			{
+				"id": 41,
+				"product_id": 6,
+				"price": 514,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 32,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Brown;Large",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$514.00",
+				"price_with_segments": {
+					"main_value": "514",
+					"formatted_value": "514.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "514",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 42,
+				"product_id": 6,
+				"price": 360,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 24,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Brown;Small",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$360.00",
+				"price_with_segments": {
+					"main_value": "360",
+					"formatted_value": "360.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "360",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 43,
+				"product_id": 6,
+				"price": 412,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 42,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Gray;Large",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$412.00",
+				"price_with_segments": {
+					"main_value": "412",
+					"formatted_value": "412.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "412",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 44,
+				"product_id": 6,
+				"price": 467,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 20,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Gray;Small",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$467.00",
+				"price_with_segments": {
+					"main_value": "467",
+					"formatted_value": "467.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "467",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 45,
+				"product_id": 6,
+				"price": 577,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 26,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Large;White",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$577.00",
+				"price_with_segments": {
+					"main_value": "577",
+					"formatted_value": "577.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "577",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 46,
+				"product_id": 6,
+				"price": 575,
+				"visibility": true,
+				"inventory_status": false,
+				"inventory_amount": 21,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Small;White",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$575.00",
+				"price_with_segments": {
+					"main_value": "575",
+					"formatted_value": "575.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "575",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 47,
+				"product_id": 6,
+				"price": 261,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 12,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Green;Large",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$261.00",
+				"price_with_segments": {
+					"main_value": "261",
+					"formatted_value": "261.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "261",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			},
+			{
+				"id": 48,
+				"product_id": 6,
+				"price": 491,
+				"visibility": true,
+				"inventory_status": true,
+				"inventory_amount": 34,
+				"sku": "",
+				"weight": "",
+				"image": null,
+				"combination": "Green;Small",
+				"is_tracking_inventory": 0,
+				"price_with_currency": "$491.00",
+				"price_with_segments": {
+					"main_value": "491",
+					"formatted_value": "491.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "491",
+						"decimal": "00"
+					}
+				},
+				"discounted_price": 0,
+				"discounted_price_with_currency": "$0.00",
+				"discounted_price_with_segments": {
+					"main_value": "0",
+					"formatted_value": "0.00",
+					"currency_format": "short",
+					"currency_position": "before",
+					"decimal_separator": ".",
+					"thousand_separator": ",",
+					"currency": "$",
+					"segments": {
+						"amount": "0",
+						"decimal": "00"
+					}
+				}
+			}
+		],
+		"discounted_price": 0,
+		"discounted_price_with_currency": "$0.00",
+		"discounted_price_with_segments": {
+			"main_value": "0",
+			"formatted_value": "0.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "0",
+				"decimal": "00"
+			}
+		},
+		"regular_price_with_currency": "$74.95",
+		"regular_price_with_segments": {
+			"main_value": "74.95",
+			"formatted_value": "74.95",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "74",
+				"decimal": "95"
+			}
+		},
+		"min_price_with_currency": "$261.00",
+		"min_price_with_segments": {
+			"main_value": "261.00",
+			"formatted_value": "261.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "261",
+				"decimal": "00"
+			}
+		},
+		"discounted_min_price": 0,
+		"discounted_min_price_with_currency": "$0.00",
+		"discounted_min_price_with_segments": {
+			"main_value": "0",
+			"formatted_value": "0.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "0",
+				"decimal": "00"
+			}
+		},
+		"page": "productListPage",
+		"reviewData": {
+			"count": 5,
+			"rating": 4.8
+		},
+		"tags": [
+			{
+				"id": "1",
+				"title": "Summer",
+				"alias": "summer"
+			}
+		],
+		"inWishList": false,
+		"currency_discounted_price": {
+			"main_value": "0",
+			"formatted_value": "0.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "0",
+				"decimal": "00"
+			}
+		},
+		"currency_regular_price": {
+			"main_value": "261",
+			"formatted_value": "261.00",
+			"currency_format": "short",
+			"currency_position": "before",
+			"decimal_separator": ".",
+			"thousand_separator": ",",
+			"currency": "$",
+			"segments": {
+				"amount": "261",
+				"decimal": "00"
+			}
+		},
+		"availability": {
+			"brown": {
+				"availability": true,
+				"level": 1
+			},
+			"gray": {
+				"availability": true,
+				"level": 1
+			},
+			"white": {
+				"availability": false,
+				"level": 1
+			},
+			"green": {
+				"availability": true,
+				"level": 1
+			},
+			"brown;large": {
+				"availability": true,
+				"level": 2
+			},
+			"brown;small": {
+				"availability": false,
+				"level": 2
+			},
+			"gray;large": {
+				"availability": true,
+				"level": 2
+			},
+			"gray;small": {
+				"availability": false,
+				"level": 2
+			},
+			"large;white": {
+				"availability": false,
+				"level": 2
+			},
+			"small;white": {
+				"availability": false,
+				"level": 2
+			},
+			"green;large": {
+				"availability": true,
+				"level": 2
+			},
+			"green;small": {
+				"availability": true,
+				"level": 2
+			}
+		},
+		"active_variant": null,
+		"thumbnail": {
+			"id": 15,
+			"product_id": 6,
+			"name": "1",
+			"is_featured": 1,
+			"src": "/media/com_easystore/images/thumbnail.jpg",
+			"alt_text": "Glass Vase",
+			"width": null,
+			"height": null,
+			"type": "image"
+		},
+		"prices": {
+			"price": "261.00",
+			"price_with_currency": "$261.00",
+			"price_with_segments": {
+				"main_value": "261.00",
+				"formatted_value": "261.00",
+				"currency_format": "short",
+				"currency_position": "before",
+				"decimal_separator": ".",
+				"thousand_separator": ",",
+				"currency": "$",
+				"segments": {
+					"amount": "261",
+					"decimal": "00"
+				}
+			},
+			"discounted_price": 0,
+			"discounted_price_with_currency": "$0.00",
+			"discounted_price_with_segments": {
+				"main_value": "0",
+				"formatted_value": "0.00",
+				"currency_format": "short",
+				"currency_position": "before",
+				"decimal_separator": ".",
+				"thousand_separator": ",",
+				"currency": "$",
+				"segments": {
+					"amount": "0",
+					"decimal": "00"
+				}
+			}
+		},
+		"stock": {
+			"status": 1,
+			"amount": 0
+		}
+	}
+]

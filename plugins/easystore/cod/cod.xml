@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="easystore" method="upgrade">
+	<name>PLG_EASYSTORE_COD</name>
+	<author>JoomShaper</author>
+	<creationDate>2024-01</creationDate>
+	<copyright>(C) 2024 JoomShaper.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>support@joomshaper.com</authorEmail>
+	<authorUrl>www.joomshaper.com</authorUrl>
+	<version>1.0.1</version>
+	<description>PLG_EASYSTORE_COD_XML_DESCRIPTION</description>
+	<namespace path="src">JoomShaper\Plugin\EasyStore\CashOnDelivery</namespace>
+
+	<files>
+		<folder plugin="cod">services</folder>
+		<folder>assets</folder>
+		<folder>src</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">plg_easystore_cod.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="title"
+					type="text"
+					label="PLG_EASYSTORE_COD_TITLE"
+					default="Cash On Delivery"
+    			/>
+
+				<field
+					name="payment_type"
+					type="hidden"
+					default="manual"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

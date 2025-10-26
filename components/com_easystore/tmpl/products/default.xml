@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="COM_EASYSTORE_PRODUCTS_MENU_TITLE">
+        <message><![CDATA[COM_EASYSTORE_PRODUCTS_MENU_DESC]]></message>
+    </layout>
+
+    <fields name="request">
+        <fieldset name="request" addfieldprefix="JoomShaper\Component\EasyStore\Administrator\Field">
+            <field name="catid" type="EasystoreItemList" label="COM_EASYSTORE_CATEGORY" table_name="#__easystore_categories" key_field="id" value_field="title" required="true" validate="options">
+                <option value="0">COM_EASYSTORE_FIELD_EMPTY_LABEL</option>
+            </field>
+        </fieldset>
+    </fields>
+</metadata>

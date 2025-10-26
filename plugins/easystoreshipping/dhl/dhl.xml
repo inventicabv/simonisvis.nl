@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="easystoreshipping" method="upgrade">
+    <name>PLG_EASYSTORESHIPPING_DHL</name>
+    <version>1.0.0</version>
+    <releaseDate>2025-08-22</releaseDate>
+    <author>JoomShaper</author>
+    <authorEmail>support@joomshaper.com</authorEmail>
+    <authorUrl>https://www.joomshaper.com</authorUrl>
+    <copyright>Copyright (C) 2023 - 2025 JoomShaper. All rights reserved.</copyright>
+    <license>GNU General Public License version 3</license>
+    <description>PLG_EASYSTORESHIPPING_DHL_DESC</description>
+    <namespace path="src">JoomShaper\Plugin\EasyStoreShipping\Dhl</namespace>
+    <files>
+        <folder plugin="dhl">services</folder>
+        <folder>assets</folder>
+        <folder>src</folder>
+        <folder>language</folder>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/en-GB.plg_easystoreshipping_dhl.ini</language>
+        <language tag="en-GB">language/en-GB/en-GB.plg_easystoreshipping_dhl.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="title"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_DHL_TITLE"
+                    description="PLG_EASYSTORESHIPPING_DHL_TITLE_DESC"
+                    default="DHL"
+                />
+                <field
+                    name="environment"
+                    type="radio"
+                    label="PLG_EASYSTORESHIPPING_DHL_ENVIRONMENT_LABEL"
+                    description="PLG_EASYSTORESHIPPING_DHL_ENVIRONMENT_DESC"
+                    default="mock"
+                    class="btn-group btn-group-yesno"
+                >
+                    <option value="mock">PLG_EASYSTORESHIPPING_DHL_MOCK</option>
+                    <option value="test">PLG_EASYSTORESHIPPING_DHL_TEST</option>
+                    <option value="live">PLG_EASYSTORESHIPPING_DHL_LIVE</option>
+                </field>
+                <field
+                    name="api_key"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_DHL_API_KEY_LABEL"
+                    description="PLG_EASYSTORESHIPPING_DHL_API_KEY_DESC"
+                    showon="environment:live"
+                />
+                <field
+                    name="api_secret"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_DHL_API_SECRET_LABEL"
+                    description="PLG_EASYSTORESHIPPING_DHL_API_SECRET_DESC"
+                    showon="environment:live"
+                />
+                <field
+                    name="test_api_key"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_DHL_TEST_API_KEY_LABEL"
+                    description="PLG_EASYSTORESHIPPING_DHL_TEST_API_KEY_DESC"
+                    showon="environment:test"
+                />
+                <field
+                    name="test_api_secret"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_DHL_TEST_API_SECRET_LABEL"
+                    description="PLG_EASYSTORESHIPPING_DHL_TEST_API_SECRET_DESC"
+                    showon="environment:test"
+                />
+                <field
+                    name="account_number"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_DHL_ACCOUNT_NUMBER_LABEL"
+                    description="PLG_EASYSTORESHIPPING_DHL_ACCOUNT_NUMBER_DESC"
+                    showon="environment:live"
+                />
+                <field
+                    name="test_account_number"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_DHL_TEST_ACCOUNT_NUMBER_LABEL"
+                    description="PLG_EASYSTORESHIPPING_DHL_TEST_ACCOUNT_NUMBER_DESC"
+                    showon="environment:test"
+                />
+                <field
+                    name="default_weight"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_DHL_DEFAULT_WEIGHT_LABEL"
+                    description="PLG_EASYSTORESHIPPING_DHL_DEFAULT_WEIGHT_DESC"
+                    default="5.5"
+                />
+                <field
+                    name="default_length"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_DHL_DEFAULT_LENGTH_LABEL"
+                    description="PLG_EASYSTORESHIPPING_DHL_DEFAULT_LENGTH_DESC"
+                    default="10"
+                />
+                <field
+                    name="default_width"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_DHL_DEFAULT_WIDTH_LABEL"
+                    description="PLG_EASYSTORESHIPPING_DHL_DEFAULT_WIDTH_DESC"
+                    default="5"
+                />
+                <field
+                    name="default_height"
+                    type="text"
+                    label="PLG_EASYSTORESHIPPING_DHL_DEFAULT_HEIGHT_LABEL"
+                    description="PLG_EASYSTORESHIPPING_DHL_DEFAULT_HEIGHT_DESC"
+                    default="5"
+                />
+                
+                <field
+                    name="handling_fee"
+                    type="number"
+                    label="PLG_EASYSTORESHIPPING_DHL_HANDLING_FEE_LABEL"
+                    description="PLG_EASYSTORESHIPPING_DHL_HANDLING_FEE_DESC"
+                    class="input-medium"
+                    default="0.00"
+                    min="0"
+                    step="0.01"
+                />
+                <field
+                    name="is_customs_declarable"
+                    type="radio"
+                    label="PLG_EASYSTORESHIPPING_DHL_IS_CUSTOMS_DECLARABLE_LABEL"
+                    description="PLG_EASYSTORESHIPPING_DHL_IS_CUSTOMS_DECLARABLE_DESC"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                >
+                    <option value="0">JYES</option>
+                    <option value="1">JNO</option>
+                </field>
+                <field
+                    name="unit_of_measurement"
+                    type="list"
+                    label="PLG_EASYSTORESHIPPING_DHL_UNIT_OF_MEASUREMENT_LABEL"
+                    description="PLG_EASYSTORESHIPPING_DHL_UNIT_OF_MEASUREMENT_DESC"
+                    default="metric"
+                >
+                    <option value="metric">Metric</option>
+                    <option value="imperial">Imperial</option>
+                </field>
+                <field
+                    name="currency"
+                    type="subform"
+                    label="PLG_EASYSTORESHIPPING_DHL_CURRENCY_LABEL"
+                    description="PLG_EASYSTORESHIPPING_DHL_CURRENCY_DESC"
+                    multiple="true"
+                    layout="joomla.form.field.subform.repeatable-table"
+                    groupByFieldset="false"
+                    class="currency-rates-grid">
+                    <form>
+                        <field
+                            name="currency"
+                            type="list"
+                            label="PLG_EASYSTORESHIPPING_DHL_CURRENCY_LABEL"
+                            description="PLG_EASYSTORESHIPPING_DHL_CURRENCY_DESC"
+                            class="input-xlarge"
+                            required="true">
+                            <option value="USD">US Dollar</option>
+                            <option value="EUR">Euro</option>
+                            <option value="GBP">Pound Sterling</option>
+                            <option value="JPY">Japanese Yen</option>
+                            <option value="CNY">Chinese Yuan</option>
+                            <option value="AUD">Australian Dollar</option>
+                            <option value="CAD">Canadian Dollar</option>
+                            <option value="CHF">Swiss Franc</option>
+                            <option value="DKK">Danish Krone</option>
+                            <option value="HKD">Hong Kong Dollar</option>
+                            <option value="NOK">Norwegian Krone</option>
+                            <option value="SEK">Swedish Krona</option>
+                            <option value="SGD">Singapore Dollar</option>
+                            <option value="THB">Thai Baht</option>
+                            <option value="IDR">Indonesian Rupiah</option>
+                            <option value="TRY">Turkish Lira</option>
+                            <option value="VND">Vietnamese Dong</option>
+                            <option value="ZAR">South African Rand</option>
+                            <option value="KRW">South Korean Won</option>
+                            <option value="MXN">Mexican Peso</option>
+                            <option value="AED">United Arab Emirates Dirham</option>
+                            <option value="INR">Indian Rupee</option>
+                            <option value="RUB">Russian Ruble</option>
+                            <option value="SAR">Saudi Riyal</option>
+                        </field>
+                        <field
+                            name="rate"
+                            type="number"
+                            label="PLG_EASYSTORESHIPPING_DHL_CURRENCY_RATES_RATE_LABEL"
+                            description="PLG_EASYSTORESHIPPING_DHL_CURRENCY_RATES_RATE_DESC"
+                            class="input-medium"
+                            default="0.00"
+                            min="0"
+                            step="0.01"
+                        />
+                    </form>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+    <updateservers>
+        <server type="extension" priority="1" name="DHL - EasyStore Shipping Plugin">
+            https://www.joomshaper.com/updates/easystore-dhl.xml
+        </server>
+    </updateservers>
+</extension>

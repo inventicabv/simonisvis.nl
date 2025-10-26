@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="user" method="upgrade">
+	<name>EasyStore Customer Profile Plugin</name>
+	<author>JoomShaper</author>
+	<creationDate>2024-07</creationDate>
+	<copyright>(C) 2024 JoomShaper.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>support@joomshaper.com</authorEmail>
+	<authorUrl>www.joomshaper.com</authorUrl>
+	<version>1.0.0</version>
+	<description>EasyStore Cutomer Profile Plugin</description>
+	<namespace path="src">JoomShaper\Plugin\User\EasyStoreProfile</namespace>
+	<files>
+		<folder plugin="easystoreprofile">services</folder>
+		<folder>src</folder>
+	</files>
+	<config>
+		<fields name="params">
+		</fields>
+	</config>
+</extension>

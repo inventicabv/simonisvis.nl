@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form addfieldprefix="JoomShaper\Component\EasyStore\Administrator\Field">
+	<fieldset name="core">
+		<field
+			name="id"
+			type="hidden"
+			filter="integer"
+		/>
+
+		<field
+			name="name"
+			type="text"
+			label="COM_EASYSTORE_PROFILE_LABEL_FULL_NAME"
+			filter="string"
+			required="true"
+		/>
+
+		<field
+			name="username"
+			type="text"
+			label="COM_EASYSTORE_PROFILE_LABEL_USERNAME"
+			class="validate-username"
+			filter="string"
+			required="true"
+			size="30"
+		/>
+
+		<field
+			name="password1"
+			type="password"
+			label="COM_EASYSTORE_PROFILE_LABEL_PASSWORD"
+			autocomplete="new-password"
+			class="validate-password"
+			filter="raw"
+			size="30"
+			validate="password"
+		/>
+
+		<field
+			name="password2"
+			type="password"
+			label="COM_EASYSTORE_PROFILE_LABEL_CONFIRM_PASSWORD"
+			autocomplete="new-password"
+			class="validate-password"
+			field="password1"
+			filter="raw"
+			message="COM_EASYSTORE_PROFILE_LABEL_CONFIRM_PASSWORD_MESSAGE"
+			size="30"
+			validate="equals"
+		/>
+
+		<field
+			name="email1"
+			type="email"
+			label="COM_EASYSTORE_PROFILE_LABEL_EMAIL"
+			filter="string"
+			required="true"
+			size="30"
+			unique="true"
+			validate="email"
+			validDomains="com_easystore.domains"
+			autocomplete="email"
+		/>
+
+		<field 
+			name="phone"
+			type="text"
+			label="COM_EASYSTORE_USERS_PHONE"
+			filter="string"
+			required="true"
+		/>
+
+		<field
+			name="company_name"
+			type="text"
+			label="COM_EASYSTORE_PROFILE_LABEL_COMPANY_NAME"
+			filter="string"
+		/>
+		<field
+			name="company_id"
+			type="text"
+			label="COM_EASYSTORE_PROFILE_LABEL_COMPANY_ID"
+			filter="string"
+		/>
+
+		<field
+			name="vat_information"
+			type="text"
+			label="COM_EASYSTORE_PROFILE_LABEL_VATIN"
+			filter="string"
+		/>
+
+		<field
+			name="image"
+			type="file"
+			label="COM_EASYSTORE_PROFILE_IMAGE"
+		/>
+	</fieldset>
+
+	<fieldset name="shipping-address">
+		<field
+			name="shipping_customer_name"
+			type="text"
+			label="COM_EASYSTORE_PROFILE_LABEL_NAME"
+			filter="string"
+			required="true"
+		/>
+		<field
+			name="shipping_country"
+			type="EasystoreCountry"
+			label="COM_EASYSTORE_PROFILE_COUNTRY"
+			listType="country"
+			required="true"
+		/>
+		<field
+			name="shipping_state"
+			type="EasystoreCountry"
+			label="COM_EASYSTORE_PROFILE_STATE"
+			listType="state"
+		/>
+		<field
+			name="shipping_city"
+			type="text"
+			label="COM_EASYSTORE_PROFILE_CITY"
+			filter="string"
+			required="true"
+		/>
+		<field
+			name="shipping_zip_code"
+			type="text"
+			label="COM_EASYSTORE_PROFILE_ZIP"
+			filter="string"
+			required="true"
+		/>
+		<field
+			name="shipping_address_1"
+			type="text"
+			label="COM_EASYSTORE_PROFILE_ADDRESS1"
+			filter="string"
+			required="true"
+		/>
+		<field
+			name="shipping_address_2"
+			type="text"
+			label="COM_EASYSTORE_PROFILE_ADDRESS2"
+			filter="string"
+		/>
+	</fieldset>
+
+	<fieldset name="check-address">
+		<field
+            name="is_billing_same"
+			label="COM_EASYSTORE_PROFILE_LABEL_SAME_AS_SHIPPING"
+			layout="joomla.form.field.radio.switcher"
+            type="radio"
+			default="0"
+        >
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+        </field>
+
+	</fieldset>
+
+	<fieldset name="billing-address">
+		
+		<field
+			name="billing_customer_name"
+			type="text"
+			label="COM_EASYSTORE_PROFILE_LABEL_NAME"
+			filter="string"
+			showon="is_billing_same:0"
+		/>
+		<field
+			name="billing_country"
+			type="EasystoreCountry"
+			label="COM_EASYSTORE_PROFILE_COUNTRY"
+			listType="country"
+			showon="is_billing_same:0"
+		/>
+		<field
+			name="billing_state"
+			type="EasystoreCountry"
+			label="COM_EASYSTORE_PROFILE_STATE"
+			listType="state"
+			showon="is_billing_same:0"
+		/>
+		<field
+			name="billing_city"
+			type="text"
+			label="COM_EASYSTORE_PROFILE_CITY"
+			filter="string"
+			showon="is_billing_same:0"
+		/>
+		<field
+			name="billing_zip_code"
+			type="text"
+			label="COM_EASYSTORE_PROFILE_ZIP"
+			filter="string"
+			showon="is_billing_same:0"
+		/>
+		<field
+			name="billing_address_1"
+			type="text"
+			label="COM_EASYSTORE_PROFILE_ADDRESS1"
+			filter="string"
+			showon="is_billing_same:0"
+		/>
+		<field
+			name="billing_address_2"
+			type="text"
+			label="COM_EASYSTORE_PROFILE_ADDRESS2"
+			filter="string"
+			showon="is_billing_same:0"
+		/>
+	</fieldset>
+</form>

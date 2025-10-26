@@ -1,0 +1,70 @@
+:root {
+	--easystore-container-max-width: 1320px;
+	--easystore-primary-color: #3366ff;
+	--easystore-primary-color-hover: #003df5;
+	--easystore-color-neutral: #c9cbcf;
+}
+
+/* Migration Popup */
+.easystore-migration-popup {
+	position: fixed;
+	right: 20px;
+	background: #fff;
+	width: 388px;
+	bottom: 20px;
+	border-radius: 8px;
+	padding: 24px;
+	box-shadow: 0px 30px 72px 0px #11121333, 0px 0px 2px 0px #11121333;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+.easystore-migration-popup:has(.easystore-hidden) {
+	border: 1px solid var(--easystore-primary-color);
+}
+.easystore-migration-title-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.easystore-migration-title-wrapper {
+	cursor: pointer;
+}
+.easystore-migration-popup-title {
+	font-size: 16px;
+	font-weight: 500;
+	color: #515257;
+	margin: 0;
+}
+.easystore-migration-title-wrapper > svg {
+	transition: transform 0.3s;
+}
+.easystore-migration-title-wrapper > svg.easystore-rotate {
+	transform: rotate(180deg);
+}
+.easystore-migration-content-wrapper {
+	transition: all 2s;
+}
+.easystore-migration-content-wrapper.easystore-hidden {
+	display: none;
+}
+.easystore-migration-popup-content {
+	font-size: 14px;
+	font-weight: 400;
+	color: #515257;
+	margin-bottom: 24px;
+}
+.easystore-migration-popup-btn {
+	background: var(--easystore-primary-color);
+	color: #fff;
+	padding: 8px 16px;
+	border-radius: 6px;
+	box-shadow: 0px -1px 0.25px 0px #1112133d inset, 0px 1px 0.25px 0px #11121314;
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+}
+.easystore-migration-popup-btn:hover {
+	background: var(--easystore-primary-color-hover);
+	color: #fff;
+}

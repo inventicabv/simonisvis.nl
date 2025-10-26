@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="finder" method="upgrade">
+	<name>plg_finder_easystore</name>
+	<author>JoomShaper</author>
+	<creationDate>2024-01</creationDate>
+	<copyright>(C) 2023 - 2025 JoomShaper.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>support@joomshaper.com</authorEmail>
+	<authorUrl>www.joomshaper.com</authorUrl>
+	<version>1.0.0</version>
+	<description>PLG_FINDER_EASYSTORE_XML_DESCRIPTION</description>
+	<namespace path="src">JoomShaper\Plugin\Finder\Easystore</namespace>
+	<files>
+		<folder plugin="easystore">services</folder>
+		<folder>src</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">plg_finder_easystore.ini</language>
+		<language tag="en-GB">plg_finder_easystore.sys.ini</language>
+	</languages>
+</extension>

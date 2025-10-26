@@ -1,0 +1,1 @@
+function easystore_formatPrice(r=""){if(r){return r.replace(/&nbsp;/g," ")}return r}

@@ -1,0 +1,205 @@
+<?php
+
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_easystore
+ *
+ * @copyright   (C) 2023 - 2025 JoomShaper. <https://www.joomshaper.com>
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
+
+use Joomla\CMS\Factory;
+use Joomla\CMS\Router\Route;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Session\Session;
+use Joomla\CMS\Layout\LayoutHelper;
+use Joomla\CMS\Language\Multilanguage;
+use JoomShaper\Component\EasyStore\Administrator\Supports\AccessControl;
+
+/** @var \Joomla\CMS\WebAsset\WebAssetManager $wa */
+$wa = $this->document->getWebAssetManager();
+$wa->useStyle('com_easystore.admin')
+    ->useScript('table.columns')
+    ->useScript('multiselect');
+
+$app       = Factory::getApplication();
+$user      = Factory::getApplication()->getIdentity();
+$userId    = $user->get('id');
+$listOrder = $this->escape($this->state->get('list.ordering'));
+$listDirn  = $this->escape($this->state->get('list.direction'));
+$saveOrder = ($listOrder === 'a.ordering' && strtolower($listDirn) === 'asc');
+$acl = AccessControl::create();
+
+if ($saveOrder && !empty($this->items)) {
+    $saveOrderingUrl = 'index.php?option=com_easystore&task=brands.saveOrderAjax&' . Session::getFormToken() . '=1';
+    HTMLHelper::_('draggablelist.draggable');
+}
+?>
+<form action="<?php echo Route::_('index.php?option=com_easystore&view=brands'); ?>" method="post" name="adminForm" id="adminForm">
+    <div id="j-main-container" class="j-main-container">
+        <div class="easystore-container">
+            <?php echo LayoutHelper::render('joomla.searchtools.default', ['view' => $this]); ?>
+            <?php if (empty($this->items)) : ?>
+                <div class="alert alert-info">
+                    <span class="icon-info-circle" aria-hidden="true"></span><span class="visually-hidden"><?php echo Text::_('INFO'); ?></span>
+                    <?php echo Text::_('JGLOBAL_NO_MATCHING_RESULTS'); ?>
+                </div>
+            <?php else : ?>
+                <table class="table" id="brandList">
+                    <caption class="visually-hidden">
+                        <?php echo Text::_('COM_EASYSTORE_BRAND_TABLE_CAPTION'); ?>,
+                        <span id="orderedBy"><?php echo Text::_('JGLOBAL_SORTED_BY'); ?> </span>,
+                        <span id="filteredBy"><?php echo Text::_('JGLOBAL_FILTERED_BY'); ?></span>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <td class="w-1 text-center">
+                                <?php echo HTMLHelper::_('grid.checkall'); ?>
+                            </td>
+                            <th scope="col" class="w-1 d-none d-md-table-cell text-center">
+                                <?php echo HTMLHelper::_('searchtools.sort', '', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING', 'icon-sort'); ?>
+                            </th>
+                            <th scope="col" class="w-1 text-center">
+                                <?php echo HTMLHelper::_('searchtools.sort', 'JSTATUS', 'a.published', $listDirn, $listOrder); ?>
+                            </th>
+                            <th scope="col">
+                                <?php echo HTMLHelper::_('searchtools.sort', 'JGLOBAL_TITLE', 'a.title', $listDirn, $listOrder); ?>
+                            </th>
+
+                            <?php if (isset($this->items[0]) && property_exists($this->items[0], 'count_published')) : ?>
+                                <th scope="col" class="w-1 text-center d-none d-md-table-cell">
+                                    <span class="icon-check" aria-hidden="true" title="<?php echo Text::_('COM_EASYSTORE_BRAND_COUNT_PUBLISHED_ITEMS'); ?>"><span class="visually-hidden"><?php echo Text::_('COM_EASYSTORE_BRAND_COUNT_PUBLISHED_ITEMS'); ?></span></span>
+                                </th>
+                            <?php endif; ?>
+                            <?php if (isset($this->items[0]) && property_exists($this->items[0], 'count_unpublished')) : ?>
+                                <th scope="col" class="w-1 text-center d-none d-md-table-cell">
+                                    <span class="icon-times" aria-hidden="true" title="<?php echo Text::_('COM_EASYSTORE_BRAND_COUNT_UNPUBLISHED_ITEMS'); ?>"><span class="visually-hidden"><?php echo Text::_('COM_EASYSTORE_BRAND_COUNT_UNPUBLISHED_ITEMS'); ?></span></span>
+                                </th>
+                            <?php endif; ?>
+                            <?php if (isset($this->items[0]) && property_exists($this->items[0], 'count_archived')) : ?>
+                                <th scope="col" class="w-1 text-center d-none d-md-table-cell">
+                                    <span class="icon-folder icon-fw" aria-hidden="true" title="<?php echo Text::_('COM_EASYSTORE_BRAND_COUNT_ARCHIVED_ITEMS'); ?>"><span class="visually-hidden"><?php echo Text::_('COM_EASYSTORE_BRAND_COUNT_ARCHIVED_ITEMS'); ?></span></span>
+                                </th>
+                            <?php endif; ?>
+                            <?php if (isset($this->items[0]) && property_exists($this->items[0], 'count_trashed')) : ?>
+                                <th scope="col" class="w-1 text-center d-none d-md-table-cell">
+                                    <span class="icon-trash" aria-hidden="true" title="<?php echo Text::_('COM_EASYSTORE_BRAND_COUNT_TRASHED_ITEMS'); ?>"><span class="visually-hidden"><?php echo Text::_('COM_EASYSTORE_BRAND_COUNT_TRASHED_ITEMS'); ?></span></span>
+                                </th>
+                            <?php endif; ?>
+
+                            <th scope="col" class="w-10 d-none d-md-table-cell">
+                                <?php echo HTMLHelper::_('searchtools.sort', 'JGRID_HEADING_ACCESS', 'a.access', $listDirn, $listOrder); ?>
+                            </th>
+                            <?php if (Multilanguage::isEnabled()) : ?>
+                                <th scope="col" class="w-10 d-none d-md-table-cell">
+                                    <?php echo HTMLHelper::_('searchtools.sort', 'JGRID_HEADING_LANGUAGE', 'a.language', $this->state->get('list.direction'), $this->state->get('list.ordering')); ?>
+                                </th>
+                            <?php endif; ?>
+                            <th scope="col" class="w-5 d-none d-md-table-cell">
+                                <?php echo HTMLHelper::_('searchtools.sort', 'JGRID_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody <?php if ($saveOrder) :
+                        ?> class="js-draggable" data-url="<?php echo $saveOrderingUrl; ?>" data-direction="<?php echo strtolower($listDirn); ?>" data-nested="true" <?php
+                           endif; ?>>
+                        <?php
+                        foreach ($this->items as $i => $item) :
+                            //$orderkey   = $item->ordering;
+                            $canCreate  = $acl->canCreate();
+                            $canEdit    = $acl->canEdit() || $acl->setContext('tag')->canEditOwn($item->id);
+                            $canCheckin = $acl->canManage() || (int) $item->checked_out === (int) $user->id || is_null($item->checked_out);
+                            $canChange  = $acl->canEditState() && $canCheckin;
+                            ?>
+                            <tr class="row<?php echo $i % 2; ?>" data-item-id="<?php echo $item->id; ?>" sortable-group-id="1" data-draggable-group="1">
+                                <td class="text-center">
+                                    <?php echo HTMLHelper::_('grid.id', $i, $item->id, false, 'cid', 'cb', $item->title); ?>
+                                </td>
+                                <td class="text-center d-none d-md-table-cell">
+                                    <?php
+                                    $iconClass = '';
+                                    if (!$canChange) {
+                                        $iconClass = ' inactive';
+                                    } elseif (!$saveOrder) {
+                                        $iconClass = ' inactive" title="' . Text::_('JORDERINGDISABLED');
+                                    }
+                                    ?>
+                                    <span class="sortable-handler<?php echo $iconClass ?>">
+                                        <span class="icon-ellipsis-v"></span>
+                                    </span>
+                                    <?php if ($canChange && $saveOrder) : ?>
+                                        <input type="text" class="hidden" name="order[]" size="5" value="<?php echo $item->ordering; ?>">
+                                    <?php endif; ?>
+                                </td>
+                                <td class="text-center">
+                                    <?php echo HTMLHelper::_('jgrid.published', $item->published, $i, 'brands.', $canChange); ?>
+                                </td>
+                                <th scope="row">
+                                    <?php if ($item->checked_out) : ?>
+                                        <?php echo HTMLHelper::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'brands.', $canCheckin); ?>
+                                    <?php endif; ?>
+                                    <?php if ($canEdit) : ?>
+                                        <a href="<?php echo Route::_('index.php?option=com_easystore&task=brand.edit&id=' . $item->id); ?>" title="<?php echo Text::_('JACTION_EDIT'); ?> <?php echo $this->escape($item->title); ?>">
+                                            <?php echo $this->escape($item->title); ?></a>
+                                    <?php else : ?>
+                                        <?php echo $this->escape($item->title); ?>
+                                    <?php endif; ?>
+                                </th>
+
+                                <?php if (isset($this->items[0]) && property_exists($this->items[0], 'count_published')) : ?>
+                                    <td class="text-center btns d-none d-md-table-cell itemnumber">
+                                        <a class="btn <?php echo $item->count_published > 0 ? 'btn-success' : 'btn-secondary'; ?>" title="<?php echo Text::_('COM_EASYSTORE_BRAND_COUNT_PUBLISHED_ITEMS'); ?>" href="<?php echo Route::_('index.php?option=' . $component . ($mode ? '&extension=' . $section : '&view=' . $section) . '&filter[brand]=' . (int) $item->id . '&filter[published]=1'); ?>">
+                                            <?php echo $item->count_published; ?></a>
+                                    </td>
+                                <?php endif; ?>
+                                <?php if (isset($this->items[0]) && property_exists($this->items[0], 'count_unpublished')) : ?>
+                                    <td class="text-center btns d-none d-md-table-cell itemnumber">
+                                        <a class="btn <?php echo $item->count_unpublished > 0 ? 'btn-danger' : 'btn-secondary'; ?>" title="<?php echo Text::_('COM_EASYSTORE_BRAND_COUNT_UNPUBLISHED_ITEMS'); ?>" href="<?php echo Route::_('index.php?option=' . $component . ($mode ? '&extension=' . $section : '&view=' . $section) . '&filter[brand]=' . (int) $item->id . '&filter[published]=0'); ?>">
+                                            <?php echo $item->count_unpublished; ?></a>
+                                    </td>
+                                <?php endif; ?>
+                                <?php if (isset($this->items[0]) && property_exists($this->items[0], 'count_archived')) : ?>
+                                    <td class="text-center btns d-none d-md-table-cell itemnumber">
+                                        <a class="btn <?php echo $item->count_archived > 0 ? 'btn-info' : 'btn-secondary'; ?>" title="<?php echo Text::_('COM_EASYSTORE_BRAND_COUNT_ARCHIVED_ITEMS'); ?>" href="<?php echo Route::_('index.php?option=' . $component . ($mode ? '&extension=' . $section : '&view=' . $section) . '&filter[brand]=' . (int) $item->id . '&filter[published]=2'); ?>">
+                                            <?php echo $item->count_archived; ?></a>
+                                    </td>
+                                <?php endif; ?>
+                                <?php if (isset($this->items[0]) && property_exists($this->items[0], 'count_trashed')) : ?>
+                                    <td class="text-center btns d-none d-md-table-cell itemnumber">
+                                        <a class="btn <?php echo $item->count_trashed > 0 ? 'btn-danger' : 'btn-secondary'; ?>" title="<?php echo Text::_('COM_EASYSTORE_BRAND_COUNT_TRASHED_ITEMS'); ?>" href="<?php echo Route::_('index.php?option=' . $component . ($mode ? '&extension=' . $section : '&view=' . $section) . '&filter[brand]=' . (int) $item->id . '&filter[published]=-2'); ?>">
+                                            <?php echo $item->count_trashed; ?></a>
+                                    </td>
+                                <?php endif; ?>
+                                <td class="small d-none d-md-table-cell">
+                                    <?php echo $this->escape($item->access_title); ?>
+                                </td>
+                                <?php if (Multilanguage::isEnabled()) : ?>
+                                    <td class="small d-none d-md-table-cell">
+                                        <?php echo LayoutHelper::render('joomla.content.language', $item); ?>
+                                    </td>
+                                <?php endif; ?>
+                                <td class="d-none d-md-table-cell">
+                                    <?php echo (int) $item->id; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+
+                <?php // load the pagination.
+                ?>
+                <?php echo $this->pagination->getListFooter(); ?>
+
+            <?php endif; ?>
+        </div>
+
+        <input type="hidden" name="task" value="">
+        <input type="hidden" name="boxchecked" value="0">
+        <?php echo HTMLHelper::_('form.token'); ?>
+    </div>
+</form>

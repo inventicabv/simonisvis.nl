@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="quickicon" method="upgrade">
+	<name>EasyStore Quick Icon Plugin</name>
+	<author>JoomShaper</author>
+	<creationDate>2024-03</creationDate>
+	<copyright>(C) 2023 - 2025 JoomShaper.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>support@joomshaper.com</authorEmail>
+	<authorUrl>www.joomshaper.com</authorUrl>
+	<version>1.0.0</version>
+	<description>PLG_QUICKICON_EASYSTORE_XML_DESCRIPTION</description>
+	<namespace path="src">JoomShaper\Plugin\Quickicon\Easystorequickicon</namespace>
+	<files>
+		<folder plugin="easystorequickicon">services</folder>
+		<folder>src</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">plg_quickicon_easystorequickicon.ini</language>
+		<language tag="en-GB">plg_quickicon_easystorequickicon.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="context"
+					type="text"
+					label="Group"
+					default="site_quickicon"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

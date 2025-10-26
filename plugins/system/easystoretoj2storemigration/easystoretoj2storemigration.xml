@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="system" method="upgrade">
+	<name>plg_system_easystoretoj2storemigration</name>
+	<author>JoomShaper</author>
+	<creationDate>2024-3</creationDate>
+	<copyright>(C) 2024 Open Source Matters, Inc.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>support@joomshaper.com</authorEmail>
+	<authorUrl>www.joomshaper.com</authorUrl>
+	<version>1.0.0</version>
+	<description>EasyStore Migration Plugin from J2Store</description>
+	<namespace path="src">JoomShaper\Plugin\System\EasyStoreToJ2storeMigration</namespace>
+	<files>
+		<folder plugin="easystoretoj2storemigration">services</folder>
+		<folder>src</folder>
+	</files>
+</extension>

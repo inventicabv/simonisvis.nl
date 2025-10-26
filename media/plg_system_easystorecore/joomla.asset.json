@@ -1,0 +1,33 @@
+{
+    "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+    "name": "plg_system_easystorecore",
+    "version": "1.0.0",
+    "description": "EasyStore Core Plugin",
+    "license": "GPL-3.0-or-later",
+    "assets": [
+        {
+            "name": "plg_system_easystorecore.migration.popup",
+            "description": "EasyStore Migration system js",
+            "type": "script",
+            "uri": "plg_system_easystorecore/migration.popup.js"
+        },
+        {
+            "name": "plg_system_easystorecore.migration.popup",
+            "description": "EasyStore Migration system popup CSS",
+            "type": "style",
+            "uri": "plg_system_easystorecore/migration.popup.css"
+        },
+        {
+            "name": "plg_system_easystorecore.settingsteps.popup",
+            "description": "EasyStore Setting Steps system js",
+            "type": "script",
+            "uri": "plg_system_easystorecore/settingsteps.popup.js"
+        },
+        {
+            "name": "plg_system_easystorecore.settingsteps.popup",
+            "description": "EasyStore Setting Steps system popup CSS",
+            "type": "style",
+            "uri": "plg_system_easystorecore/settingsteps.popup.css"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="user" method="upgrade">
+	<name>plg_user_profileimage</name>
+	<author>Custom Developer</author>
+	<creationDate>2024-01-01</creationDate>
+	<copyright>(C) 2024 Custom Developer</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>6.1.0</version>
+	<description>PLG_USER_PROFILEIMAGE_XML_DESCRIPTION</description>
+	<namespace path="src">Joomla\Plugin\User\Profileimage</namespace>
+	<files>
+		<folder>forms</folder>
+		<folder plugin="profileimage">services</folder>
+		<folder>src</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB.plg_user_profileimage.ini</language>
+		<language tag="en-GB">language/en-GB.plg_user_profileimage.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="upload_path"
+					type="text"
+					label="PLG_USER_PROFILEIMAGE_FIELD_UPLOAD_PATH_LABEL"
+					description="PLG_USER_PROFILEIMAGE_FIELD_UPLOAD_PATH_DESC"
+					default="images/profiles"
+					filter="path"
+				/>
+				<field
+					name="max_file_size"
+					type="text"
+					label="PLG_USER_PROFILEIMAGE_FIELD_MAX_FILE_SIZE_LABEL"
+					description="PLG_USER_PROFILEIMAGE_FIELD_MAX_FILE_SIZE_DESC"
+					default="2097152"
+					filter="int"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension> 

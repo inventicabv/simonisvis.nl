@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="component" method="upgrade">
+	<name>com_easystore</name>
+	<author>JoomShaper</author>
+	<creationDate>2023-05</creationDate>
+	<copyright>(C) 2023 - 2025 JoomShaper.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>support@joomshaper.com</authorEmail>
+	<authorUrl>www.joomshaper.com</authorUrl>
+	<version>1.7.1</version>
+	<description>EasyStore - The Ultimate eCommerce Extension for Joomla 4 and Joomla 5</description>
+	<namespace path="src">JoomShaper\Component\EasyStore</namespace>
+	<scriptfile>script.php</scriptfile>
+	<install>		<!-- Runs on install -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+			<file driver="mysqli" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+			<schemapath type="mysqli">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+	<uninstall>		<!-- Runs on uninstall -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+			<file driver="mysqli" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+
+	<media destination="com_easystore" folder="media">
+		<folder>css</folder>
+		<folder>data</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+		<filename>joomla.asset.json</filename>
+	</media>
+
+	<files folder="site">
+		<folder>src</folder>
+		<folder>tmpl</folder>
+		<folder>forms</folder>
+		<folder>layouts</folder>
+		<folder>assets</folder>
+		<folder>sppagebuilder</folder>
+	</files>
+
+	<languages folder="language/site">
+		<language tag="en-GB">en-GB/com_easystore.ini</language>
+	</languages>
+
+	<administration>
+		<menu>COM_EASYSTORE</menu>
+		<submenu>
+			<!--
+				Note that all & must be escaped to &amp; for the file to be valid
+				XML and be parsed by the installer
+			-->
+			<menu link="option=com_easystore&amp;view=dashboard">COM_EASYSTORE_DASHBOARD</menu>
+			<menu link="option=com_easystore&amp;view=products">COM_EASYSTORE_PRODUCTS</menu>
+			<menu link="option=com_easystore&amp;view=collections">COM_EASYSTORE_COLLECTIONS</menu>
+			<menu link="option=com_easystore&amp;view=categories">COM_EASYSTORE_CATEGORIES</menu>
+			<menu link="option=com_easystore&amp;view=brands">COM_EASYSTORE_BRANDS</menu>
+			<menu link="option=com_easystore&amp;view=tags">COM_EASYSTORE_TAGS</menu>
+			<menu link="option=com_easystore&amp;view=orders">COM_EASYSTORE_ORDERS</menu>
+			<menu link="option=com_easystore&amp;view=coupons">COM_EASYSTORE_COUPONS</menu>
+			<menu link="option=com_easystore&amp;view=reviews">COM_EASYSTORE_REVIEWS</menu>
+			<menu link="option=com_easystore&amp;view=analytics">COM_EASYSTORE_ANALYTICS</menu>
+			<menu link="option=com_easystore&amp;view=customers">COM_EASYSTORE_CUSTOMERS</menu>
+			<menu link="option=com_easystore&amp;view=settings">COM_EASYSTORE_SETTINGS</menu>
+
+		</submenu>
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>easystore.xml</filename>
+			<filename>composer.json</filename>
+			<folder>assets</folder>
+			<folder>forms</folder>
+			<folder>helpers</folder>
+			<folder>layouts</folder>
+			<folder>services</folder>
+			<folder>sql</folder>
+			<folder>src</folder>
+			<folder>tmpl</folder>
+			<folder>vendor</folder>
+		</files>
+		<languages folder="language/admin">
+			<language tag="en-GB">en-GB/com_easystore.ini</language>
+			<language tag="en-GB">en-GB/com_easystore.sys.ini</language>
+		</languages>
+	</administration>
+
+	<updateservers>
+		<server type="extension" priority="1" name="EasyStore">
+			https://www.joomshaper.com/updates/easystore.xml
+		</server>
+	</updateservers>
+</extension>

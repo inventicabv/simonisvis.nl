@@ -1,0 +1,1 @@
+ALTER TABLE `#__easystore_orders` ADD `is_tax_included_in_price` TINYINT NOT NULL DEFAULT 1 AFTER `coupon_amount`;

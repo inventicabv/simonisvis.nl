@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="4.0" client="site" method="upgrade">
+    <name>MOD_EASYSTORE_SEARCH</name>
+    <author>JoomShaper</author>
+    <creationDate>2025-01</creationDate>
+    <copyright>(C) 2025 JoomShaper.</copyright>
+    <license>GNU General Public License version 2 or later</license>
+    <authorEmail>support@joomshaper.com</authorEmail>
+    <authorUrl>www.joomshaper.com</authorUrl>
+    <version>1.0.0</version>
+    <description>MOD_EASYSTORE_SEARCH_DESCRIPTION</description>
+    <namespace path="src">JoomShaper\Module\EasyStore</namespace>
+    <languages>
+        <language tag="en-GB">mod_easystore_search.ini</language>
+        <language tag="en-GB">mod_easystore_search.sys.ini</language>
+    </languages>
+    <files>
+        <filename module="mod_easystore_search">mod_easystore_search.php</filename>
+        <folder>tmpl</folder>
+        <folder>src</folder>
+    </files>
+
+    <config>
+        <fields name="params" addfieldprefix="Joomla\Component\EasyStore\Administrator\Field">
+            <fieldset name="basic">
+                <field name="show_category" type="radio" layout="joomla.form.field.radio.switcher" label="MOD_EASYSTORE_SEARCH_FIELDSET_BASIC_SHOW_CATEGORY_LABEL" description="MOD_EASYSTORE_SEARCH_FIELDSET_BASIC_SHOW_CATEGORY_DESC" default="1" filter="integer">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+
+                <field name="show_search_button" type="radio" layout="joomla.form.field.radio.switcher" label="MOD_EASYSTORE_SEARCH_FIELDSET_BASIC_SHOW_SEARCH_BUTTON_LABEL" description="MOD_EASYSTORE_SEARCH_FIELDSET_BASIC_SHOW_SEARCH_BUTTON_DESC" default="1" filter="integer">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

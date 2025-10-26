@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.9" type="plugin" group="system" method="upgrade">
+	<name>PLG_EASYSTORE_UPDATER</name>
+	<author>JoomShaper</author>
+	<creationDate>2023-05</creationDate>
+	<copyright>(C) 2023 - 2025 JoomShaper.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>support@joomshaper.com</authorEmail>
+	<authorUrl>www.joomshaper.com</authorUrl>
+	<version>1.0.3</version>
+	<description>PLG_EASYSTORE_UPDATER_DESC</description>
+	<files>
+		<filename plugin="easystoreupdater">easystoreupdater.php</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">plg_system_easystoreupdater.sys.ini</language>
+	</languages>
+</extension>

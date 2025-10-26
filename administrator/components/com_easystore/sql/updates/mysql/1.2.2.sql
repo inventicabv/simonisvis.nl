@@ -1,0 +1,1 @@
+ALTER TABLE `#__easystore_orders` ADD `order_token` varchar(255) DEFAULT NULL COMMENT 'guest order token';

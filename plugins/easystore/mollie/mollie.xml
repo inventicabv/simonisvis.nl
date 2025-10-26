@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="easystore" method="upgrade">
+	<name>PLG_EASYSTORE_MOLLIE</name>
+	<author>JoomShaper</author>
+	<creationDate>2023-05</creationDate>
+	<copyright>(C) 2023 - 2024 JoomShaper.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>support@joomshaper.com</authorEmail>
+	<authorUrl>www.joomshaper.com</authorUrl>
+	<version>1.0.6</version>
+	<description>PLG_EASYSTORE_MOLLIE_XML_DESCRIPTION</description>
+	<namespace path="src">JoomShaper\Plugin\EasyStore\Mollie</namespace>
+	<scriptfile>script.php</scriptfile>
+	<updateservers>
+		<server type="extension" priority="1" name="Mollie - EasyStore Payment Plugin">
+			https://www.joomshaper.com/updates/easystore-mollie.xml
+		</server>
+	</updateservers>
+	<files>
+		<folder plugin="mollie">services</folder>
+		<folder>assets</folder>
+		<folder>vendor</folder>
+		<folder>src</folder>
+	</files>
+	<languages folder="admin">
+		<language tag="en-GB">plg_easystore_mollie.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="title"
+					type="text"
+					label="PLG_EASYSTORE_MOLLIE_TITLE"
+					default="Mollie"
+    			/>
+				<field 
+                    name="shop_environment" 
+					type="radio" 
+					class="btn-group btn-group-yesno"
+                    label="PLG_EASYSTORE_MOLLIE_SHOP_ENVIRONMENT" 
+                    description="PLG_EASYSTORE_MOLLIE_SHOP_ENVIRONMENT_DESC" 
+                    default="test" 
+                >
+					<option value="live">PLG_EASYSTORE_MOLLIE_SHOP_ENVIRONMENT_PRODUCTION</option>
+					<option value="test">PLG_EASYSTORE_MOLLIE_SHOP_ENVIRONMENT_SANDBOX</option>
+				</field>
+				<field
+					name="test_api_key"
+					type="text"
+					label="PLG_EASYSTORE_MOLLIE_TEST_API_KEY"
+                    description="PLG_EASYSTORE_MOLLIE_TEST_API_KEY_DESC"
+					showon="shop_environment:test"
+    			/>
+				<field
+					name="live_api_key"
+					type="text"
+					label="PLG_EASYSTORE_MOLLIE_LIVE_API_KEY"
+                    description="PLG_EASYSTORE_MOLLIE_LIVE_API_KEY_DESC"
+					showon="shop_environment:live"
+    			/>
+				<field
+					name="payment_instruction"
+					type="textarea"
+					label="PLG_EASYSTORE_MOLLIE_PAYMENT_INSTRUCTION"
+					default="You will be redirected to the secure Mollie payment portal to complete your purchase. After the payment is processed, you will be redirected back to this website"
+    			/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

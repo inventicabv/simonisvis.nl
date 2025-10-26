@@ -1,0 +1,2 @@
+ALTER TABLE `#__easystore_users` ADD `company_id` VARCHAR(100) NULL DEFAULT NULL AFTER `company_name`;
+ALTER TABLE `#__easystore_orders` ADD `company_id` VARCHAR(100) NULL DEFAULT NULL AFTER `company_name`;

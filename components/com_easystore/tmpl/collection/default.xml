@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_EASYSTORE_COLLECTION_VIEW_DEFAULT_TITLE" option="COM_EASYSTORE_COLLECTION_VIEW_DEFAULT_OPTION">
+		<help
+			key = "JHELP_MENUS_MENU_ITEM_COLLECTIONS"
+		/>
+		<message>
+			<![CDATA[COM_EASYSTORE_COLLECTION_VIEW_DEFAULT_DESC]]>
+		</message>
+	</layout>
+
+	<fields name="request">
+		<fieldset name="request"  >
+			<field
+				name="id"
+				type="modal_collection"
+				label="COM_EASYSTORE_FIELD_SELECT_COLLECTION_LABEL"
+				required="true"
+				select="true"
+				clear="true"
+				addfieldprefix="JoomShaper\Component\EasyStore\Administrator\Field"
+			/>
+		</fieldset>
+	</fields>
+</metadata>

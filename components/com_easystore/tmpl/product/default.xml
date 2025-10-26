@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<layout title="COM_EASYSTORE_SINGLE_PRODUCT_VIEW_DEFAULT_TITLE" >
+		<help
+			key = "Menu_Item:_Single_Product"
+		/>
+		<message>
+			<![CDATA[COM_EASYSTORE_SINGLE_PRODUCT_VIEW_DEFAULT_TITLE_DESC]]>
+		</message>
+	</layout>
+
+    <!-- Add fields to the request variables for the layout. -->
+	<fields name="request">
+		<fieldset name="request"  >
+			<field
+				name="id"
+				type="modal_product"
+				label="COM_EASYSTORE_FIELD_SELECT_PRODUCT_LABEL"
+				required="true"
+				select="true"
+				clear="true"
+				addfieldprefix="JoomShaper\Component\EasyStore\Administrator\Field"
+			/>
+			<field
+				name="catid"
+				type="hidden"
+				label="COM_EASYSTORE_SINGLE_PRODUCT_CATEGORY_ID"
+			/>
+		</fieldset>
+	</fields>
+</metadata>

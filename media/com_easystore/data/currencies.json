@@ -1,0 +1,1087 @@
+[
+	{
+		"code": "USD",
+		"symbol": "$",
+		"name": "US Dollar",
+		"locale": "en-us",
+		"numeric_code": 840
+	},
+	{
+		"code": "EUR",
+		"symbol": "\u20ac",
+		"name": "Euro",
+		"locale": "en-eu",
+		"numeric_code": 978
+	},
+	{
+		"code": "GBP",
+		"symbol": "\u00a3",
+		"name": "British Pound",
+		"locale": "en-gb",
+		"numeric_code": 826
+	},
+	{
+		"code": "CAD",
+		"symbol": "$",
+		"name": "Canadian Dollar",
+		"locale": "en-ca",
+		"numeric_code": 124
+	},
+	{
+		"code": "AED",
+		"symbol": "AED",
+		"name": "UAE Dirham",
+		"locale": "ar-ae",
+		"numeric_code": 784
+	},
+	{
+		"code": "AFN",
+		"symbol": "\u060b",
+		"name": "Afghanistan Afghani",
+		"locale": "fa-af",
+		"numeric_code": 971
+	},
+	{
+		"code": "ALL",
+		"symbol": "Lek",
+		"name": "Albanian Lek\u00eb",
+		"locale": "sq-al",
+		"numeric_code": 8
+	},
+	{
+		"code": "AMD",
+		"symbol": "AMD",
+		"name": "Armenian Dram",
+		"locale": "hy-am",
+		"numeric_code": 51
+	},
+	{
+		"code": "ANG",
+		"symbol": "\u0192",
+		"name": "Netherlands Antillean Gulden",
+		"locale": "nl-an",
+		"numeric_code": 532
+	},
+	{
+		"code": "AOA",
+		"symbol": "Kz",
+		"name": "Angolan Kwanza",
+		"locale": "pt-ao",
+		"numeric_code": 973
+	},
+	{
+		"code": "ARS",
+		"symbol": "$",
+		"name": "Argentine Peso",
+		"locale": "es-ar",
+		"numeric_code": 32
+	},
+	{
+		"code": "AUD",
+		"symbol": "$",
+		"name": "Australian Dollar",
+		"locale": "en-au",
+		"numeric_code": 36
+	},
+	{
+		"code": "AWG",
+		"symbol": "AWG",
+		"name": "Aruban Florin",
+		"locale": "nl-aw",
+		"numeric_code": 533
+	},
+	{
+		"code": "AZN",
+		"symbol": "\u20bc",
+		"name": "Azerbaijani Manat",
+		"locale": "az-az",
+		"numeric_code": 944
+	},
+	{
+		"code": "BAM",
+		"symbol": "KM",
+		"name": "Bosnia and Herzegovina Convertible Mark",
+		"locale": "bs-ba",
+		"numeric_code": 977
+	},
+	{
+		"code": "BBD",
+		"symbol": "$",
+		"name": "Barbadian Dollar",
+		"locale": "en-bb",
+		"numeric_code": 52
+	},
+	{
+		"code": "BDT",
+		"symbol": "\u09f3",
+		"name": "Bangladeshi Taka",
+		"locale": "bn-bd",
+		"numeric_code": 50
+	},
+	{
+		"code": "BGN",
+		"symbol": "BGN",
+		"name": "Bulgarian Leva",
+		"locale": "bg-bg",
+		"numeric_code": 975
+	},
+	{
+		"code": "BHD",
+		"symbol": "BHD",
+		"name": "Bahraini Dinar",
+		"locale": "ar-bh",
+		"numeric_code": 48
+	},
+	{
+		"code": "BIF",
+		"symbol": "FBu",
+		"name": "Burundi Franc",
+		"locale": "fr-bi",
+		"numeric_code": 108
+	},
+	{
+		"code": "BMD",
+		"symbol": "BD$",
+		"name": "Bermudian Dollar",
+		"locale": "en-bm",
+		"numeric_code": 60
+	},
+	{
+		"code": "BND",
+		"symbol": "B$",
+		"name": "Brunei Dollar",
+		"locale": "ms-bn",
+		"numeric_code": 96
+	},
+	{
+		"code": "BOB",
+		"symbol": "Bs",
+		"name": "Bolivian Boliviano",
+		"locale": "es-bo",
+		"numeric_code": 68
+	},
+	{
+		"code": "BRL",
+		"symbol": "R$",
+		"name": "Brazilian Real",
+		"locale": "pt-br",
+		"numeric_code": 986
+	},
+	{
+		"code": "BSD",
+		"symbol": "B$",
+		"name": "Bahamian Dollar",
+		"locale": "en-bs",
+		"numeric_code": 44
+	},
+	{
+		"code": "BTN",
+		"symbol": "Nu.",
+		"name": "Bhutanese Ngultrum",
+		"locale": "dz-bt",
+		"numeric_code": 64
+	},
+	{
+		"code": "BWP",
+		"symbol": "P",
+		"name": "Botswana Pula",
+		"locale": "en-bw",
+		"numeric_code": 72
+	},
+	{
+		"code": "BYN",
+		"symbol": "BYN",
+		"name": "Belarusian Ruble",
+		"locale": "be-by",
+		"numeric_code": 933
+	},
+	{
+		"code": "BZD",
+		"symbol": "$",
+		"name": "Belize Dollar",
+		"locale": "en-bz",
+		"numeric_code": 84
+	},
+	{
+		"code": "CDF",
+		"symbol": "FDC",
+		"name": "Congolese Franc",
+		"locale": "fr-cd",
+		"numeric_code": 976
+	},
+	{
+		"code": "CHF",
+		"symbol": "CHF",
+		"name": "Swiss Franc",
+		"locale": "fr-ch",
+		"numeric_code": 756
+	},
+	{
+		"code": "CLP",
+		"symbol": "$",
+		"name": "Chilean Peso",
+		"locale": "es-cl",
+		"numeric_code": 152
+	},
+	{
+		"code": "CNY",
+		"symbol": "\u00a5",
+		"name": "Chinese\/Yuan Renminbi",
+		"locale": "zh-cn",
+		"numeric_code": 156
+	},
+	{
+		"code": "COP",
+		"symbol": "$",
+		"name": "Colombian Peso",
+		"locale": "es-co",
+		"numeric_code": 170
+	},
+	{
+		"code": "CRC",
+		"symbol": "\u20a1",
+		"name": "Costa Rican Colon",
+		"locale": "es-cr",
+		"numeric_code": 188
+	},
+	{
+		"code": "CUP",
+		"symbol": "$",
+		"name": "Cuban Peso",
+		"locale": "es-cu",
+		"numeric_code": 192
+	},
+	{
+		"code": "CVE",
+		"symbol": "CVE",
+		"name": "Cape Verdean Escudo",
+		"locale": "pt-cv",
+		"numeric_code": 132
+	},
+	{
+		"code": "CZK",
+		"symbol": "K\u010d",
+		"name": "Czech Koruna",
+		"locale": "cs-cz",
+		"numeric_code": 203
+	},
+	{
+		"code": "DJF",
+		"symbol": "Fdj",
+		"name": "Djiboutian Franc",
+		"locale": "fr-dj",
+		"numeric_code": 262
+	},
+	{
+		"code": "DKK",
+		"symbol": "Kr.",
+		"name": "Danish Krone",
+		"locale": "da-dk",
+		"numeric_code": 208
+	},
+	{
+		"code": "DOP",
+		"symbol": "$",
+		"name": "Dominican Peso",
+		"locale": "es-do",
+		"numeric_code": 214
+	},
+	{
+		"code": "DZD",
+		"symbol": "DZD",
+		"name": "Algerian Dinar",
+		"locale": "ar-dz",
+		"numeric_code": 12
+	},
+	{
+		"code": "EEK",
+		"symbol": "KR",
+		"name": "Estonian Kroon",
+		"locale": "et-ee",
+		"numeric_code": 233
+	},
+	{
+		"code": "EGP",
+		"symbol": "\u00a3",
+		"name": "Egyptian Pound",
+		"locale": "ar-eg",
+		"numeric_code": 818
+	},
+	{
+		"code": "ERN",
+		"symbol": "ERN",
+		"name": "Eritrean Nakfa",
+		"locale": "ti-er",
+		"numeric_code": 232
+	},
+	{
+		"code": "ETB",
+		"symbol": "ETB",
+		"name": "Ethiopian Birr",
+		"locale": "am-et",
+		"numeric_code": 230
+	},
+	{
+		"code": "FJD",
+		"symbol": "$",
+		"name": "Fijian Dollar",
+		"locale": "en-fj",
+		"numeric_code": 242
+	},
+	{
+		"code": "FKP",
+		"symbol": "\u00a3",
+		"name": "Falkland Islands Pound",
+		"locale": "en-fk",
+		"numeric_code": 238
+	},
+	{
+		"code": "GEL",
+		"symbol": "GEL",
+		"name": "Georgian Lari",
+		"locale": "ka-ge",
+		"numeric_code": 981
+	},
+	{
+		"code": "GHS",
+		"symbol": "\u20b5",
+		"name": "Ghanaian Cedi",
+		"locale": "en-gh",
+		"numeric_code": 936
+	},
+	{
+		"code": "GIP",
+		"symbol": "\u00a3",
+		"name": "Gibraltar Pound",
+		"locale": "en-gi",
+		"numeric_code": 292
+	},
+	{
+		"code": "GMD",
+		"symbol": "D",
+		"name": "Gambian Dalasi",
+		"locale": "en-gm",
+		"numeric_code": 270
+	},
+	{
+		"code": "GNF",
+		"symbol": "FG",
+		"name": "Guinean franc",
+		"locale": "fr-gn",
+		"numeric_code": 324
+	},
+	{
+		"code": "XAF",
+		"symbol": "F.CFA",
+		"name": "Central African CFA Franc",
+		"locale": "fr-xa",
+		"numeric_code": 950
+	},
+	{
+		"code": "GTQ",
+		"symbol": "Q",
+		"name": "Guatemalan Quetzal",
+		"locale": "es-gt",
+		"numeric_code": 320
+	},
+	{
+		"code": "GYD",
+		"symbol": "$",
+		"name": "Guyanese Dollar",
+		"locale": "en-gy",
+		"numeric_code": 328
+	},
+	{
+		"code": "HKD",
+		"symbol": "$",
+		"name": "Hong Kong Dollar",
+		"locale": "zh-hk",
+		"numeric_code": 344
+	},
+	{
+		"code": "HNL",
+		"symbol": "L",
+		"name": "Honduran Lempira",
+		"locale": "es-hn",
+		"numeric_code": 340
+	},
+	{
+		"code": "HRK",
+		"symbol": "kn",
+		"name": "Croatian Kuna",
+		"locale": "hr-hr",
+		"numeric_code": 191
+	},
+	{
+		"code": "HTG",
+		"symbol": "G",
+		"name": "Haitian Gourde",
+		"locale": "ht-ht",
+		"numeric_code": 332
+	},
+	{
+		"code": "HUF",
+		"symbol": "Ft",
+		"name": "Hungarian Forint",
+		"locale": "hu-hu",
+		"numeric_code": 348
+	},
+	{
+		"code": "IDR",
+		"symbol": "Rp",
+		"name": "Indonesian Rupiah",
+		"locale": "id-id",
+		"numeric_code": 360
+	},
+	{
+		"code": "ILS",
+		"symbol": "\u20aa",
+		"name": "Israeli New Sheqel",
+		"locale": "he-il",
+		"numeric_code": 376
+	},
+	{
+		"code": "INR",
+		"symbol": "\u20b9",
+		"name": "Indian Rupee",
+		"locale": "hi-in",
+		"numeric_code": 356
+	},
+	{
+		"code": "IQD",
+		"symbol": "IQD",
+		"name": "Iraqi Dinar",
+		"locale": "ar-iq",
+		"numeric_code": 368
+	},
+	{
+		"code": "IRR",
+		"symbol": "IRR",
+		"name": "Iranian Rial",
+		"locale": "fa-ir",
+		"numeric_code": 364
+	},
+	{
+		"code": "ISK",
+		"symbol": "kr",
+		"name": "Icelandic Kr\u00f3na",
+		"locale": "en-is",
+		"numeric_code": 352
+	},
+	{
+		"code": "JMD",
+		"symbol": "$",
+		"name": "Jamaican Dollar",
+		"locale": "en-jm",
+		"numeric_code": 388
+	},
+	{
+		"code": "JOD",
+		"symbol": "JOD",
+		"name": "Jordanian Dinar",
+		"locale": "ar-jo",
+		"numeric_code": 400
+	},
+	{
+		"code": "JPY",
+		"symbol": "\u00a5",
+		"name": "Japanese Yen",
+		"locale": "ja-jp",
+		"numeric_code": 392
+	},
+	{
+		"code": "KES",
+		"symbol": "KES",
+		"name": "Kenyan Shilling",
+		"locale": "en-ke",
+		"numeric_code": 404
+	},
+	{
+		"code": "KGS",
+		"symbol": "KGS",
+		"name": "Kyrgyzstani Som",
+		"locale": "ky-kg",
+		"numeric_code": 417
+	},
+	{
+		"code": "KHR",
+		"symbol": "\u17db",
+		"name": "Cambodian Riel",
+		"locale": "km-kh",
+		"numeric_code": 116
+	},
+	{
+		"code": "KMF",
+		"symbol": "KMF",
+		"name": "Comorian Franc",
+		"locale": "fr-km",
+		"numeric_code": 174
+	},
+	{
+		"code": "KPW",
+		"symbol": "\u20a9",
+		"name": "North Korean Won",
+		"locale": "ko-kp",
+		"numeric_code": 408
+	},
+	{
+		"code": "KRW",
+		"symbol": "\u20a9",
+		"name": "South Korean Won",
+		"locale": "ko-kr",
+		"numeric_code": 410
+	},
+	{
+		"code": "KWD",
+		"symbol": "KWD",
+		"name": "Kuwaiti Dinar",
+		"locale": "ar-kw",
+		"numeric_code": 414
+	},
+	{
+		"code": "KYD",
+		"symbol": "$",
+		"name": "Cayman Islands Dollar",
+		"locale": "en-ky",
+		"numeric_code": 136
+	},
+	{
+		"code": "KZT",
+		"symbol": "\u20b8",
+		"name": "Kazakhstani Tenge",
+		"locale": "kk-kz",
+		"numeric_code": 398
+	},
+	{
+		"code": "LAK",
+		"symbol": "\u20ad",
+		"name": "Lao Kip",
+		"locale": "lo-la",
+		"numeric_code": 418
+	},
+	{
+		"code": "LBP",
+		"symbol": "\u00a3",
+		"name": "Lebanese Pound",
+		"locale": "ar-lb",
+		"numeric_code": 422
+	},
+	{
+		"code": "LKR",
+		"symbol": "Rs",
+		"name": "Sri Lankan Rupee",
+		"locale": "si-lk",
+		"numeric_code": 144
+	},
+	{
+		"code": "LRD",
+		"symbol": "$",
+		"name": "Liberian Dollar",
+		"locale": "en-lr",
+		"numeric_code": 430
+	},
+	{
+		"code": "LSL",
+		"symbol": "LSL",
+		"name": "Lesotho Loti",
+		"locale": "en-ls",
+		"numeric_code": 426
+	},
+	{
+		"code": "LTL",
+		"symbol": "Lt",
+		"name": "Lithuanian Litas",
+		"locale": "lt-lt",
+		"numeric_code": 440
+	},
+	{
+		"code": "LVL",
+		"symbol": "LVL",
+		"name": "Latvian Lats",
+		"locale": "lv-lv",
+		"numeric_code": 428
+	},
+	{
+		"code": "LYD",
+		"symbol": "LD",
+		"name": "Libyan Dinar",
+		"locale": "ar-ly",
+		"numeric_code": 434
+	},
+	{
+		"code": "MAD",
+		"symbol": "MAD",
+		"name": "Moroccan Dirham",
+		"locale": "ar-ma",
+		"numeric_code": 504
+	},
+	{
+		"code": "MDL",
+		"symbol": "MDL",
+		"name": "Moldovan Leu",
+		"locale": "ro-md",
+		"numeric_code": 498
+	},
+	{
+		"code": "MGA",
+		"symbol": "Ar",
+		"name": "Malagasy Ariary",
+		"locale": "mg-mg",
+		"numeric_code": 969
+	},
+	{
+		"code": "MKD",
+		"symbol": "MKD",
+		"name": "Macedonian Denar",
+		"locale": "mk-mk",
+		"numeric_code": 807
+	},
+	{
+		"code": "MMK",
+		"symbol": "K",
+		"name": "Myanma Kyat",
+		"locale": "my-mm",
+		"numeric_code": 104
+	},
+	{
+		"code": "MNT",
+		"symbol": "\u20ae",
+		"name": "Mongolian Tugrik",
+		"locale": "mn-mn",
+		"numeric_code": 496
+	},
+	{
+		"code": "MOP",
+		"symbol": "MOP",
+		"name": "Macanese Pataca",
+		"locale": "pt-mo",
+		"numeric_code": 446
+	},
+	{
+		"code": "MRO",
+		"symbol": "UM",
+		"name": "Mauritanian Ouguiya",
+		"locale": "ar-mr",
+		"numeric_code": 478
+	},
+	{
+		"code": "MUR",
+		"symbol": "Rs",
+		"name": "Mauritian Rupee",
+		"locale": "en-mu",
+		"numeric_code": 480
+	},
+	{
+		"code": "MVR",
+		"symbol": "Rf",
+		"name": "Maldivian Rufiyaa",
+		"locale": "dv-mv",
+		"numeric_code": 462
+	},
+	{
+		"code": "MWK",
+		"symbol": "MWK",
+		"name": "Malawian Kwacha",
+		"locale": "en-mw",
+		"numeric_code": 454
+	},
+	{
+		"code": "MXN",
+		"symbol": "$",
+		"name": "Mexican Peso",
+		"locale": "es-mx",
+		"numeric_code": 484
+	},
+	{
+		"code": "MYR",
+		"symbol": "RM",
+		"name": "Malaysian Ringgit",
+		"locale": "ms-my",
+		"numeric_code": 458
+	},
+	{
+		"code": "MZN",
+		"symbol": "MZN",
+		"name": "Mozambican Metical",
+		"locale": "pt-mz",
+		"numeric_code": 943
+	},
+	{
+		"code": "NAD",
+		"symbol": "$",
+		"name": "Namibian Dollar",
+		"locale": "en-na",
+		"numeric_code": 516
+	},
+	{
+		"code": "NGN",
+		"symbol": "\u20a6",
+		"name": "Nigerian Naira",
+		"locale": "en-ng",
+		"numeric_code": 566
+	},
+	{
+		"code": "NIO",
+		"symbol": "$",
+		"name": "Nicaraguan C\u00f3rdoba",
+		"locale": "es-ni",
+		"numeric_code": 558
+	},
+	{
+		"code": "NOK",
+		"symbol": "kr",
+		"name": "Norwegian Krone",
+		"locale": "nb-no",
+		"numeric_code": 578
+	},
+	{
+		"code": "NPR",
+		"symbol": "\u0930\u0941",
+		"name": "Nepalese Rupee",
+		"locale": "ne-np",
+		"numeric_code": 524
+	},
+	{
+		"code": "NZD",
+		"symbol": "$",
+		"name": "New Zealand Dollar",
+		"locale": "en-nz",
+		"numeric_code": 554
+	},
+	{
+		"code": "OMR",
+		"symbol": "OMR",
+		"name": "Omani Rial",
+		"locale": "ar-om",
+		"numeric_code": 512
+	},
+	{
+		"code": "PAB",
+		"symbol": "PAB",
+		"name": "Panamanian Balboa",
+		"locale": "es-pa",
+		"numeric_code": 590
+	},
+	{
+		"code": "PEN",
+		"symbol": "PEN",
+		"name": "Peruvian Nuevo Sol",
+		"locale": "es-pe",
+		"numeric_code": 604
+	},
+	{
+		"code": "PGK",
+		"symbol": "K",
+		"name": "Papua New Guinean Kina",
+		"locale": "en-pg",
+		"numeric_code": 598
+	},
+	{
+		"code": "PHP",
+		"symbol": "\u20b1",
+		"name": "Philippine Peso",
+		"locale": "en-ph",
+		"numeric_code": 608
+	},
+	{
+		"code": "PKR",
+		"symbol": "Rs",
+		"name": "Pakistani Rupee",
+		"locale": "en-pk",
+		"numeric_code": 586
+	},
+	{
+		"code": "PLN",
+		"symbol": "z\u0142",
+		"name": "Polish Zloty",
+		"locale": "pl-pl",
+		"numeric_code": 985
+	},
+	{
+		"code": "PYG",
+		"symbol": "\u20b2",
+		"name": "Paraguayan Guarani",
+		"locale": "es-py",
+		"numeric_code": 600
+	},
+	{
+		"code": "QAR",
+		"symbol": "QAR",
+		"name": "Qatari Riyal",
+		"locale": "ar-qa",
+		"numeric_code": 634
+	},
+	{
+		"code": "RON",
+		"symbol": "RON",
+		"name": "Romanian Leu",
+		"locale": "ro-ro",
+		"numeric_code": 946
+	},
+	{
+		"code": "RSD",
+		"symbol": "RSD",
+		"name": "Serbian Dinar",
+		"locale": "sr-rs",
+		"numeric_code": 941
+	},
+	{
+		"code": "RUB",
+		"symbol": "\u20bd",
+		"name": "Russian Ruble",
+		"locale": "ru-ru",
+		"numeric_code": 643
+	},
+	{
+		"code": "SAR",
+		"symbol": "SAR",
+		"name": "Saudi Riyal",
+		"locale": "ar-sa",
+		"numeric_code": 682
+	},
+	{
+		"code": "SBD",
+		"symbol": "$",
+		"name": "Solomon Islands Dollar",
+		"locale": "en-sb",
+		"numeric_code": 90
+	},
+	{
+		"code": "SCR",
+		"symbol": "Rs",
+		"name": "Seychellois Rupee",
+		"locale": "en-sc",
+		"numeric_code": 690
+	},
+	{
+		"code": "SDG",
+		"symbol": "SDG",
+		"name": "Sudanese Pound",
+		"locale": "ar-sd",
+		"numeric_code": 938
+	},
+	{
+		"code": "SEK",
+		"symbol": "kr",
+		"name": "Swedish Krona",
+		"locale": "sv-se",
+		"numeric_code": 752
+	},
+	{
+		"code": "SGD",
+		"symbol": "$",
+		"name": "Singapore Dollar",
+		"locale": "en-sg",
+		"numeric_code": 702
+	},
+	{
+		"code": "SHP",
+		"symbol": "\u00a3",
+		"name": "Saint Helena Pound",
+		"locale": "en-sh",
+		"numeric_code": 654
+	},
+	{
+		"code": "SLL",
+		"symbol": "SLL",
+		"name": "Sierra Leonean Leone",
+		"locale": "en-sl",
+		"numeric_code": 694
+	},
+	{
+		"code": "SOS",
+		"symbol": "SOS",
+		"name": "Somali Shilling",
+		"locale": "so-so",
+		"numeric_code": 706
+	},
+	{
+		"code": "SRD",
+		"symbol": "$",
+		"name": "Surinamese Dollar",
+		"locale": "nl-sr",
+		"numeric_code": 968
+	},
+	{
+		"code": "SYP",
+		"symbol": "\u00a3",
+		"name": "Syrian Pound",
+		"locale": "ar-sy",
+		"numeric_code": 760
+	},
+	{
+		"code": "SZL",
+		"symbol": "SZL",
+		"name": "Swazi Lilangeni",
+		"locale": "en-sz",
+		"numeric_code": 748
+	},
+	{
+		"code": "THB",
+		"symbol": "\u0e3f",
+		"name": "Thai Baht",
+		"locale": "th-th",
+		"numeric_code": 764
+	},
+	{
+		"code": "TJS",
+		"symbol": "TJS",
+		"name": "Tajikistani Somoni",
+		"locale": "tg-tj",
+		"numeric_code": 972
+	},
+	{
+		"code": "TMT",
+		"symbol": "m",
+		"name": "Turkmen Manat",
+		"locale": "tk-tm",
+		"numeric_code": 934
+	},
+	{
+		"code": "TND",
+		"symbol": "TND",
+		"name": "Tunisian Dinar",
+		"locale": "ar-tn",
+		"numeric_code": 788
+	},
+	{
+		"code": "TRY",
+		"symbol": "TRY",
+		"name": "Turkish New Lira",
+		"locale": "tr-tr",
+		"numeric_code": 949
+	},
+	{
+		"code": "TTD",
+		"symbol": "$",
+		"name": "Trinidad and Tobago Dollar",
+		"locale": "en-tt",
+		"numeric_code": 780
+	},
+	{
+		"code": "TWD",
+		"symbol": "$",
+		"name": "New Taiwan Dollar",
+		"locale": "zh-tw",
+		"numeric_code": 901
+	},
+	{
+		"code": "TZS",
+		"symbol": "TZS",
+		"name": "Tanzanian Shilling",
+		"locale": "en-tz",
+		"numeric_code": 834
+	},
+	{
+		"code": "UAH",
+		"symbol": "UAH",
+		"name": "Ukrainian Hryvnia",
+		"locale": "uk-ua",
+		"numeric_code": 980
+	},
+	{
+		"code": "UGX",
+		"symbol": "UGX",
+		"name": "Ugandan shilling",
+		"locale": "en-ug",
+		"numeric_code": 800
+	},
+	{
+		"code": "UYU",
+		"symbol": "$",
+		"name": "Uruguayan Peso",
+		"locale": "es-uy",
+		"numeric_code": 858
+	},
+	{
+		"code": "UZS",
+		"symbol": "UZS",
+		"name": "Uzbekistani Som",
+		"locale": "uz-UZ",
+		"numeric_code": 860
+	},
+	{
+		"code": "VES",
+		"symbol": "VES",
+		"name": "Venezuelan Bolivar",
+		"locale": "es-VE",
+		"numeric_code": 928
+	},
+	{
+		"code": "VND",
+		"symbol": "\u20ab",
+		"name": "Vietnamese Dong",
+		"locale": "vi-VN",
+		"numeric_code": 704
+	},
+	{
+		"code": "VUV",
+		"symbol": "VT",
+		"name": "Vanuatu Vatu",
+		"locale": "bi-VU",
+		"numeric_code": 548
+	},
+	{
+		"code": "WST",
+		"symbol": "$",
+		"name": "Samoan Tala",
+		"locale": "sm-WS",
+		"numeric_code": 882
+	},
+	{
+		"code": "XCD",
+		"symbol": "$",
+		"name": "East Caribbean Dollar",
+		"locale": "en-XC",
+		"numeric_code": 951
+	},
+	{
+		"code": "XDR",
+		"symbol": "SDR",
+		"name": "Special Drawing Rights",
+		"locale": "xdr-XD",
+		"numeric_code": 960
+	},
+	{
+		"code": "XOF",
+		"symbol": "CFA",
+		"name": "West African CFA franc",
+		"locale": "fr-XO",
+		"numeric_code": 952
+	},
+	{
+		"code": "XPF",
+		"symbol": "F",
+		"name": "CFP Franc",
+		"locale": "fr-PF",
+		"numeric_code": 953
+	},
+	{
+		"code": "YER",
+		"symbol": "YER",
+		"name": "Yemeni Rial",
+		"locale": "ar-YE",
+		"numeric_code": 886
+	},
+	{
+		"code": "ZAR",
+		"symbol": "R",
+		"name": "South African Rand",
+		"locale": "en-ZA",
+		"numeric_code": 710
+	},
+	{
+		"code": "ZMK",
+		"symbol": "ZK",
+		"name": "Zambian Kwacha",
+		"locale": "en-ZM",
+		"numeric_code": 894
+	},
+	{
+		"code": "ZWR",
+		"symbol": "$",
+		"name": "Zimbabwean Dollar",
+		"locale": "en-ZW",
+		"numeric_code": 935
+	}
+]

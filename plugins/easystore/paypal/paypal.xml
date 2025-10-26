@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="easystore" method="upgrade">
+	<name>PLG_EASYSTORE_PAYPAL</name>
+	<author>JoomShaper</author>
+	<creationDate>2023-05</creationDate>
+	<copyright>(C) 2023 - 2025 JoomShaper.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>support@joomshaper.com</authorEmail>
+	<authorUrl>www.joomshaper.com</authorUrl>
+	<version>2.0.2</version>
+	<description>PLG_EASYSTORE_PAYPAL_XML_DESCRIPTION</description>
+	<namespace path="src">JoomShaper\Plugin\EasyStore\Paypal</namespace>
+	<scriptfile>script.php</scriptfile>
+	<updateservers>
+		<server type="extension" priority="1" name="Paypal - EasyStore Payment Plugin">
+			https://www.joomshaper.com/updates/easystore-paypal.xml
+		</server>
+	</updateservers>
+	<media folder="media">
+		<folder>plg_easystore_paypal/js</folder>
+		<filename>plg_easystore_paypal/joomla.asset.json</filename>
+	</media>
+	<files>
+		<folder plugin="paypal">services</folder>
+		<folder>assets</folder>
+		<folder>src</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">plg_easystore_paypal.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="title"
+					type="text"
+					label="PLG_EASYSTORE_PAYPAL_TITLE"
+					default="PayPal"
+				/>
+				<field 
+                    name="shop_environment" 
+					type="radio" 
+					class="btn-group btn-group-yesno"
+                    label="PLG_EASYSTORE_PAYPAL_SHOP_ENVIRONMENT" 
+                    description="PLG_EASYSTORE_PAYPAL_SHOP_ENVIRONMENT_DESC" 
+                    default="sandbox" 
+                >
+					<option value="production">PLG_EASYSTORE_PAYPAL_SHOP_ENVIRONMENT_PRODUCTION</option>
+					<option value="sandbox">PLG_EASYSTORE_PAYPAL_SHOP_ENVIRONMENT_SANDBOX</option>
+				</field>
+
+				<field 
+                    name="paypal_id" 
+                    type="email" 
+                    label="PLG_EASYSTORE_PAYPAL_MERCHANT_EMAIL"
+                    description="PLG_EASYSTORE_PAYPAL_MERCHANT_EMAIL_DESC"
+					showon="shop_environment:sandbox"
+                />
+
+				<field 
+                    name="live_paypal_id" 
+                    type="email" 
+                    label="PLG_EASYSTORE_PAYPAL_LIVE_MERCHANT_EMAIL"
+                    description="PLG_EASYSTORE_PAYPAL_LIVE_MERCHANT_EMAIL_DESC"
+					showon="shop_environment:production"
+                />
+
+				<field 
+                    name="test_client_id" 
+                    type="text" 
+                    label="PLG_EASYSTORE_PAYPAL_TEST_CLIENT_ID"
+                    description="PLG_EASYSTORE_PAYPAL_CLIENT_ID_DESC"
+					showon="shop_environment:sandbox"
+                />
+
+				<field 
+                    name="live_client_id" 
+                    type="text" 
+                    label="PLG_EASYSTORE_PAYPAL_LIVE_CLIENT_ID"
+                    description="PLG_EASYSTORE_PAYPAL_CLIENT_ID_DESC"
+					showon="shop_environment:production"
+                />
+
+				<field 
+                    name="test_client_secret_key" 
+                    type="text" 
+                    label="PLG_EASYSTORE_PAYPAL_TEST_CLIENT_SECRET_KEY"
+                    description="PLG_EASYSTORE_PAYPAL_CLIENT_SECRET_KEY_DESC"
+					showon="shop_environment:sandbox"
+                />
+
+				<field 
+                    name="live_client_secret_key" 
+                    type="text" 
+                    label="PLG_EASYSTORE_PAYPAL_LIVE_CLIENT_SECRET_KEY"
+                    description="PLG_EASYSTORE_PAYPAL_CLIENT_SECRET_KEY_DESC"
+					showon="shop_environment:production"
+                />
+
+				<field 
+                    name="test_webhook_id" 
+                    type="text" 
+                    label="PLG_EASYSTORE_PAYPAL_TEST_WEBHOOK_ID"
+                    description="PLG_EASYSTORE_PAYPAL_WEBHOOK_ID_DESC"
+					showon="shop_environment:sandbox"
+                />
+
+				<field 
+                    name="live_webhook_id" 
+                    type="text" 
+                    label="PLG_EASYSTORE_PAYPAL_LIVE_WEBHOOK_ID"
+                    description="PLG_EASYSTORE_PAYPAL_WEBHOOK_ID_DESC"
+					showon="shop_environment:production"
+                />
+
+				<field 
+					name="webhook_note" 
+					type="note" 
+					class="alert alert-info" 
+					label="PLG_EASYSTORE_SETTINGS_TOKENS_COULD_BE_USED"
+					description='PLG_EASYSTORE_PAYPAL_WEBHOOK_NOTE_DESC'
+				/>
+
+				<field 
+					name="webhook_url"
+					type="EasystoreWebhookButton"
+					text="PLG_EASYSTORE_PAYPAL_WEBHOOK_BUTTON"
+					description="PLG_EASYSTORE_PAYPAL_WEBHOOK_BUTTON_DESC"
+					addfieldprefix="JoomShaper\Plugin\EasyStore\Paypal\Field"
+				/>
+
+				<field
+					name="payment_instruction"
+					type="textarea"
+					label="PLG_EASYSTORE_PAYPAL_PAYMENT_INSTRUCTION"
+					default="You will be redirected to the secure PayPal payment portal to complete your purchase. After the payment is processed, you will be redirected back to this website"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

@@ -1,0 +1,418 @@
+{
+	"order": {
+		"name": "COM_EASYSTORE_EMAIL_TEMPLATE_GROUP_NAME_ORDER",
+		"templates": [
+			{
+				"type": "order_confirmation",
+				"title": "COM_EASYSTORE_EMAIL_TEMPLATE_ORDER_CONFIRMATION_TITLE",
+				"subtitle": "COM_EASYSTORE_EMAIL_TEMPLATE_ORDER_CONFIRMATION_SUBTITLE",
+				"subject": "Order Placed Successfully: Order ID #{order_id}",
+				"body": "<p>Dear {customer_name},<br><br>Thank you for choosing {store_name}! Your order ID is {order_id}.<br>The details of the placed <a target='_blank' rel='noopener' href='{order_link}'>order</a> are as follows:<br><br><strong>Customer name:</strong> {customer_name}<br><strong>Order Date:</strong> {order_date}<br><strong>Company Name: {company_name}</strong><br><strong>VAT Identification Number (VATIN): </strong>{vat_information}<br><strong>Shipping Address: </strong>{shipping_address}<br><strong>Order Summary:</strong> {order_summary}<br><strong>Customer Note:</strong> {customer_note}<br><br>Need assistance with anything? Just reach out to us at {store_phone} for any assistance.<br><br>Have a good day!<br>{store_name}<br>{store_email}<br>{store_address}</p>",
+				"is_enabled": true,
+				"variables": [
+					{
+						"title": "Customer Name",
+						"code": "{customer_name}"
+					},
+					{
+						"title": "Customer Note",
+						"code": "{customer_note}"
+					},
+					{
+						"title": "Order ID",
+						"code": "{order_id}"
+					},
+					{
+						"title": "Order Date",
+						"code": "{order_date}"
+					},
+					{
+						"title": "Company name",
+						"code": "{company_name}"
+					},
+					{
+						"title": "Company ID",
+						"code": "{company_id}"
+					},
+					{
+						"title": "VAT Identification Number (VATIN)",
+						"code": "{vat_information}"
+					},
+					{
+						"title": "Order Link",
+						"code": "{order_link}"
+					},
+					{
+						"title": "Order Summary",
+						"code": "{order_summary}"
+					},
+					{
+						"title": "Payment Status",
+						"code": "{payment_status}"
+					},
+					{
+						"title": "Payment Method",
+						"code": "{payment_method}"
+					},
+					{
+						"title": "Shipping Address",
+						"code": "{shipping_address}"
+					},
+					{
+						"title": "Store Name",
+						"code": "{store_name}"
+					},
+					{
+						"title": "Store Email",
+						"code": "{store_email}"
+					},
+					{
+						"title": "Store Phone Number",
+						"code": "{store_phone}"
+					},
+					{
+						"title": "Store Address",
+						"code": "{store_address}"
+					},
+					{
+						"title": "Seller Tax Id",
+						"code": "{seller_tax_id}"
+					}
+				]
+			},
+			{
+				"type": "order_confirmation_admin",
+				"title": "COM_EASYSTORE_EMAIL_TEMPLATE_ORDER_CONFIRMATION_TITLE_ADMIN",
+				"subtitle": "COM_EASYSTORE_EMAIL_TEMPLATE_ORDER_CONFIRMATION_SUBTITLE_ADMIN",
+				"subject": "New Order Placed: Order ID #{order_id}",
+				"body": "<p>Dear Admin,</p><br><p>A new order with ID {order_id} has been placed on {order_date} in your store, {store_name}.<br>The details of the order are as follows: <br><br><strong>Name:</strong> {customer_name}<strong><br><strong>Email: </strong>{company_email}<br>Order ID:</strong> {order_id}<br><strong>Order Date:</strong> {order_date}<br><strong>Order Summary:</strong> {order_summary}<br><strong>Customer Note:</strong> {customer_note}<br><strong>Payment Status:</strong> {payment_status}</p><p><strong>Company Name:</strong> {company_name}<br><strong>VAT Identification Number (VATIN):</strong> {vat_information}</p><p>Please review the order details and proceed accordingly.</p><p><br>From<br>{store_name}<br>{store_phone}</p>",
+				"is_enabled": true,
+				"variables": [
+					{
+						"title": "Customer Name",
+						"code": "{customer_name}"
+					},
+					{
+						"title": "Customer Email",
+						"code": "{customer_email}"
+					},
+					{
+						"title": "Customer Note",
+						"code": "{customer_note}"
+					},
+					{
+						"title": "Company name",
+						"code": "{company_name}"
+					},
+					{
+						"title": "Company ID",
+						"code": "{company_id}"
+					},
+					{
+						"title": "VAT Identification Number (VATIN)",
+						"code": "{vat_information}"
+					},
+					{
+						"title": "Order ID",
+						"code": "{order_id}"
+					},
+					{
+						"title": "Order Date",
+						"code": "{order_date}"
+					},
+					{
+						"title": "Order Link",
+						"code": "{order_link}"
+					},
+					{
+						"title": "Order Summary",
+						"code": "{order_summary}"
+					},
+					{
+						"title": "Payment Status",
+						"code": "{payment_status}"
+					},
+					{
+						"title": "Payment Method",
+						"code": "{payment_method}"
+					},
+					{
+						"title": "Shipping Address",
+						"code": "{shipping_address}"
+					},
+					{
+						"title": "Store Name",
+						"code": "{store_name}"
+					},
+					{
+						"title": "Store Email",
+						"code": "{store_email}"
+					},
+					{
+						"title": "Store Phone Number",
+						"code": "{store_phone}"
+					},
+					{
+						"title": "Store Address",
+						"code": "{store_address}"
+					}
+				]
+			},
+			{
+				"type": "order_refund",
+				"title": "COM_EASYSTORE_EMAIL_TEMPLATE_ORDER_REFUND_TITLE",
+				"subtitle": "COM_EASYSTORE_EMAIL_TEMPLATE_ORDER_REFUND_SUBTITLE",
+				"subject": "Refund Confirmation - Order #{order_id}",
+				"body": "<p>Dear {customer_name},</p><p>We are pleased to confirm that your refund request for Order #{order_id} has been processed. Below are the details of your refund:</p><p><strong>Order ID:</strong> {order_id}<br><strong>Order Date:</strong> {order_date}</p><p></p><p><strong>Refund Amount:</strong> {refund_amount}<br></p><p>Please allow a few business days for the refund to reflect in your account, depending on your bank or payment provider. If you have any questions or concerns regarding your refund, please do not hesitate to reach out to our customer support team at {store_email} or call us at {store_phone}. We are here to assist you with any further inquiries.<br></p><p>Thank you for choosing {store_name}.</p><p><br>{store_address}</p><p></p>",
+				"is_enabled": true,
+				"variables": [
+					{
+						"title": "Customer Name",
+						"code": "{customer_name}"
+					},
+					{
+						"title": "Order Id",
+						"code": "{order_id}"
+					},
+					{
+						"title": "Order Date",
+						"code": "{order_date}"
+					},
+					{
+						"title": "Refund Amount",
+						"code": "{refund_amount}"
+					},
+					{
+						"title": "Store Name",
+						"code": "{store_name}"
+					},
+					{
+						"title": "Store Email",
+						"code": "{store_email}"
+					},
+					{
+						"title": "Store Phone Number",
+						"code": "{store_phone}"
+					},
+					{
+						"title": "Store Address",
+						"code": "{store_address}"
+					}
+				]
+			}
+		]
+	},
+	"payment": {
+		"name": "COM_EASYSTORE_EMAIL_TEMPLATE_GROUP_NAME_PAYMENT",
+		"templates": [
+			{
+				"type": "payment_success",
+				"title": "COM_EASYSTORE_EMAIL_TEMPLATE_PAYMENT_SUCCESS_TITLE",
+				"subtitle": "COM_EASYSTORE_EMAIL_TEMPLATE_PAYMENT_SUCCESS_SUBTITLE",
+				"subject": "Payment Successful for Your Recent Order",
+				"body": "<p>Dear {customer_name},</p><p>We are excited to inform you that your recent payment has been successfully processed. Your <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"{order_link}\">order</a> is now confirmed, and we are preparing it for shipment. Below are the details of your purchase:</p><p><b>Order ID:</b> {order_id}<br><b>Order Date:</b> {order_date}</p><p><b>Shipping Address:</b><br>{shipping_address}</p><p>Please allow us some time to prepare your order for shipment. You will receive a shipping confirmation email with tracking information once your order is on its way.</p><p>If you have any questions or require assistance with your order, please do not hesitate to reach out to our customer support team at  <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"{store_email}\">{store_email}</a> or call us at {store_phone}.</p><p>Thank you for choosing {store_name}. <br><br>{store_name}<br>{store_phone}<br>{store_email}<br>{store_address}<br></p>",
+				"is_enabled": true,
+				"variables": [
+					{
+						"title": "Customer Name",
+						"code": "{customer_name}"
+					},
+					{
+						"title": "Order ID",
+						"code": "{order_id}"
+					},
+					{
+						"title": "Order Date",
+						"code": "{order_date}"
+					},
+					{
+						"title": "Order Link",
+						"code": "{order_link}"
+					},
+					{
+						"title": "Shipping Address",
+						"code": "{shipping_address}"
+					},
+					{
+						"title": "Store Name",
+						"code": "{store_name}"
+					},
+					{
+						"title": "Store Email",
+						"code": "{store_email}"
+					},
+					{
+						"title": "Store Phone Number",
+						"code": "{store_phone}"
+					},
+					{
+						"title": "Store Address",
+						"code": "{store_address}"
+					}
+				]
+			},
+			{
+				"type": "payment_error",
+				"title": "COM_EASYSTORE_EMAIL_TEMPLATE_PAYMENT_ERROR_TITLE",
+				"subtitle": "COM_EASYSTORE_EMAIL_TEMPLATE_PAYMENT_ERROR_SUBTITLE",
+				"subject": "Payment Error for Order #{order_id}",
+				"body": "<p>Dear {customer_name},</p><p>We regret to inform you that there was an issue with the payment for your recent <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"{order_link}\">order</a> with us. Unfortunately, we were unable to process your payment successfully. The details of your order are as follows:</p><p><b>Order ID:</b> {order_id}<br><b>Order Date:</b> {order_date}</p><p>If you believe this is an error, we recommend the following steps:<ol><li>Double-check your payment information for accuracy, including the card number, expiration date, and CVV code.</li><li>Ensure that the billing address provided matches the one associated with your payment method.</li><li>If you are using a credit or debit card, confirm that your card is valid and has available credit.</li><li>If you continue to experience issues, we recommend trying an alternative payment method, such as a different card or payment option.</li></ol><p>If you still encounter difficulties or have questions about this payment error, please do not hesitate to reach out to our customer support team at  <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"{store_email}\">{store_email}</a> or call us at {store_phone}. We are here to assist you in resolving this issue and completing your order.</p><p>We apologize for any inconvenience this may have caused and appreciate your patience and understanding.</p><p>Thank you for considering {store_name}. We value your business and hope to provide you with a seamless shopping experience.</p><p>Sincerely,</p><p>{store_name}<br>{store_address}<br>{store_email}<br>{store_phone}</p>",
+				"is_enabled": true,
+				"variables": [
+					{
+						"title": "Customer Name",
+						"code": "{customer_name}"
+					},
+					{
+						"title": "Order ID",
+						"code": "{order_id}"
+					},
+					{
+						"title": "Order Date",
+						"code": "{order_date}"
+					},
+					{
+						"title": "Order Link",
+						"code": "{order_link}"
+					},
+					{
+						"title": "Store Name",
+						"code": "{store_name}"
+					},
+					{
+						"title": "Store Email",
+						"code": "{store_email}"
+					},
+					{
+						"title": "Store Phone Number",
+						"code": "{store_phone}"
+					},
+					{
+						"title": "Store Address",
+						"code": "{store_address}"
+					}
+				]
+			},
+			{
+				"type": "payment_success_admin",
+				"title": "COM_EASYSTORE_EMAIL_TEMPLATE_PAYMENT_SUCCESS_TITLE_ADMIN",
+				"subtitle": "COM_EASYSTORE_EMAIL_TEMPLATE_PAYMENT_SUCCESS_SUBTITLE_ADMIN",
+				"subject": "Payment Successful for Order #{order_id}",
+				"body": "<p>Dear {store_name},</p><p>We\u2019re pleased to inform you that a customer has successfully completed their payment, and their <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"{order_link}\">order</a> has been confirmed. Below are the order details:</p><p><strong>Order ID:</strong> {order_id}<br><strong>Order Date:</strong> {order_date}</p><p><strong>Customer Details:</strong><br><strong>Name:</strong> {customer_name}<br></p><p><strong>Shipping Address:</strong><br>{shipping_address}<br></p><p>Please proceed with order fulfillment and prepare the shipment. The customer will receive a confirmation email along with tracking details once the order has been dispatched.</p><p>If you need any further assistance, feel free to contact us at {store_email} or call us at {store_phone}.</p><p>Thank you for your continued support.<br></p><p><strong>Best regards,</strong><br><strong>{store_name}</strong><br>{store_phone} | {store_email}<br>{store_address}</p>",
+				"is_enabled": true,
+				"variables": [
+					{
+						"title": "Customer Name",
+						"code": "{customer_name}"
+					},
+					{
+						"title": "Order ID",
+						"code": "{order_id}"
+					},
+					{
+						"title": "Order Date",
+						"code": "{order_date}"
+					},
+					{
+						"title": "Order Link",
+						"code": "{order_link}"
+					},
+					{
+						"title": "Shipping Address",
+						"code": "{shipping_address}"
+					},
+					{
+						"title": "Store Name",
+						"code": "{store_name}"
+					},
+					{
+						"title": "Store Email",
+						"code": "{store_email}"
+					},
+					{
+						"title": "Store Phone Number",
+						"code": "{store_phone}"
+					},
+					{
+						"title": "Store Address",
+						"code": "{store_address}"
+					}
+				]
+			}
+		]
+	},
+	"shipping": {
+		"name": "COM_EASYSTORE_EMAIL_TEMPLATE_GROUP_NAME_SHIPPING",
+		"templates": [
+			{
+				"type": "shipping_add_tracking",
+				"title": "COM_EASYSTORE_EMAIL_TEMPLATE_ORDER_TRACKING_TITLE",
+				"subtitle": "COM_EASYSTORE_EMAIL_TEMPLATE_ORDER_TRACKING_SUBTITLE",
+				"subject": "Shipping Carrier Added - Order #{order_id}",
+				"body": "<p>Dear {customer_name},<br></p><p>We are excited to inform you that a shipping carrier has been added to your order. <br>Here are the details:</p><ul><li><p><strong>Order Number:</strong> {order_id}</p></li><li><p><strong>Shipping Carrier: </strong>{shipping_carrier}</p></li></ul><p>You can track your order's status by clicking the following link:</p><p><strong>Track Your Order:</strong> <a target=\"_blank\" rel=\"noreferrer noopener\" href=\"{tracking_url}\">{tracking_url}</a><br></p><p>If you have any questions or need assistance, please feel free to contact our customer support team at <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"{store_email}\">{store_email}</a> or call us at {store_phone}</p>",
+				"is_enabled": true,
+				"variables": [
+					{
+						"title": "Customer Name",
+						"code": "{customer_name}"
+					},
+					{
+						"title": "Order Number",
+						"code": "{order_id}"
+					},
+					{
+						"title": "Shipping Carrier",
+						"code": "{shipping_carrier}"
+					},
+					{
+						"title": "Tracking Url",
+						"code": "{tracking_url}"
+					},
+					{
+						"title": "Store Email",
+						"code": "{store_email}"
+					},
+					{
+						"title": "Store Phone Number",
+						"code": "{store_phone}"
+					}
+				]
+			}
+		]
+	},
+	"customer": {
+		"name": "COM_EASYSTORE_EMAIL_TEMPLATE_GROUP_NAME_CUSTOMER",
+		"templates": [
+			{
+				"type": "customer_new_account",
+				"title": "COM_EASYSTORE_EMAIL_TEMPLATE_NEW_ACCOUNT_TITLE",
+				"subtitle": "COM_EASYSTORE_EMAIL_TEMPLATE_NEW_ACCOUNT_SUBTITLE",
+				"subject": "Welcome to {store_name} - Your New Account",
+				"body": "<p>Dear {customer_name},</p><p>We are excited to welcome you to {store_name}! Thank you for creating your account with us. Your journey with us has just begun, and we can't wait to provide you with a seamless and enjoyable experience.</p><p>Here are a few things you can do with your {store_name} account:</p><ol><li><p><strong>Explore Our Products:</strong> Browse our wide range of high-quality products and discover the perfect items for your needs.</p></li><li><p><strong>Save Your Favorites:</strong> Save your favorite products to your wishlist for easy access later.</p></li><li><p><strong>Streamlined Checkout:</strong> Enjoy a faster and more convenient checkout process when you make a purchase.</p></li><li><p><strong>Order Tracking:</strong> Keep an eye on the progress of your orders and access tracking information easily.</p></li><li><p><strong>Exclusive Offers:</strong> As a valued member, you'll receive exclusive promotions, discounts, and updates.</p></li></ol><p>To get started, simply log in to your account <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"{account_login_link}\">Password Reset Link</a> and start exploring the exciting features we have to offer.</p><p>Thank you for choosing {store_name}. We value your trust and look forward to serving you. Welcome aboard!</p><p></p><p>{store_name}<br>{store_phone}<br>{store_address}</p>",
+				"is_enabled": true,
+				"variables": [
+					{
+						"title": "Customer Name",
+						"code": "{customer_name}"
+					},
+					{
+						"title": "Account Login Link",
+						"code": "{account_login_link}"
+					},
+					{
+						"title": "Store Name",
+						"code": "{store_name}"
+					},
+					{
+						"title": "Store Address",
+						"code": "{store_address}"
+					},
+					{
+						"title": "Store Phone Number",
+						"code": "{store_phone}"
+					}
+				]
+			}
+		]
+	}
+}

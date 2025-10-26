@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_typescript_webpack=self.webpackChunkreact_typescript_webpack||[]).push([[270],{80270:(e,p,s)=>{e.exports=s.p+"images/ddb93d70462ef7f52516.svg"}}]);

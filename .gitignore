@@ -1,0 +1,12 @@
+/.htaccess
+/administrator/cache/*
+/administrator/logs/*
+/cache/*
+/images/banners/*
+/images/headers/*
+/images/sampledata/*
+/images/index.html
+/images/joomla*
+/images/powered_by.png
+/tmp/*
+/configuration.php

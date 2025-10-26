@@ -1,0 +1,336 @@
+{
+    "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+    "name": "com_easystore",
+    "version": "1.7.1",
+    "description": "Joomla eCommerce component by JoomShaper",
+    "license": "GPL-2.0-or-later",
+    "assets": [
+        {
+            "name": "com_easystore.admin",
+            "type": "style",
+            "uri": "com_easystore/admin.css",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.order.admin",
+            "type": "style",
+            "uri": "com_easystore/order.admin.css",
+            "dependencies": [
+                "com_easystore.admin"
+            ],
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.order.admin",
+            "type": "script",
+            "uri": "com_easystore/admin-order.js",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.migration.admin",
+            "type": "script",
+            "uri": "com_easystore/migration.admin.js",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.product.site",
+            "type": "style",
+            "uri": "com_easystore/product.site.css",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.site",
+            "type": "style",
+            "uri": "com_easystore/site.css",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.products.site",
+            "type": "style",
+            "uri": "com_easystore/products.site.css",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.collections.site",
+            "type": "style",
+            "uri": "com_easystore/collections.site.css",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.products.site",
+            "type": "script",
+            "uri": "com_easystore/products.site.js",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.cart.site",
+            "type": "style",
+            "uri": "com_easystore/cart.site.css",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.cart.site",
+            "type": "script",
+            "uri": "com_easystore/cart.site.js",
+            "version": "1.7.1",
+            "dependencies": [
+                "com_easystore.alpine-common.js"
+            ]
+        },
+        {
+            "name": "com_easystore.wishlist.site",
+            "type": "script",
+            "uri": "com_easystore/wishlist.site.js",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.profile.site",
+            "type": "style",
+            "uri": "com_easystore/profile.site.css",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.app.admin.vendors",
+            "type": "script",
+            "uri": "com_easystore/app/admin.vendors.js",
+            "version": "1.7.1",
+            "attributes": {
+                "defer": true
+            }
+        },
+        {
+            "name": "com_easystore.app.admin",
+            "type": "script",
+            "uri": "com_easystore/app/admin.js",
+            "version": "1.7.1",
+            "dependencies": [
+                "com_easystore.app.admin.vendors"
+            ],
+            "attributes": {
+                "defer": true
+            }
+        },
+        {
+            "name": "com_easystore.variants.site",
+            "type": "script",
+            "uri": "com_easystore/variants.site.js",
+            "version": "1.7.1",
+            "attributes": {
+                "defer": true
+            }
+        },
+        {
+            "name": "com_easystore.app.admin.order",
+            "type": "script",
+            "uri": "com_easystore/app/admin.order.js",
+            "version": "1.7.1",
+            "dependencies": [
+                "com_easystore.app.admin.vendors"
+            ],
+            "attributes": {
+                "defer": true
+            }
+        },
+        {
+            "name": "com_easystore.app.admin.dashboard",
+            "type": "script",
+            "uri": "com_easystore/app/admin.dashboard.js",
+            "version": "1.7.1",
+            "dependencies": [
+                "com_easystore.app.admin.vendors"
+            ],
+            "attributes": {
+                "defer": true
+            }
+        },
+        {
+            "name": "com_easystore.app.admin.analytics",
+            "type": "script",
+            "uri": "com_easystore/app/admin.analytics.js",
+            "version": "1.7.1",
+            "dependencies": [
+                "com_easystore.app.admin.vendors"
+            ],
+            "attributes": {
+                "defer": true
+            }
+        },
+        {
+            "name": "com_easystore.product.site",
+            "type": "script",
+            "uri": "com_easystore/product.site.js",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.modal.site",
+            "type": "script",
+            "uri": "com_easystore/modal.site.js",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.order-details.admin",
+            "type": "script",
+            "uri": "com_easystore/order-details.admin.js",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.alpine.site",
+            "type": "script",
+            "uri": "com_easystore/alpine.min.js",
+            "version": "1.7.1",
+            "dependencies": [
+                "com_easystore.product.site",
+                "com_easystore.cart.site",
+                "com_easystore.cart.drawer.site",
+                "com_easystore.modal.site",
+                "com_easystore.checkout.site",
+                "com_easystore.range-slider.site",
+                "com_easystore.wishlist.site"
+            ],
+            "attributes": {
+                "defer": true
+            }
+        },
+        {
+            "name": "com_easystore.alpine.admin",
+            "type": "script",
+            "uri": "com_easystore/alpine.min.js",
+            "version": "1.7.1",
+            "dependencies": [
+                "com_easystore.order-details.admin"
+            ],
+            "attributes": {
+                "defer": true
+            }
+        },
+        {
+            "name": "com_easystore.cart.drawer.site",
+            "type": "style",
+            "uri": "com_easystore/cart.drawer.site.css",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.cart.drawer.site",
+            "type": "script",
+            "uri": "com_easystore/cart.drawer.site.js",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.checkout.site",
+            "type": "style",
+            "uri": "com_easystore/checkout.site.css",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.checkout.site",
+            "type": "script",
+            "uri": "com_easystore/checkout.site.js",
+            "version": "1.7.1",
+            "dependencies": [
+                "com_easystore.alpine-common.js"
+            ]
+        },
+        {
+            "name": "com_easystore.alpine-common.js",
+            "type": "script",
+            "uri": "com_easystore/alpine-common.js",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.customer.admin",
+            "type": "script",
+            "uri": "com_easystore/customer.admin.js",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.range-slider.site",
+            "type": "script",
+            "uri": "com_easystore/range-slider.js",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.profile-edit.site",
+            "type": "script",
+            "uri": "com_easystore/profile-edit.site.js",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.app.admin.settings",
+            "type": "script",
+            "uri": "com_easystore/app/admin.settings.js",
+            "version": "1.7.1",
+            "dependencies": [
+                "com_easystore.app.admin.vendors"
+            ],
+            "attributes": {
+                "defer": true
+            }
+        },
+        {
+            "name": "com_easystore.app.admin.migration",
+            "type": "script",
+            "uri": "com_easystore/app/admin.migration.js",
+            "version": "1.7.1",
+            "dependencies": [
+                "com_easystore.app.admin.vendors"
+            ],
+            "attributes": {
+                "defer": true
+            }
+        },
+        {
+            "name": "com_easystore.product-import.admin",
+            "type": "style",
+            "uri": "com_easystore/product-import.admin.css",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.product-import.admin",
+            "type": "script",
+            "uri": "com_easystore/product-import.admin.js",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.app.admin.coupons",
+            "type": "script",
+            "uri": "com_easystore/app/admin.coupons.js",
+            "version": "1.7.1",
+            "dependencies": [
+                "com_easystore.app.admin.vendors"
+            ],
+            "attributes": {
+                "defer": true
+            }
+        },
+        {
+            "name": "com_easystore.order.site",
+            "type": "style",
+            "uri": "com_easystore/order.site.css",
+            "version": "1.7.1"
+        },
+        {
+            "name": "com_easystore.app.admin.browse-products",
+            "type": "script",
+            "uri": "com_easystore/app/admin.browse-products.js",
+            "version": "1.7.1",
+            "dependencies": [
+                "com_easystore.app.admin.vendors"
+            ],
+            "attributes": {
+                "defer": true
+            }
+        },
+        {
+            "name": "com_easystore.app.admin.customers",
+            "type": "script",
+            "uri": "com_easystore/app/admin.customers.js",
+            "version": "1.7.1",
+            "dependencies": [
+                "com_easystore.app.admin.vendors"
+            ],
+            "attributes": {
+                "defer": true
+            }
+        }
+    ]
+}

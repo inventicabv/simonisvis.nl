@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="4.0" client="site" method="upgrade">
+	<name>MOD_EASYSTORE_CART_ICON</name>
+	<author>JoomShaper</author>
+	<creationDate>2023-05</creationDate>
+	<copyright>(C) 2023 - 2025 JoomShaper.</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<authorEmail>support@joomshaper.com</authorEmail>
+	<authorUrl>www.joomshaper.com</authorUrl>
+	<version>1.0.7</version>
+	<description>MOD_EASYSTORE_CART_ICON_DESCRIPTION</description>
+	<languages>
+		<language tag="en-GB">mod_easystore_cart_icon.ini</language>
+		<language tag="en-GB">mod_easystore_cart_icon.sys.ini</language>
+	</languages>
+	<files>
+		<filename module="mod_easystore_cart_icon">mod_easystore_cart_icon.php</filename>
+		<folder>tmpl</folder>
+	</files>
+</extension>

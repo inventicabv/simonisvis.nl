@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_EASYSTORE_COLLECTIONS_VIEW_DEFAULT_TITLE" option="COM_EASYSTORE_COLLECTIONS_VIEW_DEFAULT_OPTION">
+		<help
+			key = "JHELP_MENUS_MENU_ITEM_COLLECTIONS" />
+		<message>
+			<![CDATA[COM_EASYSTORE_COLLECTIONS_VIEW_DEFAULT_DESC]]>
+		</message>
+	</layout>
+
+	<!-- Add fields to the parameters object for the layout. -->
+	<fields name="params">
+		<fieldset name="basic" label="COM_EASYSTORE_COLLECTIONS_MENU_PARAMS">
+			<field name="columns" type="list" label="COM_EASYSTORE_COLLECTIONS_PARAM_COLUMNS_LABEL" description="COM_EASYSTORE_COLLECTIONS_PARAM_COLUMNS_DESC" default="3" filter="integer">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+			</field>
+			<field name="show_title" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="COM_EASYSTORE_COLLECTIONS_PARAM_TITLE_LABEL" description="COM_EASYSTORE_COLLECTIONS_PARAM_TITLE_DESC" class="form-select-color-state" validate="options">
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field name="show_image" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="COM_EASYSTORE_COLLECTIONS_PARAM_IMAGE_LABEL" description="COM_EASYSTORE_COLLECTIONS_PARAM_IMAGE_DESC" class="form-select-color-state" validate="options">
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field name="show_description" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="COM_EASYSTORE_COLLECTIONS_PARAM_DESCRIPTION_LABEL" description="COM_EASYSTORE_COLLECTIONS_PARAM_DESCRIPTION_DESC" class="form-select-color-state" validate="options">
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field name="show_button" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="COM_EASYSTORE_COLLECTIONS_PARAM_BUTTON_LABEL" description="COM_EASYSTORE_COLLECTIONS_PARAM_BUTTON_DESC" class="form-select-color-state" validate="options">
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field name="button_custom_text" type="text" showon="show_button:1" label="COM_EASYSTORE_COLLECTIONS_PARAM_BUTTON_TEXT_LABEL" description="COM_EASYSTORE_COLLECTIONS_PARAM_BUTTON_TEXT_DESC"/>
+		</fieldset>
+	</fields>
+</metadata>

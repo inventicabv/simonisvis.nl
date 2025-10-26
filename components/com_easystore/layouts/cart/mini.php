@@ -1,0 +1,97 @@
+<?php
+
+/**
+ * @package     EasyStore.Site
+ * @subpackage  com_easystore
+ *
+ * @copyright   Copyright (C) 2023 - 2025 JoomShaper <https://www.joomshaper.com>. All rights reserved.
+ * @license     GNU General Public License version 3; see LICENSE
+ */
+
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
+
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Router\Route;
+use JoomShaper\Component\EasyStore\Administrator\Helper\SettingsHelper;
+use JoomShaper\Component\EasyStore\Administrator\Supports\Shop;
+use JoomShaper\Component\EasyStore\Site\Helper\EasyStoreHelper;
+
+extract($displayData);
+
+$settings     = SettingsHelper::getSettings();
+$shoppingPage = $settings->get('products.shopPage', null);
+$shoppingPage = is_null($shoppingPage) ? 'index.php' : Route::_($shoppingPage, false);
+?>
+
+<div class="easystore-cart-wrapper" x-data="easystore_cart" x-cloak>
+    <div class="easystore-mini-cart-items">
+        <template x-if="loading">
+            <div class="easystore-skeleton-container">
+                <span class="easystore-skeleton"></span>
+                <span class="easystore-skeleton"></span>
+                <span class="easystore-skeleton"></span>
+                <span class="easystore-skeleton"></span>
+            </div>
+        </template>
+        <template x-if="item.items?.length === 0  && !loading">
+            <div class="easystore-cart-empty-state text-center">
+                <div class="mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="328" height="327" fill="none"><circle cx="163.75" cy="163.5" r="163.5" fill="#EFF0F5" opacity=".3"/><circle cx="163.75" cy="163.5" r="143.156" fill="#EFF0F5"/><path fill="#E1E3EB" fill-rule="evenodd" d="M81.103 127.371C85.757 126.124 90.383 128.794 91.623 133.424L97.601 131.822C95.476 123.892 87.488 119.259 79.509 121.397 71.53 123.535 66.953 131.535 69.078 139.465L75.05 137.865C73.811 133.241 76.479 128.61 81.109 127.369L81.103 127.371ZM134.699 193.29 112.886 133.794C112.092 132.222 110.437 131.22 109.065 131.588L59.319 144.917C57.654 145.364 56.722 147.058 57.168 148.723L67.678 211.248C67.948 212.254 68.435 212.804 68.961 213.401 69.803 213.882 70.554 214.053 71.53 213.792L132.945 197.336C134.269 196.981 135.225 195.28 134.786 193.639L134.692 193.291 134.699 193.29ZM246.371 127.363C251.026 128.61 253.696 133.235 252.456 137.865L258.434 139.467C260.558 131.537 255.957 123.531 247.978 121.393 239.999 119.255 232.035 123.894 229.91 131.824L235.882 133.424C237.121 128.8 241.748 126.124 246.378 127.365L246.371 127.363ZM259.827 211.248 270.684 148.817C270.783 147.058 269.851 145.364 268.479 144.996L218.733 131.667C217.068 131.22 215.413 132.222 214.967 133.887L192.806 193.29C192.537 194.296 192.684 195.016 192.841 195.797 193.329 196.633 193.895 197.158 194.871 197.419L256.286 213.875C257.609 214.23 259.288 213.235 259.728 211.594L259.821 211.246 259.827 211.248Z" clip-rule="evenodd"/><path fill="#D3D9DD" fill-rule="evenodd" d="M163.73 111.635C170.411 111.635 175.647 116.871 175.647 123.517H184.227C184.227 112.134 175.191 103.063 163.739 103.063C152.286 103.063 143.285 112.134 143.285 123.517H151.857C151.857 116.88 157.093 111.635 163.739 111.635H163.73ZM211.852 219.147L203.989 131.642C203.49 129.252 201.634 127.317 199.664 127.317H128.261C125.87 127.317 124.014 129.252 124.014 131.642L115.652 219.147C115.652 220.592 116.108 221.502 116.598 222.492C117.552 223.437 118.498 223.936 119.899 223.936H208.052C209.952 223.936 211.843 222.001 211.843 219.646V219.147H211.852Z" clip-rule="evenodd"/></svg>
+                </div>
+
+                <h2 class="easystore-h2 mb-3"><?php echo Text::_('COM_EASYSTORE_CART_EMPTY'); ?></h2>
+                <div class="text-muted"><?php echo Text::_('COM_EASYSTORE_CART_DESCRIPTION'); ?></div>
+                <a href="<?php echo $shoppingPage; ?>" class="btn btn-outline-primary mt-3">
+                    <?php echo Text::_('COM_EASYSTORE_CART_CONTINUE_SHOPPING'); ?>
+                </a>
+            </div>
+        </template>
+        <template x-for="(cartItem, index) in item.items" :key="index">
+            <div class="easystore-mini-cart-item" x-show="cartItem.quantity > 0 && !loading">
+                <div>
+                    <video class="easystore-min-cart-thumbnail" x-show="cartItem.isVideo && cartItem?.image?.src" :src="cartItem?.image?.src" :alt="cartItem.title" loading="lazy"></video>
+                    <img class="easystore-min-cart-thumbnail"
+                        x-show="!cartItem.isVideo && cartItem?.image?.src"
+                        :src="cartItem?.image?.src"
+                            :alt="cartItem.title"
+                            loading="lazy" />
+                </div>
+
+                <div class="easystore-mini-cart-item-data">
+                    <h3 class="easystore-cart-item-title" x-text="cartItem.title"></h3>
+                    <div class="easystore-metadata-h mb-3">
+                        <template x-for="option in cartItem.options" :key="option.key">
+                            <div class="easystore-metadata-item">
+                                <span class="easystore-metadata-key" x-text="option.key + ':'"></span>
+                                <span class="easystore-metadata-value" x-text="option.name"></span>
+                            </div>
+                        </template>
+                    </div>
+
+                    <div class="easystore-mini-cart-quantity-price">
+                        <div>
+                            <div class="easystore-quantity-selector">
+                                <button :disabled="isLoading" type="button" @click="decrementQuantity(index)" class="easystore-quantity-selector-btn easystore-button-reset">-</button>
+                                <input :disabled="isLoading" type="number" class="form-control form-control-sm easystore-product-quantity" :value="cartItem.quantity" @change.debounce="handleQuantityChange($event, index)" min="1" placeholder="0">
+                                <button :disabled="isLoading" type="button"  @click="incrementQuantity(index)" class="easystore-quantity-selector-btn easystore-button-reset">+</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <?php if (Shop::displayTaxPercentage()) : ?>
+                            <span class="easystore-cart-item-subtotal fw-bold" x-text="cartItem.final_price.total_product_price_with_tax_with_currency"></span>
+                            <small class="easystore-price-with-tax" x-show="cartItem.tax_rate > 0"><?php echo Text::_('COM_EASYSTORE_PRICE_WITH_TAX_MINI_CART')?> (<span x-text="cartItem.tax_rate"></span>%)</small>
+                            <?php else : ?>
+                            <span class="easystore-cart-item-subtotal fw-bold" x-text="cartItem.final_price.total_product_price_with_currency"></span>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-link btn-sm easystore-remove-cart-item" @click="removeCartItem(index, 'mini-cart')"><?php echo EasyStoreHelper::getIcon('trash'); ?></button>
+                </div>
+            </div>
+        </template>
+    </div>
+</div>
