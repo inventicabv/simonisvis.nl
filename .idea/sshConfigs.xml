@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="ventica.dev" id="1f9fc4f1-4d7b-4324-864e-cc96e1259ea1" port="22" nameFormat="DESCRIPTIVE" username="ftp@simonis.ventica.dev" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>

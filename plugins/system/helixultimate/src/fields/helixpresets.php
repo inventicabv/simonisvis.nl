@@ -8,9 +8,7 @@
 
 defined('_JEXEC') or die();
 
-use Joomla\CMS\Factory;
 use Joomla\CMS\Form\FormField;
-use Joomla\CMS\HTML\HTMLHelper;
 use HelixUltimate\Framework\Platform\Settings;
 use HelixUltimate\Framework\Platform\Helper;
 /**
@@ -133,29 +131,28 @@ class JFormFieldHelixpresets extends FormField
 			}
 		}
 
-	foreach ($presets as $child) {
-    $elementName = (string) $child['name'];
+		foreach ($presets as $child)
+		{
+			$elementName = (string) $child['name'];
 
-    if (isset($json->$elementName) && !empty($json->$elementName)) {
-        $json->$elementName = array_merge((array) $json->$elementName, [
-            'default' => !empty($child['default']) ? (string) $child['default'] : ''
-        ]);
-    }
+			if (isset($json->$elementName) && !empty($json->$elementName))
+			{
+				$json->$elementName = array_merge((array) $json->$elementName ?? [], [
+					'default' => !empty($child['default']) ? (string) $child['default'] : ''
+				]);
+			}
 
-    if (isset($names[$elementName])) {
-        $json->$elementName = array_merge(
-            (array) ($json->$elementName ?? []),
-            [
-                'label' => isset($child['label']) ? (string) $child['label'] : '',
-                'description' => isset($child['description']) ? $child['description'] : '',
-                'data' => (object) $this->getDefaultDataFromXML($child)
-            ]
-        );
-    }
+			if (isset($names[$elementName]))
+			{
+				$json->$elementName = array_merge($json->$elementName, [
+					'label' => isset($child['label']) ? (string) $child['label'] : '',
+					'description' => isset($child['description']) ? $child['description'] : '',
+					'data' => (object) $this->getDefaultDataFromXML($child)
+				]);
+			}
 
-    $json->$elementName = (object) $json->$elementName;
-}
-
+			$json->$elementName = (object) $json->$elementName;
+		}
 
 		return $json;
 	}

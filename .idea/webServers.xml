@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="df6c6a6b-03fb-4a5b-958b-e27f52dceb5f" name="simonis.ventica.dev">
+        <fileTransfer rootFolder="/public_html" accessType="SFTP" host="ventica.dev" port="22" sshConfigId="1f9fc4f1-4d7b-4324-864e-cc96e1259ea1" sshConfig="ftp@simonis.ventica.dev@ventica.dev:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
