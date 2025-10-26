@@ -11,6 +11,7 @@
 namespace JoomShaper\Component\EasyStore\Administrator\View\Orders;
 
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Toolbar\Toolbar;
 use Joomla\CMS\Pagination\Pagination;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 use Joomla\CMS\MVC\View\GenericDataException;
@@ -117,7 +118,7 @@ class HtmlView extends BaseHtmlView
      */
     protected function addToolbar()
     {
-        $toolbar    = $this->getDocument()->getToolbar();
+        $toolbar = Toolbar::getInstance();
         $acl     = AccessControl::create();
 
         ToolbarHelper::title(Text::_('COM_EASYSTORE_MANAGER_ORDERS'), 'fa fa-clipboard-list');

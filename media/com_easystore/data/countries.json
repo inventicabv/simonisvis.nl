@@ -6580,7 +6580,7 @@
 			},
 			{
 				"id": 3009,
-				"name": "Bavaria"
+				"name": "Bayern"
 			},
 			{
 				"id": 3010,
@@ -6600,11 +6600,11 @@
 			},
 			{
 				"id": 3018,
-				"name": "Hesse"
+				"name": "Hessen"
 			},
 			{
 				"id": 3008,
-				"name": "Lower Saxony"
+				"name": "Niedersachsen"
 			},
 			{
 				"id": 3007,
@@ -6612,11 +6612,11 @@
 			},
 			{
 				"id": 3017,
-				"name": "North Rhine-Westphalia"
+				"name": "Nordrhein-Westfalen"
 			},
 			{
 				"id": 3019,
-				"name": "Rhineland-Palatinate"
+				"name": "Rheinland-Pfalz"
 			},
 			{
 				"id": 3020,
@@ -6624,11 +6624,11 @@
 			},
 			{
 				"id": 3021,
-				"name": "Saxony"
+				"name": "Sachsen"
 			},
 			{
 				"id": 3011,
-				"name": "Saxony-Anhalt"
+				"name": "Sachsen-Anhalt"
 			},
 			{
 				"id": 3005,
@@ -6636,7 +6636,7 @@
 			},
 			{
 				"id": 3015,
-				"name": "Thuringia"
+				"name": "Thüringen"
 			}
 		]
 	},

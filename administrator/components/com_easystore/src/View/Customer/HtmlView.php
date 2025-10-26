@@ -94,7 +94,7 @@ class HtmlView extends BaseHtmlView
         Factory::getApplication()->getInput()->set('hidemainmenu', true);
 
         $isNew      = (int) $this->item->id === 0;
-        $toolbar    = $this->getDocument()->getToolbar();
+        $toolbar    = Toolbar::getInstance();
         $acl        = AccessControl::create();
 
         ToolbarHelper::title($isNew ? Text::_('COM_EASYSTORE_MANAGER_CUSTOMER_NEW') : Text::_('COM_EASYSTORE_MANAGER_CUSTOMER_EDIT'), 'users');

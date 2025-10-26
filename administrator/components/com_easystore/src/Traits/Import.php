@@ -75,7 +75,7 @@ trait Import
 
                 // Convert CSV to array
                 $lines   = preg_split("/,_END_.*\n/", $csvData);
-                $headers = str_getcsv(array_shift($lines));
+                $headers = str_getcsv(array_shift($lines), escape:"\\");
 
                 $checkHeaders = $this->isHeadersValid($headers);
 
@@ -111,7 +111,7 @@ trait Import
 
                 // Iterate through lines array
                 foreach ($lines as $line) {
-                    $columns               = str_getcsv($line);
+                    $columns               = str_getcsv($line, escape:"\\");
                     $newProductArray       = [];
                     $newOptions            = [];
                     $newOptionValues       = [];

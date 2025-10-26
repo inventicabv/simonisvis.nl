@@ -12,6 +12,7 @@ namespace JoomShaper\Component\EasyStore\Administrator\View\Review;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Toolbar\Toolbar;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 use Joomla\CMS\MVC\View\GenericDataException;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
@@ -93,7 +94,7 @@ class HtmlView extends BaseHtmlView
         Factory::getApplication()->getInput()->set('hidemainmenu', true);
 
         $isNew      = (int) $this->item->id === 0;
-        $toolbar    = $this->getDocument()->getToolbar();
+        $toolbar    = Toolbar::getInstance();
         $acl        = AccessControl::create();
 
         ToolbarHelper::title($isNew ? Text::_('COM_EASYSTORE_MANAGER_REVIEWS_NEW') : Text::_('COM_EASYSTORE_MANAGER_REVIEWS_EDIT'), 'comments-2');

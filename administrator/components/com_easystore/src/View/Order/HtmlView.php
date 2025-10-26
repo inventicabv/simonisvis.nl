@@ -13,11 +13,12 @@ namespace JoomShaper\Component\EasyStore\Administrator\View\Order;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Toolbar\Toolbar;
 use Joomla\CMS\MVC\View\GenericDataException;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\Component\Content\Administrator\Helper\ContentHelper;
-use JoomShaper\Component\EasyStore\Administrator\Supports\AccessControl;
 use JoomShaper\Component\EasyStore\Administrator\Concerns\OrderEditable;
+use JoomShaper\Component\EasyStore\Administrator\Supports\AccessControl;
 
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') or die;
@@ -99,7 +100,7 @@ class HtmlView extends BaseHtmlView
 
     protected function addToolbar()
     {
-        $toolbar    = $this->getDocument()->getToolbar();
+        $toolbar = Toolbar::getInstance();
         $acl     = AccessControl::create();
 
         $this->getDocument()->getWebAssetManager()

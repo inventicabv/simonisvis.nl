@@ -88,6 +88,8 @@ class ProductsModel extends ListModel
 
     protected function populateState($ordering = 'ordering', $direction = 'ASC')
     {
+        parent::populateState($ordering, $direction);
+
         $app   = Factory::getApplication();
         $input = $app->getInput();
 
@@ -96,9 +98,7 @@ class ProductsModel extends ListModel
         $this->setState('list.limit', $value);
 
         $value = $input->get('limitstart', 0, 'uint');
-        $this->setState('list.start', $value);
-
-        parent::populateState($ordering, $direction);
+        $this->setState('list.start', $value);       
     }
 
     /**

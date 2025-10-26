@@ -98,7 +98,7 @@ class HtmlView extends BaseHtmlView
         $isNew      = (int) $this->item->id === 0;
         $checkedOut = !(is_null($this->item->checked_out) || $this->item->checked_out === $userId);
         
-        $toolbar    = $this->getDocument()->getToolbar();
+        $toolbar    = Toolbar::getInstance();
         $acl        = AccessControl::create();
 
         ToolbarHelper::title($isNew ? Text::_('COM_EASYSTORE_MANAGER_PRODUCT_NEW') : Text::_('COM_EASYSTORE_MANAGER_PRODUCT_EDIT'), 'cart');

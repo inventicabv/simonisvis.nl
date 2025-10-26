@@ -13,9 +13,10 @@ namespace JoomShaper\Component\EasyStore\Administrator\View\Collections;
 \defined('_JEXEC') or die('Restricted Direct Access!');
 
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Toolbar\Toolbar;
+use Joomla\CMS\Toolbar\ToolbarHelper;
 use Joomla\CMS\MVC\View\GenericDataException;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
-use Joomla\CMS\Toolbar\ToolbarHelper;
 use JoomShaper\Component\EasyStore\Administrator\Constants\Status;
 use JoomShaper\Component\EasyStore\Administrator\Supports\AccessControl;
 
@@ -117,7 +118,7 @@ class HtmlView extends BaseHtmlView
     protected function addToolbar()
     {
         $acl     = AccessControl::create();
-        $toolbar    = $this->getDocument()->getToolbar();
+        $toolbar = Toolbar::getInstance();
 
         ToolbarHelper::title(Text::_('COM_EASYSTORE_COLLECTIONS_TOOLBAR_LABEL'), 'list');
 

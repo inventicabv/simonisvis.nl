@@ -11,6 +11,7 @@
 namespace JoomShaper\Component\EasyStore\Administrator\View\Reviews;
 
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Toolbar\Toolbar;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 use Joomla\CMS\MVC\View\GenericDataException;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
@@ -117,7 +118,7 @@ class HtmlView extends BaseHtmlView
     protected function addToolbar()
     {
         $acl     = AccessControl::create();
-        $toolbar    = $this->getDocument()->getToolbar();
+        $toolbar = Toolbar::getInstance();
 
         ToolbarHelper::title(Text::_('COM_EASYSTORE_MANAGER_REVIEWS'), 'comments-2');
 

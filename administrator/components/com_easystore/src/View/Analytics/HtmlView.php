@@ -12,6 +12,7 @@ namespace JoomShaper\Component\EasyStore\Administrator\View\Analytics;
 
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Toolbar\Toolbar;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use JoomShaper\Component\EasyStore\Administrator\Supports\AccessControl;
@@ -51,7 +52,7 @@ class HtmlView extends BaseHtmlView
     protected function addToolbar()
     {
         $acl     = AccessControl::create();
-        $toolbar    = $this->getDocument()->getToolbar();
+        $toolbar = Toolbar::getInstance();
         ToolbarHelper::title(Text::_('COM_EASYSTORE_MANAGER_ANALYTICS'), 'chart');
 
         if ($acl->canCreate()) {

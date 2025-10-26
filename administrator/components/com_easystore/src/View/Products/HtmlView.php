@@ -12,13 +12,14 @@ namespace JoomShaper\Component\EasyStore\Administrator\View\Products;
 
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Toolbar\Toolbar;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 use Joomla\CMS\Language\Multilanguage;
 use Joomla\CMS\MVC\View\GenericDataException;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use JoomShaper\Component\EasyStore\Administrator\Constants\Status;
-use JoomShaper\Component\EasyStore\Administrator\Supports\AccessControl;
 use JoomShaper\Component\EasyStore\Administrator\Helper\EasyStoreHelper;
+use JoomShaper\Component\EasyStore\Administrator\Supports\AccessControl;
 use JoomShaper\Component\EasyStore\Site\Helper\EasyStoreHelper as EasyStoreSiteHelper;
 
 // phpcs:disable PSR1.Files.SideEffects
@@ -146,7 +147,7 @@ class HtmlView extends BaseHtmlView
      */
     protected function addToolbar()
     {
-        $toolbar    = $this->getDocument()->getToolbar();
+        $toolbar = Toolbar::getInstance();
         $acl     = AccessControl::create();
         ToolbarHelper::title(Text::_('COM_EASYSTORE_MANAGER_PRODUCTS'), 'cart');
 

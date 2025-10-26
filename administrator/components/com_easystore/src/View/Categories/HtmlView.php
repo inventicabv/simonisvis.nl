@@ -10,15 +10,14 @@
 
 namespace JoomShaper\Component\EasyStore\Administrator\View\Categories;
 
-use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
-use Joomla\CMS\Helper\ContentHelper;
 use Joomla\CMS\Pagination\Pagination;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 use Joomla\CMS\Language\Multilanguage;
 use Joomla\CMS\MVC\View\GenericDataException;
 use Joomla\CMS\Toolbar\Button\DropdownButton;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
+use Joomla\CMS\Toolbar\Toolbar;
 use JoomShaper\Component\EasyStore\Administrator\Constants\Status;
 use JoomShaper\Component\EasyStore\Administrator\Supports\AccessControl;
 
@@ -133,7 +132,7 @@ class HtmlView extends BaseHtmlView
     protected function addToolbar()
     {
         $acl = AccessControl::create();
-        $toolbar    = $this->getDocument()->getToolbar();
+        $toolbar = Toolbar::getInstance();
 
         ToolbarHelper::title(Text::_('COM_EASYSTORE_MANAGER_CATEGORIES'), 'list');
 

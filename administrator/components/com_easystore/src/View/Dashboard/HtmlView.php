@@ -12,6 +12,7 @@ namespace JoomShaper\Component\EasyStore\Administrator\View\Dashboard;
 
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Toolbar\Toolbar;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use JoomShaper\Component\EasyStore\Administrator\Supports\AccessControl;
@@ -50,7 +51,7 @@ class HtmlView extends BaseHtmlView
      */
     protected function addToolbar()
     {
-        $toolbar    = $this->getDocument()->getToolbar();
+        $toolbar = Toolbar::getInstance();
         $acl     = AccessControl::create();
 
         ToolbarHelper::title(Text::_('COM_EASYSTORE_MANAGER_DASHBOARD'), 'dashboard');
