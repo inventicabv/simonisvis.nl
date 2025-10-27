@@ -83,6 +83,7 @@ class PostnlShipping extends CMSPlugin implements SubscriberInterface
         return [
             'onEasyStoreGetShippingMethods' => 'onEasyStoreGetShippingMethods',
             'onAfterRoute'                  => 'onAfterRoute',
+            'onBeforeCompileHead'           => 'onBeforeCompileHead',
         ];
     }
 
@@ -146,6 +147,31 @@ class PostnlShipping extends CMSPlugin implements SubscriberInterface
     }
 
     /**
+     * Handle before compile head to add PostNL button
+     *
+     * @return  void
+     *
+     * @since   1.0.0
+     */
+    public function onBeforeCompileHead(): void
+    {
+        // Only run in administrator
+        if (!$this->app->isClient('administrator')) {
+            return;
+        }
+
+        $input  = $this->app->input;
+        $option = $input->get('option', '');
+        $view   = $input->get('view', '');
+        $layout = $input->get('layout', '');
+
+        // Add PostNL button to order toolbar
+        if ($option === 'com_easystore' && $view === 'order' && $layout === 'edit') {
+            $this->addPostnlToolbarButton();
+        }
+    }
+
+    /**
      * Handle routing to check for PostNL action
      *
      * @return  void
@@ -159,13 +185,109 @@ class PostnlShipping extends CMSPlugin implements SubscriberInterface
             return;
         }
 
-        $input = $this->app->input;
-        $task  = $input->get('task', '');
+        $input  = $this->app->input;
+        $task   = $input->get('task', '');
 
         // Check if this is our PostNL create label action
         if ($task === 'order.postnlCreate' || $task === 'postnlCreate') {
             $this->handleCreateShipment();
         }
+    }
+
+    /**
+     * Add PostNL button to order toolbar
+     *
+     * @return  void
+     *
+     * @since   1.0.0
+     */
+    protected function addPostnlToolbarButton(): void
+    {
+        $doc = $this->app->getDocument();
+        $orderId = $this->app->input->getInt('id', 0);
+
+        if (!$orderId) {
+            return;
+        }
+
+        // Build URL to component controller
+        $componentUrl = \Joomla\CMS\Router\Route::_(
+            'index.php?option=com_postnl&task=shipment.create&order_id=' . $orderId . '&' . \Joomla\CMS\Session\Session::getFormToken() . '=1'
+        );
+
+        // Add button via JavaScript that inserts after DOM is ready
+        $js = "
+        document.addEventListener('DOMContentLoaded', function() {
+            let attemptCount = 0;
+
+            function addPostnlButton() {
+                attemptCount++;
+
+                // Find the toolbar
+                const toolbar = document.querySelector('.easystore-order-buttons');
+
+                if (!toolbar) {
+                    if (attemptCount < 20) {
+                        setTimeout(addPostnlButton, 200);
+                    }
+                    return;
+                }
+
+                // Check if button already exists
+                if (document.getElementById('postnl-create-button')) {
+                    return;
+                }
+
+                // Find the Close button
+                const closeButton = toolbar.querySelector('a[href*=\"task=order.cancel\"]');
+
+                if (!closeButton) {
+                    if (attemptCount < 20) {
+                        setTimeout(addPostnlButton, 200);
+                    }
+                    return;
+                }
+
+                // Create PostNL button
+                const postnlButton = document.createElement('a');
+                postnlButton.id = 'postnl-create-button';
+                postnlButton.href = '{$componentUrl}';
+                postnlButton.className = 'btn btn-success ms-2';
+                postnlButton.innerHTML = '<span class=\"icon-shipping\" aria-hidden=\"true\"></span> " . Text::_('PLG_EASYSTORESHIPPING_POSTNL_CREATE_LABEL') . "';
+
+                // Insert before Close button
+                toolbar.insertBefore(postnlButton, closeButton);
+            }
+
+            // Try immediately and after delays
+            addPostnlButton();
+            setTimeout(addPostnlButton, 500);
+            setTimeout(addPostnlButton, 1000);
+            setTimeout(addPostnlButton, 2000);
+        });
+        ";
+
+        $doc->addScriptDeclaration($js);
+
+        // Add minimal CSS
+        $css = "
+        #postnl-create-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        #postnl-create-button.btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+            color: #fff;
+        }
+        #postnl-create-button.btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+        ";
+
+        $doc->addStyleDeclaration($css);
     }
 
     /**

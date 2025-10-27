@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="component" method="upgrade">
+    <name>COM_POSTNL</name>
+    <creationDate>2025-10-26</creationDate>
+    <author>Custom Development</author>
+    <authorEmail>info@simonisvis.nl</authorEmail>
+    <authorUrl>https://www.simonisvis.nl</authorUrl>
+    <copyright>Copyright (C) 2025. All rights reserved.</copyright>
+    <license>GNU General Public License version 3</license>
+    <version>1.0.0</version>
+    <description>COM_POSTNL_XML_DESCRIPTION</description>
+
+    <namespace path="src">Simonisvis\Component\PostNL</namespace>
+
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <administration>
+        <menu>COM_POSTNL</menu>
+        <files folder="administrator/components/com_postnl">
+            <folder>services</folder>
+            <folder>src</folder>
+            <folder>sql</folder>
+            <folder>language</folder>
+        </files>
+
+        <languages folder="administrator/components/com_postnl/language">
+            <language tag="en-GB">en-GB/com_postnl.ini</language>
+            <language tag="en-GB">en-GB/com_postnl.sys.ini</language>
+            <language tag="nl-NL">nl-NL/com_postnl.ini</language>
+            <language tag="nl-NL">nl-NL/com_postnl.sys.ini</language>
+        </languages>
+    </administration>
+</extension>

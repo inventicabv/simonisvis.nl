@@ -38,23 +38,28 @@ Production-ready PostNL shipping integration for EasyStore with automated label 
 
 ```
 plugins/easystoreshipping/postnl/
-├── postnl.php                      # Main plugin file
 ├── postnl.xml                      # Plugin manifest
 ├── services/
 │   └── provider.php                # DI container registration
 ├── src/
+│   ├── Extension/
+│   │   └── PostnlShipping.php     # Main plugin class
 │   ├── PostnlClient.php           # PostNL API client
 │   └── OrderHelper.php            # Order mapping & utilities
-├── language/
-│   ├── en-GB/
-│   │   ├── plg_easystoreshipping_postnl.ini
-│   │   └── plg_easystoreshipping_postnl.sys.ini
-│   └── nl-NL/
-│       ├── plg_easystoreshipping_postnl.ini
-│       └── plg_easystoreshipping_postnl.sys.ini
-└── assets/
-    └── images/
-        └── logo.svg                # PostNL logo
+├── assets/
+│   ├── js/
+│   │   └── admin-order.js         # Admin button injection
+│   ├── css/
+│   │   └── admin-order.css        # Admin button styles
+│   └── images/
+│       └── logo.svg               # PostNL logo
+└── language/
+    ├── en-GB/
+    │   ├── plg_easystoreshipping_postnl.ini
+    │   └── plg_easystoreshipping_postnl.sys.ini
+    └── nl-NL/
+        ├── plg_easystoreshipping_postnl.ini
+        └── plg_easystoreshipping_postnl.sys.ini
 ```
 
 ## Installation
@@ -106,7 +111,7 @@ Configure your company's return address:
 
 1. Go to EasyStore → Orders
 2. Open an order in edit mode
-3. Click "PostNL: Create Label + T&T" button
+3. Click the green **"PostNL: Create Label + T&T"** button in the toolbar
 4. The plugin will:
    - Build shipment payload from order data
    - Call PostNL API to create shipment
@@ -115,6 +120,18 @@ Configure your company's return address:
    - Save tracking number and URL to order
    - Send tracking email (if auto-send enabled)
    - Show success message with barcode and T&T link
+
+### How the Admin Button Works
+
+The PostNL button is dynamically injected into the EasyStore order toolbar:
+
+1. **Detection**: Plugin's `onAfterRoute()` event detects when you're on an order edit page
+2. **Asset Loading**: Plugin loads `admin-order.js` and `admin-order.css`
+3. **DOM Injection**: JavaScript waits for the Alpine.js toolbar to render, then injects the PostNL button
+4. **Button Position**: Button appears before the "Close" button with green success styling
+5. **Action Trigger**: Clicking the button triggers `task=postnlCreate` which calls the shipment creation handler
+
+This approach ensures compatibility with EasyStore's React/Alpine.js frontend without modifying core files.
 
 ### Test Mode
 
@@ -210,7 +227,19 @@ Variables:
 
 ## Troubleshooting
 
-### Plugin not visible in EasyStore
+### Admin Button Not Appearing
+
+If the PostNL button doesn't appear in the order toolbar:
+
+1. **Clear Browser Cache**: Hard refresh (Ctrl+Shift+R / Cmd+Shift+R)
+2. **Check Console**: Open browser DevTools (F12) and check for JavaScript errors
+3. **Verify Assets**: Ensure files exist:
+   - `/plugins/easystoreshipping/postnl/assets/js/admin-order.js`
+   - `/plugins/easystoreshipping/postnl/assets/css/admin-order.css`
+4. **Check Plugin Status**: Verify plugin is enabled in Extensions → Plugins
+5. **Permissions**: Ensure files are readable by the web server
+
+### Plugin not visible in EasyStore Checkout
 
 1. Check cache: `/cache/easystore/shipping_carriers.json`
 2. Ensure PostNL is in the schema
