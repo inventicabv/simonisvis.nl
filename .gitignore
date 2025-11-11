@@ -10,3 +10,21 @@
 /images/powered_by.png
 /tmp/*
 /configuration.php
+
+# 🧱 Windows metadata / security streams
+*.Zone.Identifier
+*.zone.identifier
+
+# 💾 Database exports & backups
+_db/
+*.sql
+*.sql.gz
+
+# 🖼️ IDE & systeem rommel
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 🧑‍💻 Editor / tooling caches
+.vscode/
+.idea/
