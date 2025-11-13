@@ -88,8 +88,8 @@ class HtmlView extends BaseHtmlView
 
         ToolbarHelper::divider();
 
-        // Add refresh button
-        ToolbarHelper::custom('orders.refresh', 'refresh', 'refresh', 'JTOOLBAR_REFRESH', false);
+        // Add refresh button (icon only)
+        ToolbarHelper::custom('orders.refresh', 'refresh', 'refresh', '', false);
 
         // Add link to plugin configuration
         ToolbarHelper::preferences('com_postnl');

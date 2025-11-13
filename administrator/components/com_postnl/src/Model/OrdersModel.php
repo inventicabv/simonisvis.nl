@@ -82,6 +82,17 @@ class OrdersModel extends ListModel
         $query->select('p.barcode AS postnl_barcode, p.status AS postnl_status, p.created_date AS postnl_created')
             ->join('LEFT', $db->quoteName('#__postnl_shipments', 'p') . ' ON p.order_id = a.id');
 
+        // Filter: alleen orders met PostNL als shipping provider
+        // Controleer of shipping_carrier = 'postnl' OF het provider veld in het shipping JSON = 'postnl'
+        $query->where(
+            '(' . $db->quoteName('a.shipping_carrier') . ' = ' . $db->quote('postnl')
+            . ' OR ('
+            . $db->quoteName('a.shipping') . ' IS NOT NULL'
+            . ' AND ' . $db->quoteName('a.shipping') . ' != ' . $db->quote('')
+            . ' AND JSON_EXTRACT(' . $db->quoteName('a.shipping') . ', ' . $db->quote('$.provider') . ') = ' . $db->quote('postnl')
+            . '))'
+        );
+
         // Filter by search
         $search = $this->getState('filter.search');
         if (!empty($search)) {

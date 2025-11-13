@@ -144,11 +144,18 @@ class ShipmentController extends BaseController
                 throw new \RuntimeException(Text::_('COM_POSTNL_ERROR_NO_SHIPMENT'));
             }
 
-            // Decode label content
-            $labelContent = base64_decode($shipment->label_content);
+            // Decode label content (stored as base64 encoded)
+            $labelContent = base64_decode($shipment->label_content, true);
 
-            if (!$labelContent) {
-                throw new \RuntimeException(Text::_('COM_POSTNL_ERROR_NO_LABEL_CONTENT'));
+            // Check if decode was successful (returns false on failure)
+            // Also check if content is empty or if decode failed
+            if ($labelContent === false || empty($labelContent)) {
+                // Try to use content as-is in case it's already decoded (backwards compatibility)
+                if (!empty($shipment->label_content)) {
+                    $labelContent = $shipment->label_content;
+                } else {
+                    throw new \RuntimeException(Text::_('COM_POSTNL_ERROR_NO_LABEL_CONTENT'));
+                }
             }
 
             // Determine content type
@@ -302,11 +309,16 @@ class ShipmentController extends BaseController
         $db = Factory::getContainer()->get(\Joomla\Database\DatabaseInterface::class);
         $now = Factory::getDate()->toSql();
 
+        // Encode label content to base64 for storage (database expects base64 encoded)
+        $labelContent = is_string($result['label_content']) 
+            ? base64_encode($result['label_content']) 
+            : $result['label_content'];
+
         $data = (object) [
             'order_id'      => $orderId,
             'barcode'       => $result['barcode'],
             'tracking_url'  => $result['tracking_url'],
-            'label_content' => $result['label_content'],
+            'label_content' => $labelContent,
             'label_format'  => $result['label_format'],
             'status'        => 'created',
             'created_date'  => $now,
