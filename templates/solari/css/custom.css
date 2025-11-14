@@ -1460,7 +1460,7 @@ body.ltr .sp-megamenu-parent > li.sp-has-child > a:hover:after, body.ltr .sp-meg
 /* */
 
 /* SHOP */
-.easystore-product-image img, .easystore-product-image video { height: initial !important;max-width:80%;left:10%; }
+.easystore-product-image img, .easystore-product-image video { height: initial !important;max-width:100%;left:0; }
 .easystore-product-image { padding-bottom: 100% !important; }
 
 /* CUSTOM CLASS */

@@ -109,6 +109,13 @@ class PostnlShipping extends CMSPlugin implements SubscriberInterface
                 return;
             }
 
+            // Check if all cart items have the "Verzenden" tag
+            // Only show PostNL if ALL products in cart have this tag
+            if (!$this->allCartItemsHaveVerzendenTag()) {
+                // Not all items have the tag, so don't show PostNL
+                return;
+            }
+
             // Get existing methods
             $shippingMethods = $event->getArgument('shippingMethods', []);
 
@@ -488,5 +495,106 @@ class PostnlShipping extends CMSPlugin implements SubscriberInterface
     {
         $title = str_replace(['-', '_'], ' ', $title);
         return ucwords(strtolower($title));
+    }
+
+    /**
+     * Check if all cart items have the "Verzenden" tag
+     *
+     * @return  bool  True if all items have the tag, false otherwise
+     *
+     * @since   1.0.0
+     */
+    protected function allCartItemsHaveVerzendenTag(): bool
+    {
+        try {
+            // Get cart token from cookie
+            $token = $this->app->input->cookie->get('com_easystore_cart');
+            
+            if (empty($token)) {
+                return false;
+            }
+
+            // Get cart from database
+            $db = $this->db;
+            $query = $db->getQuery(true);
+            $query->select('id')
+                ->from($db->quoteName('#__easystore_cart'))
+                ->where($db->quoteName('token') . ' = ' . $db->quote($token));
+            
+            $db->setQuery($query);
+            $cart = $db->loadObject();
+            
+            if (empty($cart)) {
+                return false;
+            }
+
+            // Get all unique product IDs from cart items
+            $query = $db->getQuery(true);
+            $query->select('DISTINCT ' . $db->quoteName('product_id'))
+                ->from($db->quoteName('#__easystore_cart_items'))
+                ->where($db->quoteName('cart_id') . ' = ' . (int) $cart->id);
+            
+            $db->setQuery($query);
+            $cartItems = $db->loadColumn();
+            
+            if (empty($cartItems)) {
+                return false;
+            }
+
+            // Check if all products have the "Verzenden" tag
+            foreach ($cartItems as $productId) {
+                if (!$this->productHasTag($productId, 'Verzenden')) {
+                    return false;
+                }
+            }
+
+            return true;
+
+        } catch (\Exception $e) {
+            Log::add(
+                'Error checking cart items for Verzenden tag: ' . $e->getMessage(),
+                Log::ERROR,
+                'plg_easystoreshipping_postnl'
+            );
+            return false;
+        }
+    }
+
+    /**
+     * Check if a product has a specific tag
+     *
+     * @param   int     $productId  Product ID
+     * @param   string  $tagName    Tag name to check
+     *
+     * @return  bool  True if product has the tag, false otherwise
+     *
+     * @since   1.0.0
+     */
+    protected function productHasTag(int $productId, string $tagName): bool
+    {
+        try {
+            $db = $this->db;
+            $query = $db->getQuery(true);
+            
+            $query->select('COUNT(*)')
+                ->from($db->quoteName('#__easystore_product_tag_map', 'ptm'))
+                ->join('INNER', $db->quoteName('#__easystore_tags', 't') . ' ON ' . $db->quoteName('t.id') . ' = ' . $db->quoteName('ptm.tag_id'))
+                ->where($db->quoteName('ptm.product_id') . ' = ' . (int) $productId)
+                ->where($db->quoteName('t.title') . ' = ' . $db->quote($tagName))
+                ->where($db->quoteName('t.published') . ' = 1');
+            
+            $db->setQuery($query);
+            $count = (int) $db->loadResult();
+            
+            return $count > 0;
+
+        } catch (\Exception $e) {
+            Log::add(
+                'Error checking product tag: ' . $e->getMessage(),
+                Log::ERROR,
+                'plg_easystoreshipping_postnl'
+            );
+            return false;
+        }
     }
 }
