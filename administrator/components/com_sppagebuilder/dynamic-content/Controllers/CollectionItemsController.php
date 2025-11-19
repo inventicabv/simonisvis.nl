@@ -59,6 +59,7 @@ class CollectionItemsController extends Controller
             'access'        => $request->getInt('access', 1), 
             'language'      => $request->getString('language', '*'),
             'created_by'    => $request->getInt('created_by', null),
+            'association'   => $request->getRaw('association'),
         ];
 
         if (empty($payload['created_by'])) {
@@ -91,6 +92,7 @@ class CollectionItemsController extends Controller
             'created_by'    => $request->getInt('created_by', getCurrentLoggedInUser()->id),
             'modified'      => Date::sqlSafeDate(),
             'modified_by'   => getCurrentLoggedInUser()->id,
+            'association'   => $request->getRaw('association'),
         ];
 
         withException($this->service, function ($service) use ($payload) {

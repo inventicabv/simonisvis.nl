@@ -503,6 +503,8 @@ trait ApplicationSettingsTrait
 			unset($item);
 		}
 
+		$typographiesInUse = $this->getTypographiesInUse();
+
 		return $typography;
 	}
 
@@ -670,4 +672,122 @@ trait ApplicationSettingsTrait
 			return false;
 		}
 	}
+
+	public function typographyInUse(){
+		$groupIndex = $this->getInput('group_index', -1, 'INT');
+		$typographyIndex = $this->getInput('typography_index', -1, 'INT');
+		$typographiesInUse = $this->getTypographiesInUse();
+
+		if($typographyIndex === -1) {
+			$isInUse = isset($typographiesInUse[(string) $groupIndex]);
+			if($isInUse){
+				$response['message'] = Text::_("COM_SPPAGEBUILDER_ERROR_TYPOGRAPHY_IN_USE");
+			}
+			$response['data'] = [
+				'is_in_use' => $isInUse
+			];
+			$this->sendResponse($response);
+		} else {
+			$isInUse = false;
+			if (isset($typographiesInUse[(string) $groupIndex])) {
+				$isInUse = in_array($typographyIndex, $typographiesInUse[(string) $groupIndex]);
+			}
+			if($isInUse){
+				$response['message'] = Text::_("COM_SPPAGEBUILDER_ERROR_TYPOGRAPHY_IN_USE");
+			}
+			$response['data'] = [
+				'is_in_use' => $isInUse
+			];
+			$this->sendResponse($response);
+		}
+	}
+
+private function getTypographiesInUse()
+	{
+		$db = Factory::getDbo();
+		$query = $db->getQuery(true);
+		$query->select('content')
+			->from($db->quoteName('#__sppagebuilder'));
+		$db->setQuery($query);
+		
+		$typographyMap = [];
+		
+		try
+		{
+			$pages = $db->loadObjectList();
+			
+			if (!empty($pages))
+			{
+				foreach ($pages as $page)
+				{
+					if (!empty($page->content))
+					{
+						$content = json_decode($page->content);
+						
+						if (!empty($content))
+						{
+							$this->extractTypographyPresets($content, $typographyMap);
+						}
+					}
+				}
+			}
+		}
+		catch (\Exception $e)
+		{
+			return [];
+		}
+		
+		foreach ($typographyMap as $groupIndex => &$typographyIndices)
+		{
+			$typographyIndices = array_values(array_unique($typographyIndices));
+			sort($typographyIndices);
+		}
+		unset($typographyIndices);
+		
+		return $typographyMap;
+	}
+
+	private function extractTypographyPresets($data, &$map)
+	{
+		if (is_object($data))
+		{
+			foreach ($data as $key => $value)
+			{
+				if (is_object($value) && isset($value->preset) && !empty($value->preset))
+				{
+					$preset = $value->preset;
+					
+					$parts = explode('.', $preset);
+					
+					if (count($parts) === 2)
+					{
+						$groupIndex = $parts[0];
+						$typographyIndex = (int) $parts[1];
+						
+						if (!isset($map[$groupIndex]))
+						{
+							$map[$groupIndex] = [];
+						}
+						
+						if (!in_array($typographyIndex, $map[$groupIndex]))
+						{
+							$map[$groupIndex][] = $typographyIndex;
+						}
+					}
+				}
+				else
+				{
+					$this->extractTypographyPresets($value, $map);
+				}
+			}
+		}
+		else if (is_array($data))
+		{
+			foreach ($data as $value)
+			{
+				$this->extractTypographyPresets($value, $map);
+			}
+		}
+	}
+	
 }

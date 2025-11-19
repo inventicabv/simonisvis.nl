@@ -171,38 +171,6 @@ final class ApplicationHelper
 
 	public static function isProVersion()
 	{
-		// $http = new Http();
-		// $params = ComponentHelper::getParams('com_sppagebuilder');
-		
-		// $email = $params->get('joomshaper_email', '');
-		// $apiKey = $params->get('joomshaper_license_key', '');
-
-		// $args = '&email=' . $email . '&api_key=' . $apiKey;
-		// $apiURL = 'https://www.joomshaper.com/index.php?option=com_layouts&task=block.list&support=4beyond' . $args;
-
-		// $pageResponse = $http->get($apiURL);
-		// if ($pageResponse->code !== 200)
-		// {
-		// 	return false;
-		// }
-
-		// $responseData = $pageResponse->body;
-
-		// if (!empty($responseData))
-		// {
-		// 	try {
-		// 		$responseData = json_decode($responseData);
-		// 		if (!$responseData->authorised)
-		// 		{
-		// 			return false;
-		// 		}
-		// 	}
-		// 	catch(Exception $e)
-		// 	{
-		// 		return false;
-		// 	}
-		// }
-
 		return true;
 	}
 

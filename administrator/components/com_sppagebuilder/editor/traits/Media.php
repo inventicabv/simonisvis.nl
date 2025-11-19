@@ -487,7 +487,7 @@ trait Media
 		if(!$this->pathExistsInDB($item['path']))
 		{
 			$error = new stdClass();
-			$error->message = Text::_("COM_SPPAGEBUILDER_MEDIA_MANAGER_MEDIA_RENAME_ERROR");
+			$error->message = Text::_("COM_SPPAGEBUILDER_MEDIA_MANAGER_MEDIA_DELETE_ERROR");
 			$error->status = false;
 
 			$this->sendResponse($error, 500);

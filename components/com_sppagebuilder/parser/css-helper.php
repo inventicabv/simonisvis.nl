@@ -272,6 +272,35 @@ class CSSHelper extends HelperBase
 		return $css_output;
 	}
 
+	public function getTypographyPresetValue($preset)
+	{
+		if (empty($preset) || !is_string($preset) || !preg_match('/^\d+\.\d+$/', $preset)) {
+			return null;
+		}
+
+		$elementNumber = (int) explode('.', $preset)[0];
+		$elementIndex = (int) explode('.', $preset)[1];
+
+		$db = Factory::getDbo();
+		$query = $db->getQuery(true);
+		$query->select('*')
+			->from('#__sppagebuilder_typography');
+		$db->setQuery($query);
+		$result = $db->loadObjectList();
+
+		if (empty($result)) {
+			return null;
+		}
+
+		$result = !empty(json_decode(!empty($result[$elementNumber]->typography) ? $result[$elementNumber]->typography : '[]')) ? json_decode(!empty($result[$elementNumber]->typography) ? $result[$elementNumber]->typography : '[]')[$elementIndex] : null;
+
+		if (empty($result)) {
+			return null;
+		}
+
+		return $result;
+	}
+
 	/**
 	 * Typography style generation by using the settings and fallback array.
 	 *
@@ -312,6 +341,11 @@ class CSSHelper extends HelperBase
 		if (!isset($settings->$prop)) return '';
 
 		$typography = $settings->$prop;
+
+		if (!empty($typography->preset)) {
+			$typography = $this->getTypographyPresetValue($typography->preset) ?? $typography;
+		}
+
 		$objectKeys = ["letter_spacing", "line_height", "size"];
 
 		foreach ($objectKeys as $key)

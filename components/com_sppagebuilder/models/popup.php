@@ -748,8 +748,13 @@
 				if (clickType === "random") {
 					document.addEventListener("click", () => {
 						if (isRestricted(' . $popupId . ')) return;
-						// if (!isPermitted(' . $popupId . ')) return; 
 						if (!isWithinDateRange(' . $popupId . ')) return;
+
+						let closePopupArea = "#sp-pagebuilder-popup-close-btn-' . $popupId . '";
+						let targetNode = event.target;
+						if (targetNode.closest(closePopupArea)) {
+							return;
+						}
 
 						clicked++;
 						if (clicked >= clickCount) {

@@ -337,9 +337,9 @@ trait PageTrait
 	public function previewUrl()
 	{
 		$pageId = $this->getInput('id', 0, 'INT');
-		$language = $this->getInput('language', null, 'STRING');
 		$model = $this->getModel('Editor');
-		$response = $model->getPreviewUrl($pageId, $language);
+		$content = $model->getPageContent($pageId);
+		$response = $model->getPreviewUrl($pageId, $content->language);
 		$this->sendResponse($response);
 	}
 

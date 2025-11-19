@@ -627,7 +627,7 @@ class SppagebuilderControllerMedia extends FormController
 			$app->setHeader('status', 500, true);
 			$app->sendHeaders();
 			$response = [
-				'data' => Text::_("COM_SPPAGEBUILDER_MEDIA_MANAGER_MEDIA_RENAME_ERROR"),
+				'data' => Text::_("COM_SPPAGEBUILDER_MEDIA_MANAGER_MEDIA_DELETE_ERROR"),
 				'status' => false,
 				'code' => 500
 			];

@@ -171,8 +171,13 @@ abstract class SppagebuilderHelperArticles
 
 		// continue query
 		$query->where($db->quoteName('a.access')." IN (" . implode( ',', $authorised ) . ")");
-		$query->order($db->quoteName('a.created') . ' DESC')
-		->setLimit($count, $start);
+		$query->order($db->quoteName('a.created') . ' DESC');
+
+		if ($currentPage === -1){
+			$query->setLimit($count);
+		} else {
+			$query->setLimit($count, $start);
+		}
 		
 		$db->setQuery($query);
 		$items = $db->loadObjectList();

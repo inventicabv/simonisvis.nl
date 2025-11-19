@@ -87,4 +87,14 @@ class MollieConstants extends Constants
     {
         return $this->getPaymentEnvironment() === 'test' ? self::getTestApiKey() : self::getLiveApiKey();
     }
+
+    /**
+     * Get Webhook URL (alias for getWebHookUrl for consistency)
+     *
+     * @return string
+     */
+    public function getWebhookUrl()
+    {
+        return $this->getWebHookUrl();
+    }
 }

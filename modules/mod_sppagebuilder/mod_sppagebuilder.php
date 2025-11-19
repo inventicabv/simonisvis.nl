@@ -25,6 +25,7 @@ if (file_exists(JPATH_ROOT . '/administrator/components/com_sppagebuilder/dynami
 
 BuilderAutoload::loadClasses();
 BuilderAutoload::loadHelperClasses();
+BuilderAutoload::loadAliases();
 
 $data = ModSPagebuilderHelper::getData($module->id, $params);
 $moduleclass_sfx = !empty($params->get('moduleclass_sfx')) ? htmlspecialchars($params->get('moduleclass_sfx'), ENT_COMPAT, 'UTF-8') : "";

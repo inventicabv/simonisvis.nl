@@ -1,0 +1,9 @@
+# Allow direct access to PHP files in this directory
+# This overrides the parent .htaccess rewrite rules for existing files
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # If the file exists, serve it directly (don't rewrite)
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^(.*)$ - [L]
+</IfModule>
+

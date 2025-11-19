@@ -56,7 +56,7 @@ trait LayoutImportTrait
 			$this->sendResponse($response, 500);
 		}
 
-		$apiURL = 'https://www.joomshaper.com/index.php?option=com_layouts&task=' . $type . '.download&support=4beyond&id=' . $id . '&email=' . $email . '&api_key=' . $apiKey;
+		$apiURL = 'https://www.joomshaper.com/index.php?option=com_layouts&task=' . $type . '.download&support=4beyond&id=' . $id . '&email=' . urlencode($email) . '&api_key=' . $apiKey;
 		$pageResponse = $http->get($apiURL);
 		$pageData = $pageResponse->body;
 

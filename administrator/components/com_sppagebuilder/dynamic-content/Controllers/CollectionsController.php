@@ -359,6 +359,20 @@ class CollectionsController extends Controller
         return response()->json($fields);
     }
 
+    public function totalFieldsByCollection(Request $request)
+    {
+        $collectionId = $request->getInt('collection_id');
+
+        if (!$collectionId) {
+            return response()->json(['message' => Text::_('COM_SPPAGEBUILDER_COLLECTION_ITEMS_COLLECTION_ID_REQUIRED')], Response::HTTP_BAD_REQUEST);
+        }
+
+        return response()->json(
+            $this->service->fetchTotalFieldsByCollection($collectionId),
+            Response::HTTP_OK
+        );
+    }
+
     /**
      * Get the created dynamic content pages.
      * 

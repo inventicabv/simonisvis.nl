@@ -12,7 +12,6 @@ use AddonParser;
 use ApplicationHelper;
 use DateTime;
 use FieldsHelper;
-use IntlDateFormatter;
 use JLoader;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
@@ -647,20 +646,24 @@ class CollectionHelper
         }
 
         $format = $format === 'custom' ? $attribute->date_format_custom : $format;
-        $format = self::phpToIcu($format);
         
         $lang = Factory::getLanguage()->getTag();
         $lang = str_replace('-', '_', $lang);
         $lang .= '@numbers=native';
-
+        
         $dateObj = new DateTime($date);
-    
-        $formatter = new IntlDateFormatter(
+        
+        if(!class_exists('IntlDateFormatter')) {
+            return $dateObj->format($format);
+        }
+        
+        $format = self::phpToIcu($format);
+        $formatter = new \IntlDateFormatter(
             $lang,         
-            IntlDateFormatter::NONE,      
-            IntlDateFormatter::NONE,
+            \IntlDateFormatter::NONE,      
+            \IntlDateFormatter::NONE,
             $dateObj->getTimezone()->getName(),
-            IntlDateFormatter::GREGORIAN,
+            \IntlDateFormatter::GREGORIAN,
             $format
         );
     

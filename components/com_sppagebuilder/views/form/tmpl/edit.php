@@ -19,6 +19,7 @@ use Joomla\CMS\Component\ComponentHelper;
 use JoomShaper\SPPageBuilder\DynamicContent\Constants\CollectionIds;
 use JoomShaper\SPPageBuilder\DynamicContent\Constants\ArticleLayouts;
 use JoomShaper\SPPageBuilder\DynamicContent\Models\Page;
+require_once JPATH_COMPONENT . '/controllers/typography.php';
 
 require_once JPATH_COMPONENT . '/builder/classes/base.php';
 require_once JPATH_COMPONENT . '/builder/classes/config.php';
@@ -29,6 +30,12 @@ JLoader::register('SppagebuilderHelperRoute', JPATH_ROOT . '/components/com_sppa
 $doc = Factory::getDocument();
 $app = Factory::getApplication();
 $params = ComponentHelper::getParams('com_sppagebuilder');
+
+$GLOBAL_TYPOGRAPHIES_URL = Uri::root() . 'index.php?option=com_sppagebuilder&task=typography.globalTypographies&_method=get';
+
+$globalTypographies = new SppagebuilderControllerTypography();
+$globalTypographies = $globalTypographies->getGlobalTypographiesLocally() ?? null;
+$doc->addScriptdeclaration('var globalTypographies=' . json_encode($globalTypographies) . ';');
 
 if (!$params->get('enable_frontend_editing', 1)) {
 	die("The frontend editing is disabled.");
@@ -240,7 +247,7 @@ $previewUrl = $model->getPreviewUrl($this->item->id, $this->item->language)['url
 		
 		$layout = $isPopupPage ? 'edit-iframe-popup' : 'edit-iframe';
 
-		$iframeUrl = Uri::root() . 'index.php?option=com_sppagebuilder&view=form&id=' . $this->item->id . '&layout=' . $layout . '&Itemid=' . $Itemid . $languageCode;
+		$iframeUrl = Uri::root() . 'index.php?option=com_sppagebuilder&view=form&id=' . $this->item->id . '&layout=' . $layout . '&Itemid=' . $Itemid;
 
 		if ($extension === 'mod_sppagebuilder' || $isPopupPage === true) {
 			$iframeUrl .= '&tmpl=component';

@@ -82,6 +82,7 @@ class SppagebuilderAddonDynamic_content_text extends SppagebuilderAddons
         $settings = $this->addon->settings;
         $selector = isset($settings->selector) ? $settings->selector : 'p';
         $isDownloadable = isset($settings->is_downloadable) ? $settings->is_downloadable : 0;
+        $fileValueOverride = !empty($settings->file_value_override) ? $settings->file_value_override : null;
         $defaultContent = $settings->default_text ?? '';
         $class = $settings->class ?? '';
         $collectionId = isset($settings->dynamic_item['collection_id']) ? $settings->dynamic_item['collection_id'] : null;
@@ -177,7 +178,7 @@ class SppagebuilderAddonDynamic_content_text extends SppagebuilderAddons
             $output .= '<a href="' . $linkUrl . '" class="sppb-dynamic-content-text__link" data-preload-collection ' . $attributes . ' >';
         }
 
-        if ($isDownloadable) {
+        if ($isDownloadable && $attributeType === FieldTypes::FILE) {
             $linkUrl = '/' . $content;
             $attributes = '';
             $attributes .= $linkAttributes['rel'] ? ' rel="' . $linkAttributes['rel'] . '"' : '';
@@ -185,6 +186,10 @@ class SppagebuilderAddonDynamic_content_text extends SppagebuilderAddons
         }
 
         $icon = $settings->icon ?? null;
+
+        if (!empty($fileValueOverride) && $attributeType === FieldTypes::FILE) {
+            $content = $fileValueOverride;
+        }
 
         $classNames = 'sppb-dynamic-content-text';
 
@@ -214,7 +219,7 @@ class SppagebuilderAddonDynamic_content_text extends SppagebuilderAddons
         
         $output .= '<' . $selector . ' class="' . $classNames . '"' . '>' . $content . '</' . $selector . '>';
 
-        if ($isDownloadable) {
+        if ($isDownloadable && $attributeType === FieldTypes::FILE) {
             $output .= '</a>';
         }
 

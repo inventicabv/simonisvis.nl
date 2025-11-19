@@ -11,12 +11,14 @@ namespace JoomShaper\SPPageBuilder\DynamicContent\Services;
 defined('_JEXEC') or die;
 
 use Exception;
+use Joomla\CMS\Factory;
 use Joomla\String\StringHelper;
 use Joomla\CMS\Language\Text;
 use JoomShaper\SPPageBuilder\DynamicContent\Concerns\Validator;
 use JoomShaper\SPPageBuilder\DynamicContent\Constants\CollectionIds;
 use JoomShaper\SPPageBuilder\DynamicContent\Constants\FieldTypes;
 use JoomShaper\SPPageBuilder\DynamicContent\Constants\Operators;
+use JoomShaper\SPPageBuilder\DynamicContent\Constants\Status;
 use JoomShaper\SPPageBuilder\DynamicContent\Exceptions\ValidatorException;
 use JoomShaper\SPPageBuilder\DynamicContent\Http\Response;
 use JoomShaper\SPPageBuilder\DynamicContent\Models\Collection;
@@ -211,7 +213,7 @@ class CollectionsService
 
         foreach ($collections as $collection) {
             $collection->items = $primaryFieldValues[$collection->id] ?? [];
-            $collection->total_items = CollectionItem::where('collection_id', $collection->id)->count();
+            $collection->total_items = CollectionItem::where('collection_id', $collection->id)->where('published', Status::PUBLISHED)->count();
         }
 
         return $collections;
@@ -340,6 +342,56 @@ class CollectionsService
         })->toArray();
 
         return $fields;
+    }
+
+    /**
+     * Fetch total fields for a collection including reference collections.
+     *
+     * @param int $collectionId
+     * @param array $visited Prevents infinite loops in case of circular references
+     * @return array
+     * @since 6.2.0
+     */
+    public function fetchTotalFieldsByCollection(int $collectionId, array &$visited = [])
+    {
+        if (in_array($collectionId, $visited)) {
+            return [];
+        }
+        $visited[] = $collectionId;
+
+        $db = Factory::getDbo();
+        $query = $db->getQuery(true)
+            ->select(['id', 'collection_id', 'name', 'type', 'reference_collection_id'])
+            ->from('#__sppagebuilder_collection_fields')
+            ->where('collection_id = ' . (int) $collectionId)
+            ->order('ordering ASC');
+        $db->setQuery($query);
+        $fields = $db->loadObjectList();
+        $fields = Arr::make($fields)->map(function ($field) {
+            return [
+                'id' => $field->id,
+                'name' => $field->name,
+                'type' => $field->type,
+                'collection_id' => $field->collection_id,
+                'reference_collection_id' => $field->reference_collection_id,
+            ];
+        })->toArray();
+
+        $orderedFields = [];
+        foreach ($fields as $field) {
+            $orderedFields[] = $field;
+
+            if (empty($field['reference_collection_id'])){
+                continue;
+            }
+
+            $referencedFields = $this->fetchTotalFieldsByCollection((int)$field['reference_collection_id'], $visited);
+            foreach ($referencedFields as $refField) {
+                $orderedFields[] = $refField;
+            }
+        }
+
+        return $orderedFields;
     }
 
     /**
@@ -1526,7 +1578,7 @@ class CollectionsService
                 ->leftJoin(CollectionItemValue::class, 'collection_item_value.field_id', 'collection_field.id')
                 ->leftJoin(CollectionItem::class, 'collection_item_value.item_id', 'collection_item.id')
                 ->orderBy( 'collection_item.ordering', 'ASC')
-                ->where('collection_item.published', 1)
+                ->where('collection_item.published', Status::PUBLISHED)
                 ->get(['collection_field.id', 'collection_field.collection_id', 'collection_item_value.value', 'collection_item_value.item_id']);
             $primaryFieldsMap = [];
             foreach ($fields as $field) {

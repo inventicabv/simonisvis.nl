@@ -57,6 +57,12 @@ SpAddonsConfig::addonConfig([
                     'title' => Text::_('COM_SPPAGEBUILDER_GLOBAL_DOWNLOADABLE'),
                     'depends' => [['attribute?.type', '=', 'file']]
                 ],
+                'file_value_override' => [
+                    'type'  => 'text',
+                    'title' => Text::_('COM_SPPAGEBUILDER_GLOBAL_FILE_VALUE_OVERRIDE'),
+                    'desc' => Text::_('COM_SPPAGEBUILDER_GLOBAL_FILE_VALUE_OVERRIDE_DESC'),
+                    'depends' => [['attribute?.type', '=', 'file']],
+                ],
                 'rating_icon' => [
                     'type'  => 'icon',
                     'title' => Text::_('COM_SPPAGEBUILDER_GLOBAL_ICON'),

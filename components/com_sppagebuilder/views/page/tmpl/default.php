@@ -36,7 +36,10 @@ if (!$params->get('disableanimatecss', 0))
 if (!$params->get('disablecss', 0))
 {
 	SppagebuilderHelperSite::addStylesheet('sppagebuilder.css');
-	SppagebuilderHelperSite::addStylesheet('animate.min.css');
+	if (!$params->get('disableanimatecss', 0))
+	{
+		SppagebuilderHelperSite::addStylesheet('animate.min.css');
+	}
 	SppagebuilderHelperSite::addContainerMaxWidth();
 }
 

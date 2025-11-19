@@ -356,7 +356,7 @@ class SppagebuilderAddonDynamic_content_image extends SppagebuilderAddons
                 $galleryImageStyle = $cssHelper->generateStyle('.sppb-gallery img', $settings, ['gallery_width' => 'width', 'gallery_height' => 'height', 'gallery_border_radius' => 'border-radius']);
             }
 
-            $galleryStyle = $cssHelper->generateStyle('.sppb-gallery', $settings, ['gallery_item_gap' => 'margin: -%s', 'gallery_item_alignment' => 'justify-content'], ['item_alignment' => false]);
+            $galleryStyle = $cssHelper->generateStyle('.sppb-gallery', $settings, ['gallery_item_gap' => 'margin: -%s', 'item_alignment' => 'justify-content'], ['item_alignment' => false]);
             $galleryItemStyle = $cssHelper->generateStyle('.sppb-gallery li', $settings, ['gallery_item_gap' => 'margin']);
             
             $css .= $galleryStyle;
@@ -574,7 +574,7 @@ class SppagebuilderAddonDynamic_content_image extends SppagebuilderAddons
             $addon_id = '#sppb-addon-' . $this->addon->id;
             $js = 'jQuery(function($){
                     function initMagnificPopup() {
-                        $("' . $addon_id . ' ul li").magnificPopup({
+                        $("' . $addon_id . ' ul li:not(.bx-clone)").magnificPopup({
                             delegate: "a",
                             type: "image",
                             mainClass: "mfp-no-margins mfp-with-zoom",

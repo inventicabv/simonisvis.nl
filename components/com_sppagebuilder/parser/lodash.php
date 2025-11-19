@@ -798,6 +798,18 @@ final class Lodash extends HelperBase
 		$underline      = (!empty($fallbacks) && array_key_exists('underline', $fallbacks)) ? $fallbacks['underline'] : "undefined";
 		$weight         = (!empty($fallbacks) && array_key_exists('weight', $fallbacks)) ? $fallbacks['weight'] : "undefined";
 
+		$css[] = '
+		<# 
+		var typography = ' . $data . ';
+		var typographyPreset = typography?.preset;
+		if (typographyPreset && globalTypographies && typeof typographyPreset === "string" && typographyPreset.includes(".")) {
+			var typographyPresetGroup = typographyPreset.split(".")[0];
+			var typographyPresetIndex = typographyPreset.split(".")[1];
+
+			var typographyPresetValues = globalTypographies[typographyPresetGroup]?.typography?.[typographyPresetIndex];
+			' . $data  . '= typographyPresetValues ?? ' . $data . ';
+		} #>';
+
 		$css[] = '<# if (!_.isEmpty(' . $data . ') && _.isObject(' . $data . ') ) { #>';
 
 		$css[] = $this->loadFonts($data);

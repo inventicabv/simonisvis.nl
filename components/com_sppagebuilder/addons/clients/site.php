@@ -104,7 +104,7 @@ class SppagebuilderAddonClients extends SppagebuilderAddons
 
 					if (isset($url) && $url) $output .= '<a ' . (isset($url_same_window) && $url_same_window ? $url_same_window : '') . ' rel="nofollow" href="' . $url . '">';
 
-					$output .= '<img class="sppb-img-responsive sppb-addon-clients-image" src="' . $carousel_img_src . '" alt="' . ($alt_text) . '" loading="lazy">';
+					$output .= '<img class="sppb-img-responsive sppb-addon-clients-image" src="' . $carousel_img_src . '" alt="' . ($alt_text) . '">';
 
 					if (isset($url) && $url) $output .= '</a>';
 

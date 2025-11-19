@@ -259,7 +259,10 @@ class  plgSystemSppagebuilder extends CMSPlugin
 				if (!$params->get('disablecss', 0))
 				{
 					SppagebuilderHelperSite::addStylesheet('sppagebuilder.css');
-					SppagebuilderHelperSite::addStylesheet('animate.min.css');
+					if (!$params->get('disableanimatecss', 0))
+					{
+						SppagebuilderHelperSite::addStylesheet('animate.min.css');
+					}
 					SppagebuilderHelperSite::addContainerMaxWidth();
 				}
 
@@ -1110,10 +1113,16 @@ class  plgSystemSppagebuilder extends CMSPlugin
 				let isShown = false;
 
 				if (clickType === "random") {
-					document.addEventListener("click", () => {
+					document.addEventListener("click", (event) => {
 						if (isRestricted(' . $popupId . ')) return; 
 						if (!isPermitted(' . $popupId . ')) return;
 						if (!isWithinDateRange(' . $popupId . ')) return;
+
+						let closePopupArea = "#sp-pagebuilder-popup-close-btn-' . $popupId . '";
+						let targetNode = event.target;
+						if (targetNode.closest(closePopupArea)) {
+							return;
+						}
 
 						clicked++;
 						if (clicked >= clickCount) {
@@ -2135,11 +2144,14 @@ class  plgSystemSppagebuilder extends CMSPlugin
 			}
 		}
 
+		$isEnabledColoSwitcher = $params->get('show_color_switcher', 0);
+
 		$doc->addScriptDeclaration('
 			const initColorMode = () => {
 				const colorVariableData = [];
 				const sppbColorVariablePrefix = "--sppb";
 				let activeColorMode = localStorage.getItem("sppbActiveColorMode") || "' . $defaultColorMode . '";
+				' . (!$isEnabledColoSwitcher ? ('activeColorMode = "' . $defaultColorMode . '"') : '') . ';
 				const modes = ' . json_encode($modes) . ';
 
 				if(!modes?.includes(activeColorMode)) {
@@ -2177,6 +2189,8 @@ class  plgSystemSppagebuilder extends CMSPlugin
 
 			document.addEventListener("DOMContentLoaded", initColorMode);
 		');
+		
+
 
 		if($app->isClient('site') && $view !== 'form')
 		{

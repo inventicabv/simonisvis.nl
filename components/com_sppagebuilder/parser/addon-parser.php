@@ -477,7 +477,7 @@ class AddonParser
 			}
 
 			// interaction js
-			if (count(self::$addon_interactions) > 0 && $pageName != 'none' && $pageName != 'module')
+			if (count(self::$addon_interactions) > 0 && $pageName != 'none')
 			{
 				$doc->addScriptDeclaration('var addonInteraction = ' . json_encode(self::$addon_interactions) . ';');
 			}
