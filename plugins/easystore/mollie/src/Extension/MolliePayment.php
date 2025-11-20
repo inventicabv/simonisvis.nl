@@ -15,6 +15,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 use Joomla\CMS\Log\Log;
 use Joomla\Event\Event;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Factory;
 use Mollie\Api\MollieApiClient;
 use Mollie\Api\Exceptions\ApiException;
 use Joomla\CMS\Application\CMSApplication;
@@ -105,7 +106,30 @@ class  MolliePayment extends PaymentGatewayPlugin
                     'payment_method'       => $constants->getName(),
                 ];
 
+                // Update de order in de database (dit verstuurt klant mails)
                 $paymentNotifyData->order->updateOrder($data);
+
+                // Trigger event voor admin mail via easystoreadminmail plugin
+                // Dit gebeurt NA de order update zodat de betalingsstatus accuraat is
+                try {
+                    $app = Factory::getApplication();
+                    $dispatcher = $app->getDispatcher();
+                    
+                    $event = new Event(
+                        'onMolliePaymentStatusUpdated',
+                        [
+                            'orderId' => $orderId,
+                            'paymentStatus' => $payment->status,
+                            'paymentMethod' => $constants->getName(),
+                        ]
+                    );
+                    
+                    $dispatcher->dispatch('onMolliePaymentStatusUpdated', $event);
+                    
+                    Log::add('Mollie: Event onMolliePaymentStatusUpdated getriggerd voor order ' . $orderId . ' met status ' . $payment->status, Log::INFO, 'mollie.easystore');
+                } catch (\Exception $e) {
+                    Log::add('Mollie: Fout bij triggeren admin mail event - ' . $e->getMessage(), Log::ERROR, 'mollie.easystore');
+                }
             }
         } catch (ApiException $e) {
             Log::add($e->getMessage(), Log::ERROR, 'mollie.easystore');

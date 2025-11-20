@@ -48,6 +48,15 @@ final class EasyStoreAdminMail extends CMSPlugin implements SubscriberInterface
      * @since   1.0.0
      */
     private static $isSendingAdminMail = false;
+
+    /**
+     * Array om bij te houden welke orders al een admin mail hebben ontvangen via webhook
+     * Dit voorkomt dubbele mails wanneer zowel webhook als bedankt pagina triggeren
+     *
+     * @var array
+     * @since   1.0.0
+     */
+    private static $mollieOrdersWithAdminMail = [];
     /**
      * Returns an array of events this subscriber will listen to.
      *
@@ -63,6 +72,7 @@ final class EasyStoreAdminMail extends CMSPlugin implements SubscriberInterface
             'onOrderPlaced'       => ['onOrderPlaced', 999], // Hoge prioriteit om eerst te worden aangeroepen
             'onEasystorePaymentSuccessRender' => ['onEasystorePaymentSuccessRender', 999], // Bedankt pagina event
             'onEasystorePaymentComplete' => ['onEasystorePaymentComplete', 999], // Bedankt pagina event
+            'onMolliePaymentStatusUpdated' => ['onMolliePaymentStatusUpdated', 999], // Mollie webhook event
         ];
     }
 
@@ -210,41 +220,10 @@ final class EasyStoreAdminMail extends CMSPlugin implements SubscriberInterface
                     Log::add('EasyStoreAdminMail: Geen admin email adres of variabelen beschikbaar voor manual payment', Log::WARNING, 'email.easystore.adminmail');
                 }
             }
-            // Als het een Mollie betaling is, check of iemand op de bedankt pagina komt
-            // Dit kunnen we detecteren door te checken of er een payment status is of een callback parameter
-            elseif ($isMolliePayment && !empty($adminEmail) && isset($data->variables)) {
-                // Check of dit een callback is (bedankt pagina) door te kijken naar payment status of callback indicatoren
-                $isCallback = false;
-                
-                // Check op verschillende indicatoren dat dit een callback/bedankt pagina is
-                if (isset($data->variables['payment_status']) || 
-                    isset($data->variables['status']) ||
-                    isset($data->variables['callback']) ||
-                    isset($data->variables['return_url']) ||
-                    (isset($data->variables['order_id']) && isset($data->variables['payment_method']))) {
-                    $isCallback = true;
-                }
-                
-                // Als het een callback is (bedankt pagina), verstuur direct de admin mail
-                // Of de betaling succesvol is of niet, maakt niet uit - verstuur altijd
-                if ($isCallback) {
-                    // Zorg ervoor dat de betalingsstatus wordt meegestuurd
-                    if (!isset($data->variables['payment_status'])) {
-                        if (isset($data->variables['status'])) {
-                            $data->variables['payment_status'] = $data->variables['status'];
-                        } else {
-                            // Standaard: onbekend, maar verstuur toch de mail
-                            $data->variables['payment_status'] = 'unknown';
-                        }
-                    }
-                    
-                    $this->deliverEmail($adminEmail, 'order_confirmation_admin', $data->variables);
-                    $orderId = $data->variables['order_id'] ?? $data->variables['id'] ?? 'onbekend';
-                    Log::add('EasyStoreAdminMail: Admin mail direct verstuurd voor Mollie betaling (bedankt pagina) naar ' . $adminEmail . ' voor order: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
-                } else {
-                    // Eerste keer order plaatsing, blokkeer de mail (wordt later verstuurd)
-                    Log::add('EasyStoreAdminMail: Admin mail bij Mollie order plaatsing geblokkeerd (wordt later verstuurd bij bedankt pagina)', Log::INFO, 'email.easystore.adminmail');
-                }
+            // Als het een Mollie betaling is, blokkeer altijd de mail bij order plaatsing
+            // De mail wordt verstuurd via de webhook (onMolliePaymentStatusUpdated) nadat de betalingsstatus is geüpdatet
+            elseif ($isMolliePayment) {
+                Log::add('EasyStoreAdminMail: Admin mail bij Mollie order plaatsing geblokkeerd (wordt verstuurd via webhook na betalingsstatus update)', Log::INFO, 'email.easystore.adminmail');
             }
             // Voor andere online payments, blokkeer de mail (wordt later verstuurd via onSuccessfulPayment of onFailedPayment)
             else {
@@ -255,7 +234,8 @@ final class EasyStoreAdminMail extends CMSPlugin implements SubscriberInterface
 
     /**
      * Verstuurt admin mail bij succesvolle betaling
-     * Werkt ook voor Mollie betalingen wanneer iemand op de bedankt pagina komt
+     * 
+     * BELANGRIJK: Voor Mollie betalingen wordt de mail NIET hier verstuurd, maar via de webhook (onMolliePaymentStatusUpdated)
      *
      * @param Event $event The event object
      *
@@ -281,6 +261,18 @@ final class EasyStoreAdminMail extends CMSPlugin implements SubscriberInterface
             return;
         }
 
+        // Check of dit een Mollie betaling is - skip deze omdat ze via webhook gaan
+        $isMolliePayment = false;
+        if (isset($data->variables['payment_method'])) {
+            $paymentMethod = $data->variables['payment_method'];
+            $isMolliePayment = (stripos($paymentMethod, 'mollie') !== false);
+        }
+
+        if ($isMolliePayment) {
+            Log::add('EasyStoreAdminMail: Mollie betaling gedetecteerd in onSuccessfulPayment - mail wordt verstuurd via webhook, skip hier', Log::INFO, 'email.easystore.adminmail');
+            return;
+        }
+
         $adminEmail = $this->getAdminEmail();
 
         if (empty($adminEmail)) {
@@ -295,8 +287,7 @@ final class EasyStoreAdminMail extends CMSPlugin implements SubscriberInterface
             return;
         }
 
-        // Voor Mollie en andere online betalingen: check of er order informatie beschikbaar is
-        // Dit gebeurt wanneer iemand op de bedankt pagina komt, ongeacht of de betaling succesvol is of niet
+        // Voor andere online betalingen (niet Mollie): check of er order informatie beschikbaar is
         if (isset($data->variables) && is_array($data->variables)) {
             // Check of er order informatie is (order_id, order_number, etc.)
             $hasOrderInfo = false;
@@ -327,14 +318,15 @@ final class EasyStoreAdminMail extends CMSPlugin implements SubscriberInterface
                 }
                 
                 $this->deliverEmail($adminEmail, 'order_confirmation_admin', $data->variables);
-                Log::add('EasyStoreAdminMail: Admin mail verstuurd bij Mollie/online betaling (bedankt pagina) naar ' . $adminEmail . ' voor order: ' . ($orderId ?? 'onbekend'), Log::INFO, 'email.easystore.adminmail');
+                Log::add('EasyStoreAdminMail: Admin mail verstuurd bij online betaling (niet Mollie) naar ' . $adminEmail . ' voor order: ' . ($orderId ?? 'onbekend'), Log::INFO, 'email.easystore.adminmail');
             }
         }
     }
 
     /**
      * Verstuurt admin mail bij gefaalde betaling
-     * Werkt ook voor Mollie betalingen wanneer iemand op de bedankt pagina komt met gefaalde betaling
+     * 
+     * BELANGRIJK: Voor Mollie betalingen wordt de mail NIET hier verstuurd, maar via de webhook (onMolliePaymentStatusUpdated)
      *
      * @param Event $event The event object
      *
@@ -360,6 +352,18 @@ final class EasyStoreAdminMail extends CMSPlugin implements SubscriberInterface
             return;
         }
 
+        // Check of dit een Mollie betaling is - skip deze omdat ze via webhook gaan
+        $isMolliePayment = false;
+        if (isset($data->variables['payment_method'])) {
+            $paymentMethod = $data->variables['payment_method'];
+            $isMolliePayment = (stripos($paymentMethod, 'mollie') !== false);
+        }
+
+        if ($isMolliePayment) {
+            Log::add('EasyStoreAdminMail: Mollie betaling gedetecteerd in onFailedPayment - mail wordt verstuurd via webhook, skip hier', Log::INFO, 'email.easystore.adminmail');
+            return;
+        }
+
         $adminEmail = $this->getAdminEmail();
 
         if (empty($adminEmail)) {
@@ -367,7 +371,7 @@ final class EasyStoreAdminMail extends CMSPlugin implements SubscriberInterface
             return;
         }
 
-        // Verstuur admin mail met betalingsstatus (unpaid/failed)
+        // Verstuur admin mail met betalingsstatus (unpaid/failed) voor niet-Mollie betalingen
         if (isset($data->variables) && is_array($data->variables)) {
             // Zorg ervoor dat de betalingsstatus wordt meegestuurd
             if (!isset($data->variables['payment_status'])) {
@@ -382,7 +386,7 @@ final class EasyStoreAdminMail extends CMSPlugin implements SubscriberInterface
             
             $orderId = $data->variables['order_id'] ?? $data->variables['id'] ?? 'onbekend';
             $this->deliverEmail($adminEmail, 'order_confirmation_admin', $data->variables);
-            Log::add('EasyStoreAdminMail: Admin mail verstuurd bij gefaalde betaling naar ' . $adminEmail . ' voor order: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
+            Log::add('EasyStoreAdminMail: Admin mail verstuurd bij gefaalde betaling (niet Mollie) naar ' . $adminEmail . ' voor order: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
         }
     }
 
@@ -407,6 +411,9 @@ final class EasyStoreAdminMail extends CMSPlugin implements SubscriberInterface
     /**
      * Verstuurt admin mail wanneer iemand op de bedankt pagina komt (onEasystorePaymentComplete event)
      * Dit event wordt getriggerd wanneer iemand via Mollie of andere online betalingen op de bedankt pagina komt
+     * 
+     * BELANGRIJK: Voor Mollie betalingen wordt de mail NIET hier verstuurd, maar via de webhook (onMolliePaymentStatusUpdated)
+     * Dit zorgt ervoor dat de betalingsstatus accuraat is in de mail
      *
      * @param Event $event The event object
      *
@@ -434,6 +441,25 @@ final class EasyStoreAdminMail extends CMSPlugin implements SubscriberInterface
             return;
         }
 
+        // Check of dit een Mollie betaling is
+        $isMolliePayment = false;
+        if (!empty($paymentType)) {
+            $isMolliePayment = (stripos($paymentType, 'mollie') !== false);
+        }
+
+        // Voor Mollie betalingen: NIET versturen via bedankt pagina
+        // De mail wordt verstuurd via de webhook (onMolliePaymentStatusUpdated) nadat de betalingsstatus is geüpdatet
+        if ($isMolliePayment) {
+            Log::add('EasyStoreAdminMail: Mollie betaling gedetecteerd op bedankt pagina - mail wordt verstuurd via webhook, skip hier', Log::INFO, 'email.easystore.adminmail');
+            
+            // Check of de webhook al heeft getriggerd (als fallback)
+            $orderIdInt = (int) $orderId;
+            if (isset(self::$mollieOrdersWithAdminMail[$orderIdInt])) {
+                Log::add('EasyStoreAdminMail: Admin mail voor Mollie order ' . $orderId . ' is al verstuurd via webhook', Log::INFO, 'email.easystore.adminmail');
+            }
+            return;
+        }
+
         // Check of dit een manual payment is
         $isManualPayment = false;
         if (!empty($paymentType)) {
@@ -442,11 +468,64 @@ final class EasyStoreAdminMail extends CMSPlugin implements SubscriberInterface
             Log::add('EasyStoreAdminMail: isManualPayment=' . ($isManualPayment ? 'true' : 'false'), Log::INFO, 'email.easystore.adminmail');
         }
 
-        // Voor ALLE betalingen (zowel online als manual), verstuur direct de admin mail
+        // Voor manual payments: verstuur direct de admin mail wanneer iemand op de bedankt pagina komt
         // Dit is belangrijk omdat de winkeleigenaar altijd de bestelling moet ontvangen
-        // Voor manual payments wordt dit event getriggerd wanneer iemand op de bedankt pagina komt
-        Log::add('EasyStoreAdminMail: Start versturen admin mail voor ' . ($isManualPayment ? 'manual' : 'online') . ' betaling', Log::INFO, 'email.easystore.adminmail');
-        $this->sendAdminMailForOrder($orderId, 'bedankt pagina (onEasystorePaymentComplete) - ' . ($isManualPayment ? 'manual payment' : 'online payment'));
+        if ($isManualPayment) {
+            Log::add('EasyStoreAdminMail: Start versturen admin mail voor manual payment', Log::INFO, 'email.easystore.adminmail');
+            $this->sendAdminMailForOrder($orderId, 'bedankt pagina (onEasystorePaymentComplete) - manual payment');
+        } else {
+            // Voor andere online payments (niet Mollie): mogelijk via andere events
+            Log::add('EasyStoreAdminMail: Online payment (niet Mollie) gedetecteerd op bedankt pagina - mogelijk via andere events', Log::INFO, 'email.easystore.adminmail');
+        }
+    }
+
+    /**
+     * Verstuurt admin mail wanneer Mollie webhook de betalingsstatus heeft geüpdatet
+     * Dit event wordt getriggerd vanuit de Mollie webhook NA de order update
+     * Dit zorgt ervoor dat de betalingsstatus accuraat is in de mail
+     *
+     * @param Event $event The event object
+     *
+     * @return void
+     *
+     * @since   1.0.0
+     */
+    public function onMolliePaymentStatusUpdated(Event $event)
+    {
+        Log::add('EasyStoreAdminMail: onMolliePaymentStatusUpdated event ontvangen (Mollie webhook)', Log::INFO, 'email.easystore.adminmail');
+        
+        if (!$this->isEnabled()) {
+            Log::add('EasyStoreAdminMail: Plugin is niet ingeschakeld', Log::WARNING, 'email.easystore.adminmail');
+            return;
+        }
+
+        $arguments = $event->getArguments();
+        $orderId = $arguments['orderId'] ?? null;
+        $paymentStatus = $arguments['paymentStatus'] ?? 'unknown';
+        $paymentMethod = $arguments['paymentMethod'] ?? 'mollie';
+
+        Log::add('EasyStoreAdminMail: Mollie webhook - orderId=' . ($orderId ?? 'NULL') . ', paymentStatus=' . ($paymentStatus ?? 'NULL'), Log::INFO, 'email.easystore.adminmail');
+
+        if (empty($orderId)) {
+            Log::add('EasyStoreAdminMail: orderId is leeg, stop verwerking', Log::WARNING, 'email.easystore.adminmail');
+            return;
+        }
+
+        $orderIdInt = (int) $orderId;
+
+        // Check of we al een mail hebben verstuurd voor dit order (voorkom dubbele mails)
+        if (isset(self::$mollieOrdersWithAdminMail[$orderIdInt])) {
+            Log::add('EasyStoreAdminMail: Admin mail voor Mollie order ' . $orderId . ' is al verstuurd, skip', Log::INFO, 'email.easystore.adminmail');
+            return;
+        }
+
+        // Verstuur de admin mail met de juiste betalingsstatus (na webhook update)
+        Log::add('EasyStoreAdminMail: Start versturen admin mail voor Mollie webhook - orderId=' . $orderId . ', status=' . $paymentStatus, Log::INFO, 'email.easystore.adminmail');
+        $this->sendAdminMailForOrder($orderId, 'Mollie webhook (onMolliePaymentStatusUpdated) - status: ' . $paymentStatus);
+
+        // Markeer dat we een mail hebben verstuurd voor dit order
+        self::$mollieOrdersWithAdminMail[$orderIdInt] = true;
+        Log::add('EasyStoreAdminMail: Admin mail voor Mollie order ' . $orderId . ' gemarkeerd als verstuurd', Log::INFO, 'email.easystore.adminmail');
     }
 
     /**
