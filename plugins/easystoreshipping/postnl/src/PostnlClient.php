@@ -361,6 +361,9 @@ class PostnlClient
             'plg_easystoreshipping_postnl'
         );
 
+        // Generate a valid minimal PDF for testing
+        $mockPdfContent = $this->generateMockPdf($testBarcode, $payload);
+
         return [
             'ResponseShipments' => [
                 [
@@ -368,12 +371,174 @@ class PostnlClient
                     'ProductCodeDelivery' => $payload['Shipments'][0]['ProductCodeDelivery'] ?? '3085',
                     'Labels' => [
                         [
-                            'Content' => base64_encode('MOCK LABEL DATA - TEST MODE'),
+                            'Content' => base64_encode($mockPdfContent),
                             'Labeltype' => $this->defaults['label_format'] ?? 'PDF'
                         ]
                     ]
                 ]
             ]
         ];
+    }
+
+    /**
+     * Generate a valid minimal PDF for mock labels
+     *
+     * @param string $barcode Test barcode
+     * @param array  $payload Original payload
+     *
+     * @return string PDF content
+     *
+     * @since 1.0.0
+     */
+    private function generateMockPdf(string $barcode, array $payload): string
+    {
+        $receiverName = $payload['Shipments'][0]['Addresses'][0]['FirstName'] ?? '';
+        $receiverName .= ' ' . ($payload['Shipments'][0]['Addresses'][0]['Name'] ?? '');
+        $address = $payload['Shipments'][0]['Addresses'][0]['Street'] ?? '';
+        $address .= ' ' . ($payload['Shipments'][0]['Addresses'][0]['HouseNr'] ?? '');
+        $zipCity = ($payload['Shipments'][0]['Addresses'][0]['Zipcode'] ?? '') . ' ' . ($payload['Shipments'][0]['Addresses'][0]['City'] ?? '');
+
+        // PostNL labels are A6 format: 100x150mm = 283x425 points (1 point = 0.352778mm)
+        $width = 283;
+        $height = 425;
+
+        // Generate barcode pattern (simple Code128-like pattern)
+        $barcodePattern = $this->generateBarcodePattern($barcode);
+
+        // Minimal valid PDF structure
+        $pdf = "%PDF-1.4\n";
+        $pdf .= "1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n";
+        $pdf .= "2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n";
+        $pdf .= "3 0 obj\n<< /Type /Page /Parent 2 0 R /Resources 4 0 R /MediaBox [0 0 {$width} {$height}] /Contents 5 0 R >>\nendobj\n";
+        $pdf .= "4 0 obj\n<< /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >>\nendobj\n";
+
+        // Content stream with mock label
+        // Background border
+        $content = "q\n";
+        $content .= "0.8 0.8 0.8 RG\n"; // Gray border
+        $content .= "2 w\n"; // Line width
+        $content .= "10 10 " . ($width - 20) . " " . ($height - 20) . " re\n"; // Rectangle
+        $content .= "S\n"; // Stroke
+        
+        // PostNL logo area (simplified)
+        $content .= "q\n";
+        $content .= "0 0.5 0.8 rg\n"; // PostNL blue
+        $content .= "15 350 " . ($width - 30) . " 50 re\n"; // Header rectangle
+        $content .= "f\n"; // Fill
+        $content .= "Q\n";
+        
+        // Text content
+        $content .= "BT\n";
+        $content .= "1 1 1 rg\n"; // White text
+        $content .= "/F1 16 Tf\n";
+        $content .= "20 370 Td\n";
+        $content .= "(PostNL TEST LABEL) Tj\n";
+        $content .= "ET\n";
+        
+        // Barcode area
+        $content .= "q\n";
+        $content .= "0 0 0 rg\n"; // Black
+        $content .= $barcodePattern; // Draw barcode pattern
+        $content .= "Q\n";
+        
+        // Barcode text below barcode
+        $content .= "BT\n";
+        $content .= "0 0 0 rg\n"; // Black text
+        $content .= "/F1 10 Tf\n";
+        $content .= "20 280 Td\n";
+        $content .= "(" . $this->escapePdfString($barcode) . ") Tj\n";
+        $content .= "ET\n";
+        
+        // Address information
+        $content .= "BT\n";
+        $content .= "0 0 0 rg\n";
+        $content .= "/F1 11 Tf\n";
+        $content .= "20 250 Td\n";
+        $content .= "(Naar:) Tj\n";
+        $content .= "0 -18 Td\n";
+        $content .= "(" . $this->escapePdfString(trim($receiverName)) . ") Tj\n";
+        $content .= "0 -16 Td\n";
+        $content .= "(" . $this->escapePdfString(trim($address)) . ") Tj\n";
+        $content .= "0 -16 Td\n";
+        $content .= "(" . $this->escapePdfString(trim($zipCity)) . ") Tj\n";
+        $content .= "ET\n";
+        
+        // Test label notice
+        $content .= "BT\n";
+        $content .= "0.8 0 0 rg\n"; // Red text
+        $content .= "/F1 8 Tf\n";
+        $content .= "20 50 Td\n";
+        $content .= "(TEST LABEL - Niet geldig voor verzending) Tj\n";
+        $content .= "ET\n";
+        
+        $content .= "Q\n";
+
+        $contentLength = strlen($content);
+        $pdf .= "5 0 obj\n<< /Length {$contentLength} >>\nstream\n{$content}\nendstream\nendobj\n";
+
+        // Cross-reference table
+        $xrefOffset = strlen($pdf);
+        $pdf .= "xref\n0 6\n";
+        $pdf .= "0000000000 65535 f \n";
+        $pdf .= "0000000009 00000 n \n";
+        $pdf .= "0000000058 00000 n \n";
+        $pdf .= "0000000115 00000 n \n";
+        $pdf .= "0000000214 00000 n \n";
+        $pdf .= sprintf("%010d 00000 n \n", $xrefOffset - 93);
+
+        $pdf .= "trailer\n<< /Size 6 /Root 1 0 R >>\n";
+        $pdf .= "startxref\n" . strlen($pdf) . "\n%%EOF";
+
+        return $pdf;
+    }
+
+    /**
+     * Generate a simple barcode pattern for mock labels
+     *
+     * @param string $barcode Barcode string
+     *
+     * @return string PDF drawing commands
+     *
+     * @since 1.0.0
+     */
+    private function generateBarcodePattern(string $barcode): string
+    {
+        $x = 20;
+        $y = 300;
+        $barHeight = 40;
+        $barWidth = 1.5;
+        $pattern = '';
+        
+        // Generate bars based on barcode characters
+        // Simple pattern: each digit creates alternating bars
+        $chars = str_split($barcode);
+        foreach ($chars as $char) {
+            $code = ord($char);
+            // Create pattern based on character code
+            for ($i = 0; $i < 3; $i++) {
+                $bar = ($code >> $i) & 1;
+                if ($bar) {
+                    $pattern .= sprintf("%.2f %.2f %.2f %.2f re f\n", $x, $y, $barWidth, $barHeight);
+                }
+                $x += $barWidth * 2;
+            }
+            $x += $barWidth; // Gap between characters
+        }
+        
+        return $pattern;
+    }
+
+    /**
+     * Escape special characters in PDF strings
+     *
+     * @param string $text Text to escape
+     *
+     * @return string Escaped text
+     *
+     * @since 1.0.0
+     */
+    private function escapePdfString(string $text): string
+    {
+        return str_replace(['\\', '(', ')'], ['\\\\', '\\(', '\\)'], $text);
     }
 }
