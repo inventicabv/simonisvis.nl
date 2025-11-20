@@ -316,15 +316,31 @@ final class EasyStoreAdminMail extends CMSPlugin implements SubscriberInterface
                         Log::add('EasyStoreAdminMail: Order ID is numeriek: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
                     } else {
                         // order_id kan een geformatteerd nummer zijn (bijv. F-2025-001051)
-                        // Probeer het ID te extraheren
-                        $orderId = $this->getOrderIdFromOrderNumber($orderIdStr);
-                        if ($orderId) {
-                            Log::add('EasyStoreAdminMail: Order ID geëxtraheerd uit order number: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
-                        } else {
-                            // Probeer via database
-                            $orderId = $this->findOrderIdByOrderNumber($orderIdStr);
-                            if ($orderId) {
-                                Log::add('EasyStoreAdminMail: Order ID gevonden via database: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
+                        // Gebruik OrderHelper::parseOrderNumber om het ID te extraheren
+                        try {
+                            $parsedId = OrderHelper::parseOrderNumber($orderIdStr);
+                            if (is_numeric($parsedId)) {
+                                $orderId = (int) $parsedId;
+                                Log::add('EasyStoreAdminMail: Order ID geëxtraheerd via parseOrderNumber: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
+                            } else {
+                                // Fallback naar oude methode
+                                $orderId = $this->getOrderIdFromOrderNumber($orderIdStr);
+                                if ($orderId) {
+                                    Log::add('EasyStoreAdminMail: Order ID geëxtraheerd uit order number (fallback): ' . $orderId, Log::INFO, 'email.easystore.adminmail');
+                                } else {
+                                    // Probeer via database
+                                    $orderId = $this->findOrderIdByOrderNumber($orderIdStr);
+                                    if ($orderId) {
+                                        Log::add('EasyStoreAdminMail: Order ID gevonden via database: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
+                                    }
+                                }
+                            }
+                        } catch (\Exception $e) {
+                            Log::add('EasyStoreAdminMail: Fout bij parseOrderNumber: ' . $e->getMessage(), Log::WARNING, 'email.easystore.adminmail');
+                            // Fallback naar oude methode
+                            $orderId = $this->getOrderIdFromOrderNumber($orderIdStr);
+                            if (!$orderId) {
+                                $orderId = $this->findOrderIdByOrderNumber($orderIdStr);
                             }
                         }
                     }
@@ -439,19 +455,75 @@ final class EasyStoreAdminMail extends CMSPlugin implements SubscriberInterface
                 }
             }
             
-            $orderId = $data->variables['order_id'] ?? $data->variables['id'] ?? null;
+            $paymentMethod = $data->variables['payment_method'] ?? '';
+            
+            // Log beschikbare variabelen voor debugging
+            Log::add('EasyStoreAdminMail: onFailedPayment - payment_method: ' . $paymentMethod, Log::INFO, 'email.easystore.adminmail');
+            Log::add('EasyStoreAdminMail: Beschikbare variabelen keys: ' . implode(', ', array_keys($data->variables)), Log::INFO, 'email.easystore.adminmail');
             
             // Voor Mollie: gebruik sendAdminMailForOrder om volledig order object op te halen met correcte betalingsstatus
             // Dit is belangrijk omdat de webhook de status heeft bijgewerkt
-            $paymentMethod = $data->variables['payment_method'] ?? '';
-            if (!empty($orderId) && stripos($paymentMethod, 'mollie') !== false) {
-                Log::add('EasyStoreAdminMail: Mollie betaling - verstuur admin mail via webhook trigger (onFailedPayment)', Log::INFO, 'email.easystore.adminmail');
-                $this->sendAdminMailForOrder($orderId, 'webhook (onFailedPayment) - Mollie');
-            } else {
-                // Voor andere betalingen: gebruik de oude methode
-                $this->deliverEmail($adminEmail, 'order_confirmation_admin', $data->variables);
-                Log::add('EasyStoreAdminMail: Admin mail verstuurd bij gefaalde betaling naar ' . $adminEmail . ' voor order: ' . ($orderId ?? 'onbekend'), Log::INFO, 'email.easystore.adminmail');
+            if (stripos($paymentMethod, 'mollie') !== false) {
+                // Probeer order ID te vinden uit variabelen
+                $orderId = null;
+                
+                // Probeer eerst numeriek ID
+                if (isset($data->variables['id']) && is_numeric($data->variables['id'])) {
+                    $orderId = (int) $data->variables['id'];
+                    Log::add('EasyStoreAdminMail: Order ID gevonden via variables[id]: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
+                } elseif (isset($data->variables['order_id'])) {
+                    $orderIdStr = $data->variables['order_id'];
+                    Log::add('EasyStoreAdminMail: order_id gevonden: ' . $orderIdStr, Log::INFO, 'email.easystore.adminmail');
+                    
+                    // Als het een nummer is, gebruik het direct
+                    if (is_numeric($orderIdStr)) {
+                        $orderId = (int) $orderIdStr;
+                        Log::add('EasyStoreAdminMail: Order ID is numeriek: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
+                    } else {
+                        // order_id kan een geformatteerd nummer zijn (bijv. F-2025-001051)
+                        // Gebruik OrderHelper::parseOrderNumber om het ID te extraheren
+                        try {
+                            $parsedId = OrderHelper::parseOrderNumber($orderIdStr);
+                            if (is_numeric($parsedId)) {
+                                $orderId = (int) $parsedId;
+                                Log::add('EasyStoreAdminMail: Order ID geëxtraheerd via parseOrderNumber: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
+                            } else {
+                                // Fallback naar oude methode
+                                $orderId = $this->getOrderIdFromOrderNumber($orderIdStr);
+                                if ($orderId) {
+                                    Log::add('EasyStoreAdminMail: Order ID geëxtraheerd uit order number (fallback): ' . $orderId, Log::INFO, 'email.easystore.adminmail');
+                                } else {
+                                    // Probeer via database
+                                    $orderId = $this->findOrderIdByOrderNumber($orderIdStr);
+                                    if ($orderId) {
+                                        Log::add('EasyStoreAdminMail: Order ID gevonden via database: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
+                                    }
+                                }
+                            }
+                        } catch (\Exception $e) {
+                            Log::add('EasyStoreAdminMail: Fout bij parseOrderNumber: ' . $e->getMessage(), Log::WARNING, 'email.easystore.adminmail');
+                            // Fallback naar oude methode
+                            $orderId = $this->getOrderIdFromOrderNumber($orderIdStr);
+                            if (!$orderId) {
+                                $orderId = $this->findOrderIdByOrderNumber($orderIdStr);
+                            }
+                        }
+                    }
+                }
+                
+                if ($orderId) {
+                    Log::add('EasyStoreAdminMail: Mollie betaling - verstuur admin mail via webhook trigger (onFailedPayment) voor order: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
+                    $this->sendAdminMailForOrder($orderId, 'webhook (onFailedPayment) - Mollie');
+                    return;
+                } else {
+                    Log::add('EasyStoreAdminMail: Kon order ID niet vinden voor Mollie betaling, gebruik fallback', Log::WARNING, 'email.easystore.adminmail');
+                }
             }
+            
+            // Voor andere betalingen: gebruik de oude methode
+            $orderId = $data->variables['order_id'] ?? $data->variables['id'] ?? 'onbekend';
+            $this->deliverEmail($adminEmail, 'order_confirmation_admin', $data->variables);
+            Log::add('EasyStoreAdminMail: Admin mail verstuurd bij gefaalde betaling naar ' . $adminEmail . ' voor order: ' . ($orderId ?? 'onbekend'), Log::INFO, 'email.easystore.adminmail');
         }
     }
 
