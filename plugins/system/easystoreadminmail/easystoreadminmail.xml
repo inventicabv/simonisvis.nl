@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="system" method="upgrade">
+    <name>PLG_SYSTEM_EASYSTOREADMINMAIL</name>
+    <author>Jouw Naam</author>
+    <creationDate>2024-12</creationDate>
+    <copyright>Copyright (C) 2024</copyright>
+    <license>GNU General Public License version 2 or later</license>
+    <version>1.0.0</version>
+    <description>PLG_SYSTEM_EASYSTOREADMINMAIL_DESC</description>
+    <namespace path="src">JoomShaper\Plugin\System\EasyStoreAdminMail</namespace>
+    <files>
+        <folder plugin="easystoreadminmail">services</folder>
+        <folder>src</folder>
+    </files>
+    <languages>
+        <language tag="nl-NL">language/nl-NL/plg_system_easystoreadminmail.ini</language>
+        <language tag="en-GB">language/en-GB/plg_system_easystoreadminmail.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="enabled"
+                    type="radio"
+                    label="PLG_SYSTEM_EASYSTOREADMINMAIL_ENABLED_LABEL"
+                    description="PLG_SYSTEM_EASYSTOREADMINMAIL_ENABLED_DESC"
+                    default="1"
+                    class="btn-group btn-group-yesno">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                
+                <field
+                    name="admin_email"
+                    type="email"
+                    label="PLG_SYSTEM_EASYSTOREADMINMAIL_ADMIN_EMAIL_LABEL"
+                    description="PLG_SYSTEM_EASYSTOREADMINMAIL_ADMIN_EMAIL_DESC"
+                    default=""
+                    hint="admin@example.com"
+                    required="false"
+                />
+                
+                <field
+                    name="use_store_email"
+                    type="radio"
+                    label="PLG_SYSTEM_EASYSTOREADMINMAIL_USE_STORE_EMAIL_LABEL"
+                    description="PLG_SYSTEM_EASYSTOREADMINMAIL_USE_STORE_EMAIL_DESC"
+                    default="1"
+                    class="btn-group btn-group-yesno">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                
+                <field
+                    name="send_on_payment_success"
+                    type="radio"
+                    label="PLG_SYSTEM_EASYSTOREADMINMAIL_SEND_ON_PAYMENT_SUCCESS_LABEL"
+                    description="PLG_SYSTEM_EASYSTOREADMINMAIL_SEND_ON_PAYMENT_SUCCESS_DESC"
+                    default="1"
+                    class="btn-group btn-group-yesno">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                
+                <field
+                    name="send_on_payment_failed"
+                    type="radio"
+                    label="PLG_SYSTEM_EASYSTOREADMINMAIL_SEND_ON_PAYMENT_FAILED_LABEL"
+                    description="PLG_SYSTEM_EASYSTOREADMINMAIL_SEND_ON_PAYMENT_FAILED_DESC"
+                    default="1"
+                    class="btn-group btn-group-yesno">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                
+                <field
+                    name="send_on_manual_payment"
+                    type="radio"
+                    label="PLG_SYSTEM_EASYSTOREADMINMAIL_SEND_ON_MANUAL_PAYMENT_LABEL"
+                    description="PLG_SYSTEM_EASYSTOREADMINMAIL_SEND_ON_MANUAL_PAYMENT_DESC"
+                    default="1"
+                    class="btn-group btn-group-yesno">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
+
+
