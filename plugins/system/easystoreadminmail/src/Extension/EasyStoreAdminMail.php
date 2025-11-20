@@ -290,6 +290,56 @@ final class EasyStoreAdminMail extends CMSPlugin implements SubscriberInterface
 
         // Check of dit een payment_success_admin type is (standaard geval)
         if (isset($data->type) && $data->type === 'payment_success_admin' && isset($data->variables)) {
+            // Voor Mollie betalingen: gebruik sendAdminMailForOrder om volledig order object op te halen
+            // Dit is belangrijk omdat de webhook de status heeft bijgewerkt en we de correcte betalingsstatus willen
+            $paymentMethod = $data->variables['payment_method'] ?? '';
+            
+            // Log beschikbare variabelen voor debugging
+            Log::add('EasyStoreAdminMail: onSuccessfulPayment - payment_success_admin - payment_method: ' . $paymentMethod, Log::INFO, 'email.easystore.adminmail');
+            Log::add('EasyStoreAdminMail: Beschikbare variabelen keys: ' . implode(', ', array_keys($data->variables)), Log::INFO, 'email.easystore.adminmail');
+            
+            if (stripos($paymentMethod, 'mollie') !== false) {
+                // Probeer order ID te vinden uit variabelen
+                $orderId = null;
+                
+                // Probeer eerst numeriek ID
+                if (isset($data->variables['id']) && is_numeric($data->variables['id'])) {
+                    $orderId = (int) $data->variables['id'];
+                    Log::add('EasyStoreAdminMail: Order ID gevonden via variables[id]: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
+                } elseif (isset($data->variables['order_id'])) {
+                    $orderIdStr = $data->variables['order_id'];
+                    Log::add('EasyStoreAdminMail: order_id gevonden: ' . $orderIdStr, Log::INFO, 'email.easystore.adminmail');
+                    
+                    // Als het een nummer is, gebruik het direct
+                    if (is_numeric($orderIdStr)) {
+                        $orderId = (int) $orderIdStr;
+                        Log::add('EasyStoreAdminMail: Order ID is numeriek: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
+                    } else {
+                        // order_id kan een geformatteerd nummer zijn (bijv. F-2025-001051)
+                        // Probeer het ID te extraheren
+                        $orderId = $this->getOrderIdFromOrderNumber($orderIdStr);
+                        if ($orderId) {
+                            Log::add('EasyStoreAdminMail: Order ID geëxtraheerd uit order number: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
+                        } else {
+                            // Probeer via database
+                            $orderId = $this->findOrderIdByOrderNumber($orderIdStr);
+                            if ($orderId) {
+                                Log::add('EasyStoreAdminMail: Order ID gevonden via database: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
+                            }
+                        }
+                    }
+                }
+                
+                if ($orderId) {
+                    Log::add('EasyStoreAdminMail: Mollie betaling - verstuur admin mail via webhook trigger (onSuccessfulPayment - payment_success_admin) voor order: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
+                    $this->sendAdminMailForOrder($orderId, 'webhook (onSuccessfulPayment) - Mollie');
+                    return;
+                } else {
+                    Log::add('EasyStoreAdminMail: Kon order ID niet vinden voor Mollie betaling, gebruik fallback', Log::WARNING, 'email.easystore.adminmail');
+                }
+            }
+            
+            // Voor andere betalingen: gebruik de standaard methode
             $this->deliverEmail($adminEmail, 'payment_success_admin', $data->variables);
             Log::add('EasyStoreAdminMail: Admin mail verstuurd bij succesvolle betaling (payment_success_admin) naar ' . $adminEmail, Log::INFO, 'email.easystore.adminmail');
             return;
@@ -525,34 +575,11 @@ final class EasyStoreAdminMail extends CMSPlugin implements SubscriberInterface
             
             Log::add('EasyStoreAdminMail: Email variabelen voorbereid - aantal variabelen: ' . count($variables), Log::INFO, 'email.easystore.adminmail');
 
-            // Verstuur de admin mail via EmailManager (zoals in Notifiable trait)
-            // Dit zorgt ervoor dat alle variabelen correct worden voorbereid
-            try {
-                // Zet flag zodat onze plugin deze mail niet blokkeert
-                self::$isSendingAdminMail = true;
-                
-                $emailManager = new EmailManager(
-                    $order,
-                    new EmailService(),
-                    new OrderLinkGenerator(),
-                    new CustomerNameProvider()
-                );
-                
-                // Gebruik onOrderPlaced event - onze plugin blokkeert dit niet omdat de flag is gezet
-                $emailManager->sendEmail('order_confirmation_admin', 'order_confirmation_admin', $adminEmail, 'onOrderPlaced');
-                
-                // Reset flag
-                self::$isSendingAdminMail = false;
-                
-                Log::add('EasyStoreAdminMail: Admin mail verstuurd via EmailManager voor ' . $context . ' naar ' . $adminEmail . ' voor order: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
-            } catch (\Exception $emailException) {
-                // Reset flag bij fout
-                self::$isSendingAdminMail = false;
-                // Fallback naar directe Email class als EmailManager faalt
-                Log::add('EasyStoreAdminMail: EmailManager faalde, gebruik fallback - ' . $emailException->getMessage(), Log::WARNING, 'email.easystore.adminmail');
-                $this->deliverEmail($adminEmail, 'order_confirmation_admin', $variables);
-                Log::add('EasyStoreAdminMail: Admin mail verstuurd via fallback voor ' . $context . ' naar ' . $adminEmail . ' voor order: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
-            }
+            // Verstuur de admin mail direct via deliverEmail
+            // Dit voorkomt problemen met EmailManager checks en event blocking
+            Log::add('EasyStoreAdminMail: Verstuur admin mail direct via deliverEmail voor ' . $context, Log::INFO, 'email.easystore.adminmail');
+            $this->deliverEmail($adminEmail, 'order_confirmation_admin', $variables);
+            Log::add('EasyStoreAdminMail: Admin mail verstuurd voor ' . $context . ' naar ' . $adminEmail . ' voor order: ' . $orderId, Log::INFO, 'email.easystore.adminmail');
         } catch (\Exception $e) {
             Log::add('EasyStoreAdminMail: Fout bij versturen admin mail voor ' . $context . ' - Order ID: ' . $orderId . ' - Fout: ' . $e->getMessage() . ' - Stack trace: ' . $e->getTraceAsString(), Log::ERROR, 'email.easystore.adminmail');
         }
