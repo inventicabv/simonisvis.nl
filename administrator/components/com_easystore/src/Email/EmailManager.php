@@ -150,6 +150,8 @@ class EmailManager
             'order_summary'    => LayoutHelper::render('emails.order.summary', (array) $this->order),
             'payment_status'   => EasyStoreHelper::getPaymentStatusString($this->order->payment_status),
             'payment_method'   => EasyStoreHelper::getPaymentMethodString($this->order->payment_method),
+            'shipping_method'  => EasyStoreHelper::getShippingMethodString($this->order->shipping ?? null),
+            'pickup_date'      => !empty($this->order->pickup_date) ? $this->formatPickupDate($this->order->pickup_date) : '',
             'shipping_address' => LayoutHelper::render('emails.address', (array)$this->order->shipping_address),
             'order_link'       => $this->orderLinkGenerator->generateLink($this->order),
             'customer_name'    => $this->customerNameProvider->getCustomerName($this->order),
@@ -167,5 +169,41 @@ class EmailManager
 
         // Merge additional data with base variables (additional data can override base variables)
         return array_merge($baseVariables, $this->additionalData);
+    }
+
+    /**
+     * Format pickup date without time
+     *
+     * @param string $date The date string to format
+     *
+     * @return string Formatted date without time
+     * @since 1.0.0
+     */
+    private function formatPickupDate($date)
+    {
+        if (empty($date)) {
+            return '';
+        }
+
+        // Extract only the date part (YYYY-MM-DD) if time is included in the input
+        $dateOnly = explode(' ', $date)[0];
+        
+        // Format using DATE_FORMAT_LC2 (which includes time) and then remove the time part
+        $formatted = HTMLHelper::_('date', $dateOnly, Text::_("DATE_FORMAT_LC2"));
+        
+        // Remove time component (everything from the first occurrence of a time pattern like "01:00" or "1:00")
+        // Split by space and keep only parts that don't contain a colon (which indicates time)
+        $parts = explode(' ', $formatted);
+        $dateParts = [];
+        
+        foreach ($parts as $part) {
+            // If part contains a colon, it's likely a time component, so stop here
+            if (strpos($part, ':') !== false) {
+                break;
+            }
+            $dateParts[] = $part;
+        }
+        
+        return implode(' ', $dateParts);
     }
 }

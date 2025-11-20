@@ -59,6 +59,22 @@ extract($displayData);
                                 </select>
                             </div>
                         </div>
+                        <div x-show="(shippingItem.name && (shippingItem.name.toLowerCase().includes('ophalen') || shippingItem.name.toLowerCase().includes('winkel'))) && cart.shipping_method?.uuid === shippingItem.uuid" class="easystore-shipping-method-date-wrapper mt-3">
+                            <div class="easystore-shipping-method-date">
+                                <label :for="'pickup_date_' + index" class="form-label">
+                                    <?php echo Text::_('COM_EASYSTORE_PICKUP_DATE'); ?>
+                                </label>
+                                <input
+                                    type="date"
+                                    :id="'pickup_date_' + index"
+                                    name="pickup_date"
+                                    class="form-control"
+                                    :min="(() => { const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1); return tomorrow.toISOString().split('T')[0]; })()"
+                                    :required="(shippingItem.name && (shippingItem.name.toLowerCase().includes('ophalen') || shippingItem.name.toLowerCase().includes('winkel'))) && cart.shipping_method?.uuid === shippingItem.uuid"
+                                    x-model="pickup_date"
+                                />
+                            </div>
+                        </div>
                     </div>
                     <span class="easystore-shipping-price">
                     <span x-show="cart.coupon_category === 'free_shipping' && cart.coupon_code && cart.coupon_discount_with_currency" x-text="cart.coupon_discount_with_currency"></span>

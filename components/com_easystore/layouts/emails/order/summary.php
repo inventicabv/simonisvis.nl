@@ -177,7 +177,16 @@ th {
 
         <!-- Shipping Cost -->
         <tr>
-            <th colspan="3" class="text-end"><?php echo Text::_('COM_EASYSTORE_ORDER_SHIPPING_COST_EXCLUDING_TAX') ?></th>
+            <th colspan="3" class="text-end">
+                <?php echo Text::_('COM_EASYSTORE_ORDER_SHIPPING_COST_EXCLUDING_TAX'); ?>
+                <?php if (!empty($shipping_method)): ?>
+                    <br><small><?php echo Text::_('COM_EASYSTORE_SHIPPING_METHOD'); ?>: <?php echo $shipping_method; ?>
+                    <?php if (!empty($pickup_date)): ?>
+                        <br><?php echo Text::_('COM_EASYSTORE_PICKUP_DATE'); ?>: <?php echo date('d-m-Y', strtotime($pickup_date)); ?>
+                    <?php endif; ?>
+                    </small>
+                <?php endif; ?>
+            </th>
             <th class="text-end d-flex flex-column align-items-end">
                 <span>
                     <?php echo $shipping_cost_with_currency; ?>

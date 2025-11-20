@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://simonisvis.nl/phpmyadmin/index.php?route=/database/export&db=simonis_live26
+HostUrl=https://simonisvis.nl/phpmyadmin/index.php?route=/export

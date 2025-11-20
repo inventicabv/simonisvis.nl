@@ -831,6 +831,7 @@ div.sppb-carousel-extended-dots {
 .addon-root-person > div {overflow: hidden;}
 
 /* SIMONIS */
+#sp-top1 p { margin:0px;padding:0px; }
 section#sp-section-3 .container { position: relative; }
 section#sp-section-3 h1.sp-page-title-heading {
     position: absolute;
@@ -864,6 +865,7 @@ footer .mod-menu a { padding:4px 0; }
 .easystore-cart-summary .btn-primary, .easystore-btn-add-to-cart,
 .easystore-cart-checkout { background-color:#2CD553 !important;color:#fff !important;border-color:#2CD553 !important;  }
 .product-card { border: 1px solid #e5e5e5; border-radius: 10px; padding: 15px; margin-bottom: 30px; }
+.easystore-shipping-methods li label label { padding:0px;color:red; }
 
 .easystore-product-image {
     position: relative;

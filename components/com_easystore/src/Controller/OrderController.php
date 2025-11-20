@@ -95,6 +95,7 @@ class OrderController extends BaseController
 
         $shippingAddress = $this->app->input->get('shipping_address', '', 'RAW');
         $shippingMethod  = $this->app->input->get('shipping_method', '', 'RAW');
+        $pickupDate      = $this->app->input->get('pickup_date', '', 'STRING');
 
         if (empty($shippingAddress)) {
             throw new Exception('Invalid shipping address', 400);
@@ -159,6 +160,7 @@ class OrderController extends BaseController
             'sale_tax'         => 0,
             'shipping_tax'     => 0,
             'shipping_tax_rate' => 0,
+            'pickup_date'      => !empty($pickupDate) ? $pickupDate : null,
         ];
 
         $order->sale_tax = $cart->taxable_amount ?? 0;

@@ -51,7 +51,12 @@ extract($displayData);
         <div class="easystore-checkout-shipping">
             <span class="easystore-checkout-shipping__title"><?php echo Text::_('COM_EASYSTORE_CART_ORDER_SUMMARY_SHIPPING'); ?></span>
             <div>
-                <span class="easystore-checkout-shipping__name"><?php echo $item->shipping->name ?? ''; ?></span>
+                <span class="easystore-checkout-shipping__name">
+                    <?php echo $item->shipping->name ?? ''; ?>
+                    <?php if (!empty($item->pickup_date)): ?>
+                        <br><small><?php echo Text::_('COM_EASYSTORE_PICKUP_DATE'); ?>: <?php echo date('d-m-Y', strtotime($item->pickup_date)); ?></small>
+                    <?php endif; ?>
+                </span>
                 <span class="easystore-checkout-shipping__weight">(<?php echo $item->total_weight_with_unit; ?>)</span>
             </div>
         </div>

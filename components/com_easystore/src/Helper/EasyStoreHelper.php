@@ -1037,6 +1037,7 @@ class EasyStoreHelper
         $order->shipping_address                        = $shippingAddress;
         $order->billing_address                         = $billingAddress;
         $order->shipping_method                         = !empty($orderData->shipping->name) ? $orderData->shipping->name : null;
+        $order->pickup_date                             = !empty($orderData->pickup_date) ? $orderData->pickup_date : null;
 
         if (is_null($orderData->customer_id)) {
             $backToOrderPage = Uri::getInstance($backToOrderPage);
@@ -1209,6 +1210,35 @@ class EasyStoreHelper
         }
 
         return $result;
+    }
+
+    /**
+     * Function to return shipping method name
+     * @param mixed $shipping Shipping object or string
+     * @return string
+     */
+    public static function getShippingMethodString($shipping)
+    {
+        if (empty($shipping)) {
+            return '';
+        }
+
+        // If shipping is a string, decode it
+        if (is_string($shipping)) {
+            $shipping = json_decode($shipping);
+        }
+
+        // If shipping is an object and has a name property, return it
+        if (is_object($shipping) && !empty($shipping->name)) {
+            return $shipping->name;
+        }
+
+        // If shipping is an object and has a type property, return it
+        if (is_object($shipping) && !empty($shipping->type)) {
+            return $shipping->type;
+        }
+
+        return '';
     }
 
     /**

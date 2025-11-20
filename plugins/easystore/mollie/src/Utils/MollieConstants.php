@@ -85,7 +85,7 @@ class MollieConstants extends Constants
 
     public function getSecretKey()
     {
-        return $this->getPaymentEnvironment() === 'test' ? self::getTestApiKey() : self::getLiveApiKey();
+        return $this->getPaymentEnvironment() === 'test' ? $this->getTestApiKey() : $this->getLiveApiKey();
     }
 
     /**
@@ -95,6 +95,6 @@ class MollieConstants extends Constants
      */
     public function getWebhookUrl()
     {
-        return $this->getWebHookUrl();
+        return parent::getWebHookUrl();
     }
 }
