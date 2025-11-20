@@ -25,7 +25,7 @@ use JoomShaper\Component\EasyStore\Administrator\Plugin\PaymentGatewayPlugin;
 \defined('_JEXEC') or die;
 // phpcs:enable PSR1.Files.SideEffects
 
-class MolliePayment extends PaymentGatewayPlugin
+class  MolliePayment extends PaymentGatewayPlugin
 {
     /** @var CMSApplication */
     protected $app;
